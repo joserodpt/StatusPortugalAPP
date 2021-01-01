@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Hub COVID19 Portugal</string>
+    <string name="app_header">Estatísticas COVID-19 Portugal</string>
+    <string name="latest_post">Última Atualização</string>
+    <string name="loading_info">A carregar... Por favor aguarde...</string>
+    <string name="name_day">Dia</string>
+    <string name="active_cases_name">"Casos Ativos: "</string>
+    <string name="recovered_cases">"Casos Recuperados: "</string>
+    <string name="deaths_name">"Óbitos: "</string>
+    <string name="surveilance_name">"Casos em Vigilância: "</string>
+    <string name="confirmed_name">"Casos Confirmados: "</string>
+    <string name="app_footer">fonte: covid19-api.vost.pt | Programação por José Rodrigues © 2020</string>
+    <string name="previous_day_name">Dia Anterior</string>
+    <string name="more_info_name">Mais Informação do Dia</string>
+    <string name="variation_name">Variação</string>
+    <string name="internados_name">"Internados: "</string>
+    <string name="interned_uci">"Internados em UCI: "</string>
+    <string name="interned_enfermaria">"Internados Enfermarias: "</string>
+    <string name="confirmed_north">"Confirmados Norte: "</string>
+    <string name="confirmed_center">"Confirmados Centro: "</string>
+    <string name="confirmed_lisbonvaledotejo">"Confirmados Lisboa Vale Tejo: "</string>
+    <string name="confirmed_alentejo">"Confirmados Alentejo: "</string>
+    <string name="confirmed_algarve">"Confirmados Algarve: "</string>
+    <string name="confirmed_açores">"Confirmados Açores: "</string>
+    <string name="confirmed_madeira">"Confirmados Madeira: "</string>
+    <string name="confirmed_f_09">"Confirmados Mulher 0-9: "</string>
+    <string name="confirmed_f_1019">"Confirmados Mulher 10-19: "</string>
+    <string name="confirmed_f_2029">"Confirmados Mulher 20-29: "</string>
+    <string name="confirmed_f_3039">"Confirmados Mulher 30-39: "</string>
+    <string name="confirmed_f_4049">"Confirmados Mulher 40-49: "</string>
+    <string name="confirmed_f_5059">"Confirmados Mulher 50-59: "</string>
+    <string name="confirmed_f_6069">"Confirmados Mulher 60-69: "</string>
+    <string name="confirmed_f_7079">"Confirmados Mulher 70-79: "</string>
+    <string name="confirmed_f_80plus">"Confirmados Mulher 80+: "</string>
+    <string name="confirmed_m_09">"Confirmados Homem 0-9: "</string>
+    <string name="confirmed_m_1019">"Confirmados Homem 10-19: "</string>
+    <string name="confirmed_m_2029">"Confirmados Homem 20-29: "</string>
+    <string name="confirmed_m_3039">"Confirmados Homem 30-39: "</string>
+    <string name="confirmed_m_4049">"Confirmados Homem 40-49: "</string>
+    <string name="confirmed_m_5059">"Confirmados Homem 50-59: "</string>
+    <string name="confirmed_m_6069">"Confirmados Homem 60-69: "</string>
+    <string name="confirmed_m_7079">"Confirmados Homem 70-79: "</string>
+    <string name="confirmed_m_80plus">"Confirmados Homem 80+: "</string>
+    <string name="deaths_f">"Mortes Femininas: "</string>
+    <string name="deaths_m">"Mortes Masculinas: "</string>
+    <string name="deaths_north">"Mortes Norte: "</string>
+    <string name="deaths_center">"Mortes Centro: "</string>
+    <string name="deaths_lisbonvaledotejo">"Mortes Lisboa e Vale Tejo: "</string>
+    <string name="deaths_alentejo">"Mortes Alentejo: "</string>
+    <string name="deaths_algarve">"Mortes Algarve: "</string>
+    <string name="deaths_açores">"Mortes Açores: "</string>
+    <string name="deaths_madeira">"Mortes Madeira: "</string>
+    <string name="deaths_f_09">"Mortes Mulher 0-9: "</string>
+    <string name="deaths_f_1019">"Mortes Mulher 10-19: "</string>
+    <string name="deaths_f_2029">"Mortes Mulher 20-29: "</string>
+    <string name="deaths_f_3039">"Mortes Mulher 30-39: "</string>
+    <string name="deaths_f_4049">"Mortes Mulher 40-49: "</string>
+    <string name="deaths_f_5059">"Mortes Mulher 50-59: "</string>
+    <string name="deaths_f_6069">"Mortes Mulher 60-69: "</string>
+    <string name="deaths_f_7079">"Mortes Mulher 70-79: "</string>
+    <string name="deaths_f_80plus">"Mortes Mulher 80+: "</string>
+    <string name="deaths_m_09">"Mortes Homem 0-9: "</string>
+    <string name="deaths_m_1019">"Mortes Homem 10-19: "</string>
+    <string name="deaths_m_2029">"Mortes Homem 20-29: "</string>
+    <string name="deaths_m_3039">"Mortes Homem 30-39: "</string>
+    <string name="deaths_m_4049">"Mortes Homem 40-49: "</string>
+    <string name="deaths_m_5059">"Mortes Homem 50-59: "</string>
+    <string name="deaths_m_6069">"Mortes Homem 60-69: "</string>
+    <string name="deaths_m_7079">"Mortes Homem 70-79: "</string>
+    <string name="deaths_m_80plus">"Mortes Homem 80+: "</string>
+    <string name="stats_name">Estatísticas</string>
+    <string name="settings_name">Definições</string>
+    <string name="recomendations_name">Recomendações</string>
+    <string name="copied_to_clipboard">%name% copiada para a área de transferência!</string>
+    <string name="confirmados_m">"Confirmados Homem: "</string>
+    <string name="confirmados_f">"Confirmados Mulher: "</string>
+    <string name="website_info">Clica aqui para aceder a um Site interativo sobre as Restrições que vigoram.\nhttps://pandemiaclara.sapo.pt/ © sapo.pt</string>
+    <string name="button_acess">Aceder</string>
+    <string name="recomend_string"><![CDATA[
+<h3>As 4 Dicas Fundamentais:</h3>
+
+<ul>
+	<li>Quando espirrar ou tossir, tape o nariz e a boca com len&ccedil;o de papel ou com o antebra&ccedil;o. 🤧</li>
+	<li>Lave frequentemente as m&atilde;os com &aacute;gua e sab&atilde;o ou use uma solu&ccedil;&atilde;o&nbsp;&agrave;&nbsp;base de &aacute;lcool. 🙌🏻</li>
+	<li>Evite contacto pr&oacute;ximo com pessoas com infe&ccedil;&atilde;o respirat&oacute;ria. ⚠️</li>
+	<li>Use sempre uma m&aacute;scara que o proteja a si e aos outros. 😷</li>
+</ul>
+
+<hr />
+<h3>Cuidados a&nbsp;ter quando sai de casa:</h3>
+
+<ol>
+	<li>Caso tenha indica&ccedil;&atilde;o para usar m&aacute;scara, deve coloc&aacute;-la antes de sair de casa. 😷</li>
+	<li>Deite os len&ccedil;os de papel para o lixo logo depois da utiliza&ccedil;&atilde;o. 🗑️</li>
+	<li>Lave as m&atilde;os ou use desinfetante depois de tocar em qualquer objeto ou superf&iacute;cie. 💧</li>
+	<li>Evite usar transportes p&uacute;blicos. 🚍</li>
+	<li>Tente n&atilde;o pagar em dinheiro. Use alternativas tecnol&oacute;gicas como o MB Way ou uma APP bancária. Se tiver que o fazer, desinfete ou lave as m&atilde;os de seguida. 💶</li>
+	<li>Leve len&ccedil;os descart&aacute;veis e use-os para cobrir os dedos quando tiver que tocar em alguma coisa. 💁</li>
+	<li>Mantenha a dist&acirc;ncia m&iacute;nima de 2m de outras pessoas. &harr;️</li>
+	<li>Se levar o seu animal &agrave; rua, evite contacto com outros animais, pessoas, ou objetos desnecessariamente. 🐾</li>
+	<li>N&atilde;o toque na cara se n&atilde;o tiver as m&atilde;os limpas. 👀</li>
+</ol>
+
+<hr />
+<p>Em Caso de D&uacute;vida</p>
+
+<p>📞 Ligue&nbsp;+351 808 24 24 24 📞</p>
+]]></string>
+    <string name="about_app">Acerca desta App</string>
+</resources>

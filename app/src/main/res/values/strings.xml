@@ -1,0 +1,113 @@
+<resources>
+    <string name="app_name">"COVID19 Hub Portugal "</string>
+    <string name="app_version" translatable="false">v1</string>
+    <string name="app_header">COVID-19 Portugal Statistics</string>
+    <string name="latest_post">Latest Update</string>
+    <string name="loading_info">Loading... Please wait...</string>
+    <string name="name_day">Day</string>
+    <string name="active_cases_name">"Active Cases: "</string>
+    <string name="recovered_cases">"Recovered Cases: "</string>
+    <string name="deaths_name">"Deaths: "</string>
+    <string name="surveilance_name">"Cases in Surveilance: "</string>
+    <string name="confirmed_name">"Confirmed Cases: "</string>
+    <string name="app_footer">fonte: covid19-api.vost.pt | App Coding by José Rodrigues © 2020</string>
+    <string name="previous_day_name">Previous Day</string>
+    <string name="more_info_name">More Information from</string>
+    <string name="variation_name">Variation</string>
+    <string name="internados_name">Interned: </string>
+    <string name="interned_uci">Interned in ICU: </string>
+    <string name="interned_enfermaria">Interned in Nursery: </string>
+    <string name="confirmed_north">Confirmed North: </string>
+    <string name="confirmed_center">Confirmed Center: </string>
+    <string name="confirmed_lisbonvaledotejo">Confirmed Lisbon Vale Tejo: </string>
+    <string name="confirmed_alentejo">Confirmed Alentejo: </string>
+    <string name="confirmed_algarve">Confirmed Algarve: </string>
+    <string name="confirmed_açores">Confirmed Açores: </string>
+    <string name="confirmed_madeira">Confirmed Madeira: </string>
+    <string name="confirmed_f_09">Confirmed Female 0-9: </string>
+    <string name="confirmed_f_1019">Confirmed Female 10-19: </string>
+    <string name="confirmed_f_2029">Confirmed Female 20-29: </string>
+    <string name="confirmed_f_3039">Confirmed Female 30-39: </string>
+    <string name="confirmed_f_4049">Confirmed Female 40-49: </string>
+    <string name="confirmed_f_5059">Confirmed Female 50-59: </string>
+    <string name="confirmed_f_6069">Confirmed Female 60-69: </string>
+    <string name="confirmed_f_7079">Confirmed Female 70-79: </string>
+    <string name="confirmed_f_80plus">Confirmed Female 80+: </string>
+    <string name="confirmed_m_09">Confirmed Male 0-9: </string>
+    <string name="confirmed_m_1019">Confirmed Male 10-19: </string>
+    <string name="confirmed_m_2029">Confirmed Male 20-29: </string>
+    <string name="confirmed_m_3039">Confirmed Male 30-39: </string>
+    <string name="confirmed_m_4049">Confirmed Male 40-49: </string>
+    <string name="confirmed_m_5059">Confirmed Male 50-59: </string>
+    <string name="confirmed_m_6069">Confirmed Male 60-69: </string>
+    <string name="confirmed_m_7079">Confirmed Male 70-79: </string>
+    <string name="confirmed_m_80plus">Confirmed Male 80+: </string>
+    <string name="deaths_north">Deaths North: </string>
+    <string name="deaths_center">Deaths Center: </string>
+    <string name="deaths_lisbonvaledotejo">Deaths Lisbon Vale Tejo: </string>
+    <string name="deaths_alentejo">Deaths Alentejo: </string>
+    <string name="deaths_algarve">Deaths Algarve: </string>
+    <string name="deaths_açores">Deaths Açores: </string>
+    <string name="deaths_madeira">Deaths Madeira: </string>
+    <string name="deaths_f_09">Deaths Female 0-9: </string>
+    <string name="deaths_f_1019">Deaths Female 10-19: </string>
+    <string name="deaths_f_2029">Deaths Female 20-29: </string>
+    <string name="deaths_f_3039">Deaths Female 30-39: </string>
+    <string name="deaths_f_4049">Deaths Female 40-49: </string>
+    <string name="deaths_f_5059">Deaths Female 50-59: </string>
+    <string name="deaths_f_6069">Deaths Female 60-69: </string>
+    <string name="deaths_f_7079">Deaths Female 70-79: </string>
+    <string name="deaths_f_80plus">Deaths Female 80+: </string>
+    <string name="deaths_m_09">Deaths Male 0-9: </string>
+    <string name="deaths_m_1019">Deaths Male 10-19: </string>
+    <string name="deaths_m_2029">Deaths Male 20-29: </string>
+    <string name="deaths_m_3039">Deaths Male 30-39: </string>
+    <string name="deaths_m_4049">Deaths Male 40-49: </string>
+    <string name="deaths_m_5059">Deaths Male 50-59: </string>
+    <string name="deaths_m_6069">Deaths Male 60-69: </string>
+    <string name="deaths_m_7079">Deaths Male 70-79: </string>
+    <string name="deaths_m_80plus">Deaths Male 80+: </string>
+    <string name="deaths_f">Female Deaths: </string>
+    <string name="deaths_m">Male Deaths: </string>
+    <string name="stats_name">Statistics</string>
+    <string name="settings_name">Settings</string>
+    <string name="recomendations_name">Recomendations</string>
+    <string name="copied_to_clipboard">%name% copied to clipboard!</string>
+    <string name="confirmados_m">"Confirmed Male: "</string>
+    <string name="confirmados_f">"Confirmed Female: "</string>
+    <string name="website_info">"Click here to acess an interactive website to know more about the current Restrictions.\nhttps://pandemiaclara.sapo.pt/ © sapo.pt "</string>
+    <string name="button_acess">Open</string>
+    <string name="recomend_string"><![CDATA[
+<h3>Fundamental actions against COVID-19:</h3>
+
+<ul>
+	<li>When sneezing or coughing make sure to cover your mouth and nose with a tissue or with your forearm. 🤧</li>
+	<li>Wash your hands frequently with soap and water or use an alcohol-based solution. 🙌🏻</li>
+	<li>Avoid contacting people with a minimal distance of two meters. ⚠️</li>
+	<li>Always wear a mask and help protect yourself and others.&nbsp;😷</li>
+	<li>If you feel unwell stay at home, isolate and contact your national health service.&nbsp;🤧</li>
+</ul>
+
+<hr />
+<h3>While going out:</h3>
+
+<ol>
+	<li>If there is the indication of mandatory use of the mask in public places, make sure to do it before you leave your home. 😷</li>
+	<li>Throw your tissues in the bin.&nbsp;🗑️</li>
+	<li>Wash or disinfect your hands after touching in a foreign object or a surface. 💧</li>
+	<li>Avoid using public transportation. 🚍</li>
+	<li>Avoid paying in cash, use your bank card or use your bank app in your phone to make payments. 💶</li>
+	<li>Have tissues in your pockets in order to cover your fingers while touching in surfaces. 💁</li>
+	<li>Keep a two-meter distance with other people. &harr;️</li>
+	<li>If you take your pet for a walk avoid having contact with other animals, people or objects unnecessarily. 🐾</li>
+	<li>Avoid touching your face or mask.. 👀</li>
+</ol>
+
+<hr />
+<p>If you have any questions</p>
+
+<p>📞 Call +351 808 24 24 24 📞</p>
+]]></string>
+    <string name="about_app">About this App</string>
+    <string name="app_credit">App Development by José Rodrigues © 2021\nEnglish translations by Guilherme Soeiro\n\nThis App uses the following libraries:\ncom.github.f0ris.sweetalert:library:1.6.2\ncom.zsoltsafrany:needle:1.0.0\nnl.joery.animatedbottombar:library:1.0.9\n\nSource-code available on GitHub</string>
+</resources>
