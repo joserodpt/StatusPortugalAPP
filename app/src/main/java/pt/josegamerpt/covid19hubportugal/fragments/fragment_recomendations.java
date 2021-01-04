@@ -3,16 +3,13 @@ package pt.josegamerpt.covid19hubportugal.fragments;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-
-import androidx.core.text.HtmlCompat;
-import androidx.fragment.app.Fragment;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.github.barteksc.pdfviewer.PDFView;
+import androidx.core.text.HtmlCompat;
+import androidx.fragment.app.Fragment;
 
 import pt.josegamerpt.covid19hubportugal.R;
 
@@ -74,6 +71,12 @@ public class fragment_recomendations extends Fragment {
         v.findViewById(R.id.webText).setOnClickListener(v1 -> {
             Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://pandemiaclara.sapo.pt/"));
             startActivity(browserIntent);
+        });
+
+        v.findViewById(R.id.callbutton).setOnClickListener(v12 -> {
+            Intent intent = new Intent(Intent.ACTION_DIAL);
+            intent.setData(Uri.parse("tel:+351808242424"));
+            startActivity(intent);
         });
 
         return v;

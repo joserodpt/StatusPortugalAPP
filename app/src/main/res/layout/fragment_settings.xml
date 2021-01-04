@@ -7,7 +7,7 @@
     <ScrollView
         android:layout_width="0dp"
         android:layout_height="0dp"
-        app:layout_constraintBottom_toTopOf="@+id/save"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -19,11 +19,10 @@
 
             <TextView
                 android:id="@+id/aboutheader"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="24dp"
                 android:fontFamily="@font/roboto_bold"
+                android:gravity="center_horizontal"
                 android:text="@string/about_app"
                 android:textColor="?android:attr/textColorPrimary"
                 android:textSize="36sp"
@@ -33,9 +32,7 @@
                 android:id="@+id/aboutheader2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
                 android:layout_marginTop="5dp"
-                android:layout_marginEnd="16dp"
                 android:fontFamily="@font/roboto"
                 android:text="@string/app_credit"
                 android:textColor="?android:attr/textColorPrimary"
@@ -43,18 +40,4 @@
         </LinearLayout>
     </ScrollView>
 
-    <Button
-        android:id="@+id/save"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="8dp"
-        android:layout_weight="0"
-        android:backgroundTint="?android:attr/textColorPrimary"
-        android:text="@string/save"
-        android:textColor="?android:attr/textColorPrimaryInverse"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

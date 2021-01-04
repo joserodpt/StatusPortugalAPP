@@ -24,23 +24,23 @@
     <string name="confirmed_algarve">"Confirmados Algarve: "</string>
     <string name="confirmed_açores">"Confirmados Açores: "</string>
     <string name="confirmed_madeira">"Confirmados Madeira: "</string>
-    <string name="confirmed_f_09">"Confirmados Mulher 0-9: "</string>
-    <string name="confirmed_f_1019">"Confirmados Mulher 10-19: "</string>
-    <string name="confirmed_f_2029">"Confirmados Mulher 20-29: "</string>
-    <string name="confirmed_f_3039">"Confirmados Mulher 30-39: "</string>
-    <string name="confirmed_f_4049">"Confirmados Mulher 40-49: "</string>
-    <string name="confirmed_f_5059">"Confirmados Mulher 50-59: "</string>
-    <string name="confirmed_f_6069">"Confirmados Mulher 60-69: "</string>
-    <string name="confirmed_f_7079">"Confirmados Mulher 70-79: "</string>
+    <string name="confirmed_f_09">"Confirmados Mulher 0–9: "</string>
+    <string name="confirmed_f_1019">"Confirmados Mulher 10–19: "</string>
+    <string name="confirmed_f_2029">"Confirmados Mulher 20–29: "</string>
+    <string name="confirmed_f_3039">"Confirmados Mulher 30–39: "</string>
+    <string name="confirmed_f_4049">"Confirmados Mulher 40–49: "</string>
+    <string name="confirmed_f_5059">"Confirmados Mulher 50–59: "</string>
+    <string name="confirmed_f_6069">"Confirmados Mulher 60–69: "</string>
+    <string name="confirmed_f_7079">"Confirmados Mulher 70–79: "</string>
     <string name="confirmed_f_80plus">"Confirmados Mulher 80+: "</string>
-    <string name="confirmed_m_09">"Confirmados Homem 0-9: "</string>
-    <string name="confirmed_m_1019">"Confirmados Homem 10-19: "</string>
-    <string name="confirmed_m_2029">"Confirmados Homem 20-29: "</string>
-    <string name="confirmed_m_3039">"Confirmados Homem 30-39: "</string>
-    <string name="confirmed_m_4049">"Confirmados Homem 40-49: "</string>
-    <string name="confirmed_m_5059">"Confirmados Homem 50-59: "</string>
-    <string name="confirmed_m_6069">"Confirmados Homem 60-69: "</string>
-    <string name="confirmed_m_7079">"Confirmados Homem 70-79: "</string>
+    <string name="confirmed_m_09">"Confirmados Homem 0–9: "</string>
+    <string name="confirmed_m_1019">"Confirmados Homem 10–19: "</string>
+    <string name="confirmed_m_2029">"Confirmados Homem 20–29: "</string>
+    <string name="confirmed_m_3039">"Confirmados Homem 30–39: "</string>
+    <string name="confirmed_m_4049">"Confirmados Homem 40–49: "</string>
+    <string name="confirmed_m_5059">"Confirmados Homem 50–59: "</string>
+    <string name="confirmed_m_6069">"Confirmados Homem 60–69: "</string>
+    <string name="confirmed_m_7079">"Confirmados Homem 70–79: "</string>
     <string name="confirmed_m_80plus">"Confirmados Homem 80+: "</string>
     <string name="deaths_f">"Mortes Femininas: "</string>
     <string name="deaths_m">"Mortes Masculinas: "</string>
@@ -51,26 +51,26 @@
     <string name="deaths_algarve">"Mortes Algarve: "</string>
     <string name="deaths_açores">"Mortes Açores: "</string>
     <string name="deaths_madeira">"Mortes Madeira: "</string>
-    <string name="deaths_f_09">"Mortes Mulher 0-9: "</string>
-    <string name="deaths_f_1019">"Mortes Mulher 10-19: "</string>
-    <string name="deaths_f_2029">"Mortes Mulher 20-29: "</string>
-    <string name="deaths_f_3039">"Mortes Mulher 30-39: "</string>
-    <string name="deaths_f_4049">"Mortes Mulher 40-49: "</string>
-    <string name="deaths_f_5059">"Mortes Mulher 50-59: "</string>
-    <string name="deaths_f_6069">"Mortes Mulher 60-69: "</string>
-    <string name="deaths_f_7079">"Mortes Mulher 70-79: "</string>
+    <string name="deaths_f_09">"Mortes Mulher 0–9: "</string>
+    <string name="deaths_f_1019">"Mortes Mulher 10–19: "</string>
+    <string name="deaths_f_2029">"Mortes Mulher 20–29: "</string>
+    <string name="deaths_f_3039">"Mortes Mulher 30–39: "</string>
+    <string name="deaths_f_4049">"Mortes Mulher 40–49: "</string>
+    <string name="deaths_f_5059">"Mortes Mulher 50–59: "</string>
+    <string name="deaths_f_6069">"Mortes Mulher 60–69: "</string>
+    <string name="deaths_f_7079">"Mortes Mulher 70–79: "</string>
     <string name="deaths_f_80plus">"Mortes Mulher 80+: "</string>
-    <string name="deaths_m_09">"Mortes Homem 0-9: "</string>
-    <string name="deaths_m_1019">"Mortes Homem 10-19: "</string>
-    <string name="deaths_m_2029">"Mortes Homem 20-29: "</string>
-    <string name="deaths_m_3039">"Mortes Homem 30-39: "</string>
-    <string name="deaths_m_4049">"Mortes Homem 40-49: "</string>
-    <string name="deaths_m_5059">"Mortes Homem 50-59: "</string>
-    <string name="deaths_m_6069">"Mortes Homem 60-69: "</string>
-    <string name="deaths_m_7079">"Mortes Homem 70-79: "</string>
+    <string name="deaths_m_09">"Mortes Homem 0–9: "</string>
+    <string name="deaths_m_1019">"Mortes Homem 10–19: "</string>
+    <string name="deaths_m_2029">"Mortes Homem 20–29: "</string>
+    <string name="deaths_m_3039">"Mortes Homem 30–39: "</string>
+    <string name="deaths_m_4049">"Mortes Homem 40–49: "</string>
+    <string name="deaths_m_5059">"Mortes Homem 50–59: "</string>
+    <string name="deaths_m_6069">"Mortes Homem 60–69: "</string>
+    <string name="deaths_m_7079">"Mortes Homem 70–79: "</string>
     <string name="deaths_m_80plus">"Mortes Homem 80+: "</string>
     <string name="stats_name">Estatísticas</string>
-    <string name="settings_name">Definições</string>
+    <string name="settings_name">Sobre</string>
     <string name="recomendations_name">Recomendações</string>
     <string name="copied_to_clipboard">%name% copiada para a área de transferência!</string>
     <string name="confirmados_m">"Confirmados Homem: "</string>
@@ -88,7 +88,7 @@
 </ul>
 
 <hr />
-<h3>Cuidados a&nbsp;ter quando sai de casa:</h3>
+<h3>Cuidados a&nbsp;ter quando sais de casa:</h3>
 
 <ol>
 	<li>Caso tenha indica&ccedil;&atilde;o para usar m&aacute;scara, deve coloc&aacute;-la antes de sair de casa. 😷</li>
@@ -105,7 +105,13 @@
 <hr />
 <p>Em Caso de D&uacute;vida</p>
 
-<p>📞 Ligue&nbsp;+351 808 24 24 24 📞</p>
+<p>📞 Liga&nbsp;+351 808 24 24 24 📞</p>
 ]]></string>
     <string name="about_app">Acerca desta App</string>
+    <string name="app_credit">Programação por José Rodrigues © 2021\nTradução Inglesa por Guilherme Soeiro\n\nEsta app usa as seguintes bibliotecas:\ncom.github.f0ris.sweetalert:library:1.6.2\ncom.zsoltsafrany:needle:1.0.0\nnl.joery.animatedbottombar:library:1.0.9\n\nCódigo-Fonte disponível no GitHub\nhttps://github.com/JoseGamerPT/COVID19HUBPortugal_APP\n\nFonte dos Dados, JSON API por VOST PORTUGAL / DSSG PORTUGAL\ncovid19-api.vost.pt</string>
+    <string name="save">Guardar</string>
+    <string name="no_internet">Não é possível ligar ao servidor. Por favor verifica a tua ligação à Internet.</string>
+    <string name="refresh_name">Voltar a Tentar</string>
+    <string name="cancel_name">Cancelar</string>
+    <string name="call">Ligar</string>
 </resources>

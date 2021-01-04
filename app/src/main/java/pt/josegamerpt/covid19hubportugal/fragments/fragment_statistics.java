@@ -4,6 +4,8 @@ import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Context;
 import android.graphics.Color;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -56,6 +58,15 @@ public class fragment_statistics extends Fragment {
         return fragment;
     }
 
+    public static boolean hasInternetAccess(Context context) {
+        ConnectivityManager cm =
+                (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+
+        NetworkInfo activeNetwork = cm.getActiveNetworkInfo();
+        return activeNetwork != null &&
+                activeNetwork.isConnectedOrConnecting();
+    }
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -72,7 +83,7 @@ public class fragment_statistics extends Fragment {
 
         v = inflater.inflate(R.layout.fragment_statistics, container, false);
 
-        getFirst();
+        refresh();
 
         //latest
         TextView latestDataHeader2 = v.findViewById(R.id.latestheader2);
@@ -138,14 +149,41 @@ public class fragment_statistics extends Fragment {
         return v;
     }
 
-    public void getFirst() {
-
+    private void refresh() {
         loadingDialog = new SweetAlertDialog(getActivity(), SweetAlertDialog.PROGRESS_TYPE);
         loadingDialog.getProgressHelper().setBarColor(Color.rgb(59, 130, 245));
         loadingDialog.setTitleText(MainActivity.c.getString(R.string.loading_info));
         loadingDialog.setCancelable(false);
         loadingDialog.show();
 
+        Needle.onBackgroundThread().execute(new UiRelatedTask() {
+            @Override
+            protected Object doWork() {
+                return hasInternetAccess(getContext());
+            }
+
+            @Override
+            protected void thenDoUiRelatedWork(Object o) {
+                if ((boolean) o) {
+                    getFirst();
+                } else {
+                    loadingDialog.dismissWithAnimation();
+                    SweetAlertDialog asd = new SweetAlertDialog(getActivity(), SweetAlertDialog.WARNING_TYPE);
+                    asd.setTitleText(MainActivity.c.getString(R.string.no_internet));
+                    asd.setConfirmButton(MainActivity.c.getString(R.string.refresh_name), sweetAlertDialog -> {
+                        asd.dismissWithAnimation();
+                        refresh();
+                    });
+                    asd.setCancelButton(MainActivity.c.getString(R.string.cancel_name), sweetAlertDialog -> {
+                        asd.dismissWithAnimation();
+                    });
+                    asd.show();
+                }
+            }
+        });
+    }
+
+    public void getFirst() {
         Needle.onBackgroundThread().execute(new UiRelatedTask() {
             @Override
             protected Object doWork() {
@@ -219,8 +257,7 @@ public class fragment_statistics extends Fragment {
                     SimpleDateFormat format1 = new SimpleDateFormat("dd-MM-yyyy");
                     String stringYesterday = format1.format(date);
 
-                    String get = getInfoFromAPI("https://covid19-api.vost.pt/Requests/get_entry/" + stringYesterday);
-                    return get;
+                    return getInfoFromAPI("https://covid19-api.vost.pt/Requests/get_entry/" + stringYesterday);
 
                 } catch (ParseException | JSONException e) {
                     e.printStackTrace();
