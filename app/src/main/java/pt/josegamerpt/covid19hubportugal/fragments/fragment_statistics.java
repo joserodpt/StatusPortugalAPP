@@ -212,36 +212,6 @@ public class fragment_statistics extends Fragment {
         });
     }
 
-    private String formatLatest(JSONObject inf) throws JSONException {
-        int ativos = inf.getInt("ativos");
-        int recuperados = inf.getInt("recuperados");
-        int obitos = inf.getInt("obitos");
-        int vigilancia = inf.getInt("vigilancia");
-        int novos_infetados = inf.getInt("confirmados_novos");
-        int total_infetados = inf.getInt("confirmados");
-        //internados
-        int internados = latest.getInt("internados");
-        int internados_uci = latest.getInt("internados_uci");
-        int internados_enfermaria = latest.getInt("internados_enfermaria");
-
-        return MainActivity.c.getString(R.string.confirmed_name) + stringFormater(novos_infetados) + "\n\n"
-                + MainActivity.c.getString(R.string.confirmed_name) + total_infetados + "\n"
-                + MainActivity.c.getString(R.string.recovered_cases) + recuperados + "\n"
-                + MainActivity.c.getString(R.string.surveilance_name) + vigilancia + "\n"
-                + MainActivity.c.getString(R.string.active_cases_name) + ativos + "\n\n"
-                + MainActivity.c.getString(R.string.internados_name) + internados + "\n"
-                + MainActivity.c.getString(R.string.interned_enfermaria) + internados_enfermaria + "\n"
-                + MainActivity.c.getString(R.string.interned_uci) + internados_uci + "\n\n"
-                + MainActivity.c.getString(R.string.deaths_name) + obitos;
-    }
-
-    public String stringFormater(int i) {
-        if (i >= 0) {
-            return "+" + i;
-        }
-        return String.valueOf(i);
-    }
-
     public void getSecond() {
         Needle.onBackgroundThread().execute(new UiRelatedTask() {
             @Override
@@ -308,6 +278,99 @@ public class fragment_statistics extends Fragment {
         });
     }
 
+    private String formatLatest(JSONObject inf) throws JSONException {
+        int ativos = inf.getInt("ativos");
+        int recuperados = inf.getInt("recuperados");
+        int obitos = inf.getInt("obitos");
+        int vigilancia = inf.getInt("vigilancia");
+        int novos_infetados = inf.getInt("confirmados_novos");
+        int total_infetados = inf.getInt("confirmados");
+        //internados
+        int internados = latest.getInt("internados");
+        int internados_uci = latest.getInt("internados_uci");
+        int internados_enfermaria = latest.getInt("internados_enfermaria");
+
+        return MainActivity.c.getString(R.string.confirmed_name) + stringFormater(novos_infetados) + "\n\n"
+                + MainActivity.c.getString(R.string.confirmed_name) + total_infetados + "\n"
+                + MainActivity.c.getString(R.string.recovered_cases) + recuperados + "\n"
+                + MainActivity.c.getString(R.string.surveilance_name) + vigilancia + "\n"
+                + MainActivity.c.getString(R.string.active_cases_name) + ativos + "\n\n"
+                + MainActivity.c.getString(R.string.interned_uci) + internados_uci + "\n"
+                + MainActivity.c.getString(R.string.interned_enfermaria) + internados_enfermaria + "\n"
+                + MainActivity.c.getString(R.string.internados_total_name) + internados + "\n\n"
+                + MainActivity.c.getString(R.string.deaths_name) + obitos;
+    }
+
+    private String formatVariation(JSONObject inf, JSONObject yesterday, String key) throws JSONException {
+        int latest_ativos = inf.getInt("ativos");
+        int latest_recuperados = inf.getInt("recuperados");
+        int latest_obitos = inf.getInt("obitos");
+        int latest_vigilancia = inf.getInt("vigilancia");
+        int latest_infetados = inf.getInt("confirmados");
+        int latest_total_internados = inf.getInt("internados");
+        int latest_total_internados_enfermaria = inf.getInt("internados_enfermaria");
+        int latest_total_internados_uci = inf.getInt("internados_uci");
+
+        int latest_new_cases = inf.getInt("confirmados_novos");
+
+        int yesterday_ativos = yesterday.getJSONObject("ativos").getInt(key);
+        int yesterday_recuperados = yesterday.getJSONObject("recuperados").getInt(key);
+        int yesterday_obitos = yesterday.getJSONObject("obitos").getInt(key);
+        int yesterday_vigilancia = yesterday.getJSONObject("vigilancia").getInt(key);
+        int yesterday_infetados = yesterday.getJSONObject("confirmados").getInt(key);
+        int yesterday_total_internados = yesterday.getJSONObject("internados").getInt(key);
+        int yesterday_total_internados_enfermaria = yesterday.getJSONObject("internados_enfermaria").getInt(key);
+        int yesterday_total_internados_uci = yesterday.getJSONObject("internados_uci").getInt(key);
+
+        int yesterday_new_cases = yesterday.getJSONObject("confirmados_novos").getInt(key);
+
+        int varAtivos = latest_ativos - yesterday_ativos;
+        int varRecuperados = latest_recuperados - yesterday_recuperados;
+        int varObitos = latest_obitos - yesterday_obitos;
+        int varVig = latest_vigilancia - yesterday_vigilancia;
+        int varNovosInf = latest_infetados - yesterday_infetados;
+        int inter = latest_total_internados - yesterday_total_internados;
+        int interenf = latest_total_internados_enfermaria - yesterday_total_internados_enfermaria;
+        int interuci = latest_total_internados_uci - yesterday_total_internados_uci;
+
+        int newcasesvar = latest_new_cases - yesterday_new_cases;
+
+        return MainActivity.c.getString(R.string.confirmed_name) + stringFormater(varNovosInf) + "\n"
+                + "(" + stringFormater(newcasesvar) + " " + MainActivity.c.getString(R.string.variation_new_cases) + "\n\n"
+                + MainActivity.c.getString(R.string.interned_uci) + stringFormater(interuci) + "\n"
+                + MainActivity.c.getString(R.string.interned_enfermaria) + stringFormater(interenf) + "\n"
+                + MainActivity.c.getString(R.string.internados_new_name) + stringFormater(inter) + "\n\n"
+                + MainActivity.c.getString(R.string.recovered_cases) + stringFormater(varRecuperados) + "\n"
+                + MainActivity.c.getString(R.string.surveilance_name) + stringFormater(varVig) + "\n"
+                + MainActivity.c.getString(R.string.active_cases_name) + stringFormater(varAtivos) + "\n\n"
+                + MainActivity.c.getString(R.string.deaths_name) + stringFormater(varObitos);
+
+    }
+
+    private String formatYesterday(JSONObject inf, String key) throws JSONException {
+        int ativos = inf.getJSONObject("ativos").getInt(key);
+        int recuperados = inf.getJSONObject("recuperados").getInt(key);
+        int obitos = inf.getJSONObject("obitos").getInt(key);
+        int vigilancia = inf.getJSONObject("vigilancia").getInt(key);
+        int novos_infetados = inf.getJSONObject("confirmados_novos").getInt(key);
+        int total_infetados = inf.getJSONObject("confirmados").getInt(key);
+
+        //internados
+        int internados = inf.getJSONObject("internados").getInt(key);
+        int internados_uci = inf.getJSONObject("internados_uci").getInt(key);
+        int internados_enfermaria = inf.getJSONObject("internados_enfermaria").getInt(key);
+
+        return MainActivity.c.getString(R.string.confirmed_name) + stringFormater(novos_infetados) + "\n\n"
+                + MainActivity.c.getString(R.string.confirmed_name) + total_infetados + "\n"
+                + MainActivity.c.getString(R.string.recovered_cases) + recuperados + "\n"
+                + MainActivity.c.getString(R.string.surveilance_name) + vigilancia + "\n"
+                + MainActivity.c.getString(R.string.active_cases_name) + ativos + "\n\n"
+                + MainActivity.c.getString(R.string.interned_uci) + internados_uci + "\n"
+                + MainActivity.c.getString(R.string.interned_enfermaria) + internados_enfermaria + "\n"
+                + MainActivity.c.getString(R.string.internados_total_name) + internados + "\n\n"
+                + MainActivity.c.getString(R.string.deaths_name) + obitos;
+    }
+
     private String formatMore(JSONObject latest) throws JSONException {
         //confirmados ARS
         int confirmados_arsnorte = latest.getInt("confirmados_arsnorte");
@@ -357,7 +420,6 @@ public class fragment_statistics extends Fragment {
         int obitos_madeira = latest.getInt("obitos_madeira");
 
         //obitos sexo e idade
-
         int obitos_0_9_f = latest.getInt("obitos_0_9_f");
         int obitos_10_19_f = latest.getInt("obitos_10_19_f");
         int obitos_20_29_f = latest.getInt("obitos_20_29_f");
@@ -434,63 +496,6 @@ public class fragment_statistics extends Fragment {
                 MainActivity.c.getString(R.string.deaths_m_80plus) + obitos_80_plus_m;
     }
 
-    private String formatVariation(JSONObject inf, JSONObject yesterday, String key) throws JSONException {
-        int latest_ativos = inf.getInt("ativos");
-        int latest_recuperados = inf.getInt("recuperados");
-        int latest_obitos = inf.getInt("obitos");
-        int latest_vigilancia = inf.getInt("vigilancia");
-        int latest_infetados = inf.getInt("confirmados");
-        int latest_total_internados = inf.getInt("internados");
-        int latest_total_internados_enfermaria = inf.getInt("internados_enfermaria");
-        int latest_total_internados_uci = inf.getInt("internados_uci");
-
-        int yesterday_ativos = yesterday.getJSONObject("ativos").getInt(key);
-        int yesterday_recuperados = yesterday.getJSONObject("recuperados").getInt(key);
-        int yesterday_obitos = yesterday.getJSONObject("obitos").getInt(key);
-        int yesterday_vigilancia = yesterday.getJSONObject("vigilancia").getInt(key);
-        int yesterday_infetados = yesterday.getJSONObject("confirmados").getInt(key);
-        int yesterday_total_internados = yesterday.getJSONObject("internados").getInt(key);
-        int yesterday_total_internados_enfermaria = yesterday.getJSONObject("internados_enfermaria").getInt(key);
-        int yesterday_total_internados_uci = yesterday.getJSONObject("internados_uci").getInt(key);
-
-        int varAtivos = latest_ativos - yesterday_ativos;
-        int varRecuperados = latest_recuperados - yesterday_recuperados;
-        int varObitos = latest_obitos - yesterday_obitos;
-        int varVig = latest_vigilancia - yesterday_vigilancia;
-        int varNovosInf = latest_infetados - yesterday_infetados;
-        int inter = latest_total_internados - yesterday_total_internados;
-        int interenf = latest_total_internados_enfermaria - yesterday_total_internados_enfermaria;
-        int interuci = latest_total_internados_uci - yesterday_total_internados_uci;
-
-
-        //TODO: percentagens
-        return MainActivity.c.getString(R.string.confirmed_name) + stringFormater(varNovosInf) + "\n"
-                + MainActivity.c.getString(R.string.deaths_name) + stringFormater(varObitos) + "\n\n"
-                + MainActivity.c.getString(R.string.internados_name) + stringFormater(inter) + "\n"
-                + MainActivity.c.getString(R.string.interned_enfermaria) + stringFormater(interenf) + "\n"
-                + MainActivity.c.getString(R.string.interned_uci) + stringFormater(interuci) + "\n\n"
-                + MainActivity.c.getString(R.string.recovered_cases) + stringFormater(varRecuperados) + "\n"
-                + MainActivity.c.getString(R.string.surveilance_name) + stringFormater(varVig) + "\n"
-                + MainActivity.c.getString(R.string.active_cases_name) + stringFormater(varAtivos);
-
-    }
-
-    private String formatYesterday(JSONObject inf, String key) throws JSONException {
-        int ativos = inf.getJSONObject("ativos").getInt(key);
-        int recuperados = inf.getJSONObject("recuperados").getInt(key);
-        int obitos = inf.getJSONObject("obitos").getInt(key);
-        int vigilancia = inf.getJSONObject("vigilancia").getInt(key);
-        int novos_infetados = inf.getJSONObject("confirmados_novos").getInt(key);
-        int total_infetados = inf.getJSONObject("confirmados").getInt(key);
-
-        return MainActivity.c.getString(R.string.confirmed_name) + stringFormater(novos_infetados) + "\n\n"
-                + MainActivity.c.getString(R.string.confirmed_name) + total_infetados + "\n"
-                + MainActivity.c.getString(R.string.recovered_cases) + recuperados + "\n"
-                + MainActivity.c.getString(R.string.surveilance_name) + vigilancia + "\n"
-                + MainActivity.c.getString(R.string.active_cases_name) + ativos + "\n"
-                + MainActivity.c.getString(R.string.deaths_name) + obitos;
-    }
-
     //retrieve info from api
     public String getInfoFromAPI(String link) {
         HttpURLConnection connection = null;
@@ -530,5 +535,12 @@ public class fragment_statistics extends Fragment {
             }
         }
         return null;
+    }
+
+    public String stringFormater(int i) {
+        if (i >= 0) {
+            return "+" + i;
+        }
+        return String.valueOf(i);
     }
 }

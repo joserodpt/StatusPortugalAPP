@@ -14,7 +14,7 @@
     <string name="previous_day_name">Dia Anterior</string>
     <string name="more_info_name">Mais Informação do Dia</string>
     <string name="variation_name">Variação</string>
-    <string name="internados_name">"Internados: "</string>
+    <string name="internados_total_name">"Total Internados: "</string>
     <string name="interned_uci">"Internados em UCI: "</string>
     <string name="interned_enfermaria">"Internados Enfermarias: "</string>
     <string name="confirmed_north">"Confirmados Norte: "</string>
@@ -77,36 +77,33 @@
     <string name="confirmados_f">"Confirmados Mulher: "</string>
     <string name="website_info">Clica aqui para aceder a um Site interativo sobre as Restrições que vigoram.\nhttps://pandemiaclara.sapo.pt/ © sapo.pt</string>
     <string name="button_acess">Aceder</string>
-    <string name="recomend_string"><![CDATA[
+    <string name="recomend_string_1"><![CDATA[
 <h3>As 4 Dicas Fundamentais:</h3>
 
 <ul>
-	<li>Quando espirrar ou tossir, tape o nariz e a boca com len&ccedil;o de papel ou com o antebra&ccedil;o. 🤧</li>
-	<li>Lave frequentemente as m&atilde;os com &aacute;gua e sab&atilde;o ou use uma solu&ccedil;&atilde;o&nbsp;&agrave;&nbsp;base de &aacute;lcool. 🙌🏻</li>
-	<li>Evite contacto pr&oacute;ximo com pessoas com infe&ccedil;&atilde;o respirat&oacute;ria. ⚠️</li>
-	<li>Use sempre uma m&aacute;scara que o proteja a si e aos outros. 😷</li>
-</ul>
-
-<hr />
+	<li>Quando espirrares ou tossires, tapa o nariz e a boca com len&ccedil;o de papel ou com o antebra&ccedil;o. 🤧</li>
+	<li>Lava frequentemente as m&atilde;os com &aacute;gua e sab&atilde;o ou usa uma solu&ccedil;&atilde;o&nbsp;&agrave;&nbsp;base de &aacute;lcool. 🙌🏻</li>
+	<li>Evita contacto pr&oacute;ximo com pessoas com infe&ccedil;&atilde;o respirat&oacute;ria. ⚠️</li>
+	<li>Usa sempre uma m&aacute;scara que te proteja a ti e aos outros. 😷</li>
+</ul>]]></string>
+    <string name="recomend_string_2"><![CDATA[
 <h3>Cuidados a&nbsp;ter quando sais de casa:</h3>
 
 <ol>
-	<li>Caso tenha indica&ccedil;&atilde;o para usar m&aacute;scara, deve coloc&aacute;-la antes de sair de casa. 😷</li>
-	<li>Deite os len&ccedil;os de papel para o lixo logo depois da utiliza&ccedil;&atilde;o. 🗑️</li>
-	<li>Lave as m&atilde;os ou use desinfetante depois de tocar em qualquer objeto ou superf&iacute;cie. 💧</li>
-	<li>Evite usar transportes p&uacute;blicos. 🚍</li>
-	<li>Tente n&atilde;o pagar em dinheiro. Use alternativas tecnol&oacute;gicas como o MB Way ou uma APP bancária. Se tiver que o fazer, desinfete ou lave as m&atilde;os de seguida. 💶</li>
+	<li>Caso tenhas indica&ccedil;&atilde;o para usar m&aacute;scara, deves coloc&aacute;-la antes de sair de casa. 😷</li>
+	<li>Deita os len&ccedil;os de papel para o lixo logo depois da utiliza&ccedil;&atilde;o. 🗑️</li>
+	<li>Lava as m&atilde;os ou use desinfetante depois de tocar em qualquer objeto ou superf&iacute;cie. 💧</li>
+	<li>Evita usar transportes p&uacute;blicos. 🚍</li>
+	<li>Tenta n&atilde;o pagar em dinheiro. Usa alternativas tecnol&oacute;gicas como o MB Way ou uma APP bancária. Se tiveres que o fazer, desinfeta ou lava as m&atilde;os de seguida. 💶</li>
 	<li>Leve len&ccedil;os descart&aacute;veis e use-os para cobrir os dedos quando tiver que tocar em alguma coisa. 💁</li>
-	<li>Mantenha a dist&acirc;ncia m&iacute;nima de 2m de outras pessoas. &harr;️</li>
-	<li>Se levar o seu animal &agrave; rua, evite contacto com outros animais, pessoas, ou objetos desnecessariamente. 🐾</li>
-	<li>N&atilde;o toque na cara se n&atilde;o tiver as m&atilde;os limpas. 👀</li>
-</ol>
+	<li>Mantêm a dist&acirc;ncia m&iacute;nima de 2m de outras pessoas. &harr;️</li>
+	<li>Se levares o teu animal de estimação &agrave; rua, evita contacto com outros animais, pessoas, ou objetos desnecessariamente. 🐾</li>
+	<li>N&atilde;o toques na cara se n&atilde;o tiveres as m&atilde;os limpas. 👀</li>
+</ol>]]></string>
+    <string name="recomend_string_3"><![CDATA[
+<h3>Em Caso de D&uacute;vida</h3>
 
-<hr />
-<p>Em Caso de D&uacute;vida</p>
-
-<p>📞 Liga&nbsp;+351 808 24 24 24 📞</p>
-]]></string>
+<p>📞 Liga&nbsp;+351 808 24 24 24 📞</p>]]></string>
     <string name="about_app">Acerca desta App</string>
     <string name="app_credit">Programação por José Rodrigues © 2021\nTradução Inglesa por Guilherme Soeiro\n\nEsta app usa as seguintes bibliotecas:\ncom.github.f0ris.sweetalert:library:1.6.2\ncom.zsoltsafrany:needle:1.0.0\nnl.joery.animatedbottombar:library:1.0.9\n\nCódigo-Fonte disponível no GitHub\nhttps://github.com/JoseGamerPT/COVID19HUBPortugal_APP\n\nFonte dos Dados, JSON API por VOST PORTUGAL / DSSG PORTUGAL\ncovid19-api.vost.pt</string>
     <string name="save">Guardar</string>
@@ -114,4 +111,8 @@
     <string name="refresh_name">Voltar a Tentar</string>
     <string name="cancel_name">Cancelar</string>
     <string name="call">Ligar</string>
+    <string name="internados_new_name">"Internados: "</string>
+    <string name="variation_new_cases">variação)</string>
+    <string name="open_github">Clica para abrir a página do GitHub</string>
+    <string name="app_version">Versão 4/1/2021 Compilação 1</string>
 </resources>

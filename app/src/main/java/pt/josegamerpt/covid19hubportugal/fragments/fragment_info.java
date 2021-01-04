@@ -1,21 +1,22 @@
 package pt.josegamerpt.covid19hubportugal.fragments;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import androidx.fragment.app.Fragment;
 
 import pt.josegamerpt.covid19hubportugal.R;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link fragment_settings#newInstance} factory method to
+ * Use the {@link fragment_info#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class fragment_settings extends Fragment {
+public class fragment_info extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -26,7 +27,7 @@ public class fragment_settings extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    public fragment_settings() {
+    public fragment_info() {
         // Required empty public constructor
     }
 
@@ -36,11 +37,11 @@ public class fragment_settings extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment fragment_settings.
+     * @return A new instance of fragment fragment_info.
      */
     // TODO: Rename and change types and number of parameters
-    public static fragment_settings newInstance(String param1, String param2) {
-        fragment_settings fragment = new fragment_settings();
+    public static fragment_info newInstance(String param1, String param2) {
+        fragment_info fragment = new fragment_info();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -61,6 +62,14 @@ public class fragment_settings extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_settings, container, false);
+
+        View v = inflater.inflate(R.layout.fragment_info, container, false);
+
+        v.findViewById(R.id.githubbutton).setOnClickListener(v1 -> {
+            Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/JoseGamerPT/COVID19HUBPortugal_APP"));
+            startActivity(browserIntent);
+        });
+
+        return v;
     }
 }

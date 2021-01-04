@@ -1,9 +1,5 @@
 package pt.josegamerpt.covid19hubportugal;
 
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
-
 import android.app.Activity;
 import android.content.Context;
 import android.content.res.Configuration;
@@ -14,11 +10,15 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.TextView;
 
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+
 import org.jetbrains.annotations.NotNull;
 
 import nl.joery.animatedbottombar.AnimatedBottomBar;
+import pt.josegamerpt.covid19hubportugal.fragments.fragment_info;
 import pt.josegamerpt.covid19hubportugal.fragments.fragment_recomendations;
-import pt.josegamerpt.covid19hubportugal.fragments.fragment_settings;
 import pt.josegamerpt.covid19hubportugal.fragments.fragment_statistics;
 
 public class MainActivity extends AppCompatActivity {
@@ -51,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
                         break;
                     case 2:
                         t.setText(getResources().getString(R.string.settings_name));
-                        f = new fragment_settings();
+                        f = new fragment_info();
                         break;
                 }
                 getSupportFragmentManager().beginTransaction().replace(R.id.container, f).commit();

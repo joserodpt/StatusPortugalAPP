@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">"COVID19 Hub Portugal "</string>
-    <string name="app_version" translatable="false">v1</string>
+    <string name="app_version">Version 4/1/2021 Build 1</string>
     <string name="app_header">COVID-19 Portugal Statistics</string>
     <string name="latest_post">Latest Update</string>
     <string name="loading_info">Loading... Please wait...</string>
@@ -14,7 +14,7 @@
     <string name="previous_day_name">Previous Day</string>
     <string name="more_info_name">More Information from</string>
     <string name="variation_name">Variation</string>
-    <string name="internados_name">Interned: </string>
+    <string name="internados_total_name">"Total Interned: "</string>
     <string name="interned_uci">Interned in ICU: </string>
     <string name="interned_enfermaria">Interned in Nursery: </string>
     <string name="confirmed_north">Confirmed North: </string>
@@ -77,7 +77,7 @@
     <string name="confirmados_f">"Confirmed Female: "</string>
     <string name="website_info">"Click here to acess an interactive website to know more about the current Restrictions.\nhttps://pandemiaclara.sapo.pt/ © sapo.pt "</string>
     <string name="button_acess">Open</string>
-    <string name="recomend_string"><![CDATA[
+    <string name="recomend_string_1"><![CDATA[
 <h3>Fundamental actions against COVID-19:</h3>
 
 <ul>
@@ -87,8 +87,8 @@
 	<li>Always wear a mask and help protect yourself and others.&nbsp;😷</li>
 	<li>If you feel unwell stay at home, isolate and contact your national health service.&nbsp;🤧</li>
 </ul>
-
-<hr />
+]]></string>
+    <string name="recomend_string_2"><![CDATA[
 <h3>While going out:</h3>
 
 <ol>
@@ -102,9 +102,9 @@
 	<li>If you take your pet for a walk avoid having contact with other animals, people or objects unnecessarily. 🐾</li>
 	<li>Avoid touching your face or mask.. 👀</li>
 </ol>
-
-<hr />
-<p>If you have any questions</p>
+]]></string>
+    <string name="recomend_string_3"><![CDATA[
+<h3>If you have any questions</h3>
 
 <p>📞 Call +351 808 24 24 24 📞</p>
 ]]></string>
@@ -115,4 +115,7 @@
     <string name="refresh_name">Retry</string>
     <string name="cancel_name">Cancel</string>
     <string name="call">Call</string>
+    <string name="internados_new_name">"Interned: "</string>
+    <string name="variation_new_cases">variation)</string>
+    <string name="open_github">Click to Open the GitHub Page</string>
 </resources>

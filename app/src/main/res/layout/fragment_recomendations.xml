@@ -9,7 +9,8 @@
     <ScrollView
         android:layout_width="0dp"
         android:layout_height="0dp"
-        app:layout_constraintBottom_toTopOf="@+id/webText"
+        android:layout_marginBottom="20dp"
+        app:layout_constraintBottom_toBottomOf="@+id/webText"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -19,24 +20,78 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/infoText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/roboto"
-                android:textColor="?android:attr/textColorPrimary"
-                android:textSize="18sp" />
-
-            <Button
-                android:id="@+id/callbutton"
+            <LinearLayout
+                android:id="@+id/rec1"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="100dp"
-                android:layout_marginEnd="100dp"
-                android:layout_marginBottom="5dp"
-                android:background="@drawable/scroll_background3"
-                android:text="@string/call"
-                android:textColor="@android:color/white" />
+                android:layout_height="match_parent"
+                android:background="@drawable/round_back_grey"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/infoText1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginEnd="5dp"
+                    android:fontFamily="@font/roboto"
+                    android:textColor="?android:attr/textColorPrimary"
+                    android:textSize="18sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/rec2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="6dp"
+                android:background="@drawable/round_back_grey"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/infoText2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginEnd="5dp"
+                    android:fontFamily="@font/roboto"
+                    android:textColor="?android:attr/textColorPrimary"
+                    android:textSize="18sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/rec3"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="6dp"
+                android:layout_marginBottom="20dp"
+                android:background="@drawable/round_back_grey"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/infoText3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginEnd="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:fontFamily="@font/roboto"
+                    android:gravity="clip_horizontal"
+                    android:textColor="?android:attr/textColorPrimary"
+                    android:textSize="18sp" />
+
+                <Button
+                    android:id="@+id/callbutton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="100dp"
+                    android:layout_marginEnd="100dp"
+                    android:layout_marginBottom="30dp"
+                    android:background="@drawable/scroll_background9"
+                    android:text="@string/call"
+                    android:textColor="@android:color/white" />
+            </LinearLayout>
 
         </LinearLayout>
     </ScrollView>
@@ -45,10 +100,8 @@
         android:id="@+id/webText"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
         android:layout_marginBottom="12dp"
-        android:background="@drawable/round_back_grey"
+        android:background="@drawable/round_back_grey_solid"
         android:fontFamily="@font/roboto_medium"
         android:gravity="center"
         android:text="@string/website_info"
