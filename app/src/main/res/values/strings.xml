@@ -78,25 +78,23 @@
     <string name="button_acess">Open</string>
     <string name="recomend_string_1"><![CDATA[
 <h3>Fundamental actions:</h3>
-
 <ul>
 	<li>When sneezing or coughing make sure to cover your mouth and nose with a tissue or with your forearm. 🤧</li>
 	<li>Wash your hands frequently with soap and water or use an alcohol-based solution. 🙌🏻</li>
-	<li>Avoid contacting people with a minimal distance of two meters. ⚠️</li>
+	<li>Avoid making contact with people with a minimal distance of two meters. ⚠️</li>
 	<li>Always wear a mask and help protect yourself and others.&nbsp;😷</li>
 	<li>If you feel unwell stay at home, isolate and contact your national health service.&nbsp;🤧</li>
 </ul>
 ]]></string>
     <string name="recomend_string_2"><![CDATA[
 <h3>While going out:</h3>
-
 <ol>
-	<li>If there is the indication of mandatory use of the mask in public places, make sure to do it before you leave your home. 😷</li>
+	<li>If there is the indication of mandatory use of the mask, make sure to do it before leaving home. 😷</li>
 	<li>Throw your tissues in the bin.&nbsp;🗑️</li>
 	<li>Wash or disinfect your hands after touching in a foreign object or a surface. 💧</li>
 	<li>Avoid using public transportation. 🚍</li>
-	<li>Avoid paying in cash, use your bank card or use your bank app in your phone to make payments. 💶</li>
-	<li>Have tissues in your pockets in order to cover your fingers while touching in surfaces. 💁</li>
+	<li>Avoid paying in cash, use your bank card or your bank app to make payments. 💶</li>
+	<li>Have tissues in your pockets in order to cover your fingers while touching on surfaces. 💁</li>
 	<li>Keep a two-meter distance with other people. &harr;️</li>
 	<li>If you take your pet for a walk avoid having contact with other animals, people or objects unnecessarily. 🐾</li>
 	<li>Avoid touching your face or mask.. 👀</li>
@@ -104,7 +102,6 @@
 ]]></string>
     <string name="recomend_string_3"><![CDATA[
 <h3>If you have any questions</h3>
-
 <p>📞 Call +351 808 24 24 24 📞</p>
 ]]></string>
     <string name="about_app">About this App</string>
