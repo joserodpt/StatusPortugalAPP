@@ -1,4 +1,4 @@
-package pt.josegamerpt.covid19hubportugal;
+package pt.josegamerpt.statusportugal;
 
 import android.app.Activity;
 import android.content.Context;
@@ -17,9 +17,9 @@ import androidx.fragment.app.Fragment;
 import org.jetbrains.annotations.NotNull;
 
 import nl.joery.animatedbottombar.AnimatedBottomBar;
-import pt.josegamerpt.covid19hubportugal.fragments.fragment_info;
-import pt.josegamerpt.covid19hubportugal.fragments.fragment_recomendations;
-import pt.josegamerpt.covid19hubportugal.fragments.fragment_statistics;
+import pt.josegamerpt.statusportugal.fragments.fragment_info;
+import pt.josegamerpt.statusportugal.fragments.fragment_recomendations;
+import pt.josegamerpt.statusportugal.fragments.fragment_statistics;
 
 public class MainActivity extends AppCompatActivity {
 

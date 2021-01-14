@@ -1,6 +1,6 @@
-# COVID19 Hub Portugal [Android]
-Esta é uma APP que visa facilitar o acesso mais detalhado aos números da COVID19 em Portugal. (Necessário acesso á Internet.)
-This is an APP that wants to provide easy acess to COVID19 Portugal data. (Internet acess required.)
+# Status Portugal [Android]
+Esta é uma APP que visa facilitar o acesso mais detalhado aos números de estado em Portugal. (Necessário acesso á Internet.)
+This is an APP that wants to provide easy acess to status Portugal data. (Internet acess required.)
 
 # Funcionalidades (Features)
 
@@ -10,8 +10,8 @@ This is an APP that wants to provide easy acess to COVID19 Portugal data. (Inter
   - Recomendações (Recomendations)
 
 # Como descarregar? (How to Download?)
-  - Acede a https://github.com/JoseGamerPT/COVID19HUBPortugal_APP/releases/tag/v1 (ou na aba "Releases") para descarregar a versão mais recente. Depois, clica no ficheiro para começar a instalação.
-  - Click on the "Releases" tab or access https://github.com/JoseGamerPT/COVID19HUBPortugal_APP/releases/tag/v1 to download the latest version. Next, click on the file to begin the Instalation.
+  - Acede a https://github.com/JoseGamerPT/StatusPortugalAPP/ para descarregar a versão mais recente. Depois, clica no ficheiro para começar a instalação.
+  - Click on the "Releases" tab or access https://github.com/JoseGamerPT/StatusPortugalAPP/ to download the latest version. Next, click on the file to begin the Instalation.
   - Apenas para Android (Only for Android).
   
 # Fotos (Pictures)

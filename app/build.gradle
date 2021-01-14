@@ -8,7 +8,7 @@ android {
         targetCompatibility JavaVersion.VERSION_1_8
     }
     defaultConfig {
-        applicationId "pt.josegamerpt.covid19hubportugal"
+        applicationId "pt.josegamerpt.statusportugal"
         minSdkVersion 23
         targetSdkVersion 30
         versionCode 1

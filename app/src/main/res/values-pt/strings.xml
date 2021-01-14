@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Hub COVID19 Portugal</string>
-    <string name="app_header">Estatísticas COVID-19 Portugal</string>
+    <string name="app_name">Status Portugal</string>
+    <string name="app_header">Estatísticas Portugal</string>
     <string name="latest_post">Última Atualização</string>
     <string name="loading_info">A carregar... Por favor aguarde...</string>
     <string name="name_day">Dia</string>
@@ -10,7 +10,6 @@
     <string name="deaths_name">"Óbitos: "</string>
     <string name="surveilance_name">"Casos em Vigilância: "</string>
     <string name="confirmed_name">"Casos Confirmados: "</string>
-    <string name="app_footer">fonte: covid19-api.vost.pt | Programação por José Rodrigues © 2020</string>
     <string name="previous_day_name">Dia Anterior</string>
     <string name="more_info_name">Mais Informação do Dia</string>
     <string name="variation_name">Variação</string>
@@ -105,7 +104,7 @@
 
 <p>📞 Liga&nbsp;+351 808 24 24 24 📞</p>]]></string>
     <string name="about_app">Acerca desta App</string>
-    <string name="app_credit">Programação por José Rodrigues © 2021\nTradução Inglesa por Guilherme Soeiro\n\nEsta app usa as seguintes bibliotecas:\ncom.github.f0ris.sweetalert:library:1.6.2\ncom.zsoltsafrany:needle:1.0.0\nnl.joery.animatedbottombar:library:1.0.9\n\nCódigo-Fonte disponível no GitHub\nhttps://github.com/JoseGamerPT/COVID19HUBPortugal_APP\n\nFonte dos Dados, JSON API por VOST PORTUGAL / DSSG PORTUGAL\ncovid19-api.vost.pt</string>
+    <string name="app_credit">Programação por José Rodrigues © 2021\nTradução Inglesa por Guilherme Soeiro\n\nEsta app usa as seguintes bibliotecas:\ncom.github.f0ris.sweetalert:library:1.6.2\ncom.zsoltsafrany:needle:1.0.0\nnl.joery.animatedbottombar:library:1.0.9\n\nCódigo-Fonte disponível no GitHub\nhttps://github.com/JoseGamerPT/StatusPortugalAPP\n\nFonte dos Dados, JSON API por VOST PORTUGAL / DSSG PORTUGAL</string>
     <string name="save">Guardar</string>
     <string name="no_internet">Não é possível ligar ao servidor. Por favor verifica a tua ligação à Internet.</string>
     <string name="refresh_name">Voltar a Tentar</string>
@@ -114,5 +113,5 @@
     <string name="internados_new_name">"Internados: "</string>
     <string name="variation_new_cases">variação)</string>
     <string name="open_github">Clica para abrir a página do GitHub</string>
-    <string name="app_version">Versão 4/1/2021 Compilação 1</string>
+    <string name="app_version">Versão 10/1/2021 Compilação 1</string>
 </resources>

@@ -1,4 +1,4 @@
-package pt.josegamerpt.covid19hubportugal.fragments;
+package pt.josegamerpt.statusportugal.fragments;
 
 import android.content.ClipData;
 import android.content.ClipboardManager;
@@ -33,8 +33,8 @@ import java.util.Iterator;
 import cn.pedant.SweetAlert.SweetAlertDialog;
 import needle.Needle;
 import needle.UiRelatedTask;
-import pt.josegamerpt.covid19hubportugal.MainActivity;
-import pt.josegamerpt.covid19hubportugal.R;
+import pt.josegamerpt.statusportugal.MainActivity;
+import pt.josegamerpt.statusportugal.R;
 
 public class fragment_statistics extends Fragment {
 

@@ -1,7 +1,7 @@
 <resources>
-    <string name="app_name">"COVID19 Hub Portugal "</string>
-    <string name="app_version">Version 4/1/2021 Build 1</string>
-    <string name="app_header">COVID-19 Portugal Statistics</string>
+    <string name="app_name">"Status Portugal"</string>
+    <string name="app_version">Version 10/1/2021 Build 1</string>
+    <string name="app_header">Statistics</string>
     <string name="latest_post">Latest Update</string>
     <string name="loading_info">Loading... Please wait...</string>
     <string name="name_day">Day</string>
@@ -10,7 +10,6 @@
     <string name="deaths_name">"Deaths: "</string>
     <string name="surveilance_name">"Cases in Surveilance: "</string>
     <string name="confirmed_name">"Confirmed Cases: "</string>
-    <string name="app_footer">fonte: covid19-api.vost.pt | App Coding by José Rodrigues © 2020</string>
     <string name="previous_day_name">Previous Day</string>
     <string name="more_info_name">More Information from</string>
     <string name="variation_name">Variation</string>
@@ -78,7 +77,7 @@
     <string name="website_info">"Click here to acess an interactive website to know more about the current Restrictions.\nhttps://pandemiaclara.sapo.pt/ © sapo.pt "</string>
     <string name="button_acess">Open</string>
     <string name="recomend_string_1"><![CDATA[
-<h3>Fundamental actions against COVID-19:</h3>
+<h3>Fundamental actions:</h3>
 
 <ul>
 	<li>When sneezing or coughing make sure to cover your mouth and nose with a tissue or with your forearm. 🤧</li>
@@ -109,7 +108,7 @@
 <p>📞 Call +351 808 24 24 24 📞</p>
 ]]></string>
     <string name="about_app">About this App</string>
-    <string name="app_credit">App Development by José Rodrigues © 2021\nEnglish translations by Guilherme Soeiro\n\nThis App uses the following libraries:\ncom.github.f0ris.sweetalert:library:1.6.2\ncom.zsoltsafrany:needle:1.0.0\nnl.joery.animatedbottombar:library:1.0.9\n\nSource-code available on GitHub\nhttps://github.com/JoseGamerPT/COVID19HUBPortugal_APP\n\nData Source, JSON API by VOST PORTUGAL / DSSG PORTUGAL\ncovid19-api.vost.pt</string>
+    <string name="app_credit">App Development by José Rodrigues © 2021\nEnglish translations by Guilherme Soeiro\n\nThis App uses the following libraries:\ncom.github.f0ris.sweetalert:library:1.6.2\ncom.zsoltsafrany:needle:1.0.0\nnl.joery.animatedbottombar:library:1.0.9\n\nSource-code available on GitHub\nhttps://github.com/JoseGamerPT/StatusPortugalAPP\n\nData Source, JSON API by VOST PORTUGAL / DSSG PORTUGAL</string>
     <string name="save">Save</string>
     <string name="no_internet">Can\'t connect to the server. Please check your internet connection.</string>
     <string name="refresh_name">Retry</string>

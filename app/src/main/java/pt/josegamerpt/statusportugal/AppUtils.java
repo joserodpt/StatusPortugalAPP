@@ -1,13 +1,8 @@
-package pt.josegamerpt.covid19hubportugal;
+package pt.josegamerpt.statusportugal;
 
 import android.app.Activity;
 import android.content.Context;
 import android.content.ContextWrapper;
-import android.graphics.Color;
-import android.os.Build;
-import android.os.VibrationEffect;
-import android.os.Vibrator;
-import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 
@@ -16,14 +11,6 @@ import java.util.Date;
 
 public class AppUtils
 {
-	 public static void vibrate(Context c, int miliseconds) {
-        Vibrator v = (Vibrator) c.getSystemService(Context.VIBRATOR_SERVICE);
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            v.vibrate(VibrationEffect.createOneShot(miliseconds, VibrationEffect.DEFAULT_AMPLITUDE));
-        } else {
-            v.vibrate(miliseconds);
-        }
-    }
 	
     public static void setWindowFlag(Activity activity, final int bits, boolean on) {
         Window win = activity.getWindow();
@@ -41,11 +28,6 @@ public class AppUtils
         return calendar.getTime();
     }
 
-
-    private static int getTimeDistanceInMinutes(long time) {
-        long timeDistance = currentDate().getTime() - time;
-        return Math.round((Math.abs(timeDistance) / 1000) / 60);
-    }
 
     public static Activity getActivity(Context context)
     {
