@@ -18,12 +18,6 @@ import androidx.fragment.app.Fragment;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
-import java.net.URL;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -33,6 +27,7 @@ import java.util.Iterator;
 import cn.pedant.SweetAlert.SweetAlertDialog;
 import needle.Needle;
 import needle.UiRelatedTask;
+import pt.josegamerpt.statusportugal.AppUtils;
 import pt.josegamerpt.statusportugal.MainActivity;
 import pt.josegamerpt.statusportugal.R;
 
@@ -151,7 +146,7 @@ public class fragment_statistics extends Fragment {
 
     private void refresh() {
         loadingDialog = new SweetAlertDialog(getActivity(), SweetAlertDialog.PROGRESS_TYPE);
-        loadingDialog.getProgressHelper().setBarColor(Color.rgb(59, 130, 245));
+        loadingDialog.getProgressHelper().setBarColor(Color.rgb(102, 178, 255));
         loadingDialog.setTitleText(MainActivity.c.getString(R.string.loading_info));
         loadingDialog.setCancelable(false);
         loadingDialog.show();
@@ -174,9 +169,7 @@ public class fragment_statistics extends Fragment {
                         asd.dismissWithAnimation();
                         refresh();
                     });
-                    asd.setCancelButton(MainActivity.c.getString(R.string.cancel_name), sweetAlertDialog -> {
-                        asd.dismissWithAnimation();
-                    });
+                    asd.setCancelButton(MainActivity.c.getString(R.string.cancel_name), sweetAlertDialog -> asd.dismissWithAnimation());
                     asd.show();
                 }
             }
@@ -187,7 +180,7 @@ public class fragment_statistics extends Fragment {
         Needle.onBackgroundThread().execute(new UiRelatedTask() {
             @Override
             protected Object doWork() {
-                return getInfoFromAPI("https://covid19-api.vost.pt/Requests/get_last_update");
+                return AppUtils.getInfoFromAPI("https://covid19-api.vost.pt/Requests/get_last_update");
             }
 
             @Override
@@ -227,7 +220,7 @@ public class fragment_statistics extends Fragment {
                     SimpleDateFormat format1 = new SimpleDateFormat("dd-MM-yyyy");
                     String stringYesterday = format1.format(date);
 
-                    return getInfoFromAPI("https://covid19-api.vost.pt/Requests/get_entry/" + stringYesterday);
+                    return AppUtils.getInfoFromAPI("https://covid19-api.vost.pt/Requests/get_entry/" + stringYesterday);
 
                 } catch (ParseException | JSONException e) {
                     e.printStackTrace();
@@ -494,47 +487,6 @@ public class fragment_statistics extends Fragment {
                 MainActivity.c.getString(R.string.deaths_m_6069) + obitos_60_69_m + "\n" +
                 MainActivity.c.getString(R.string.deaths_m_7079) + obitos_70_79_m + "\n" +
                 MainActivity.c.getString(R.string.deaths_m_80plus) + obitos_80_plus_m;
-    }
-
-    //retrieve info from api
-    public String getInfoFromAPI(String link) {
-        HttpURLConnection connection = null;
-        BufferedReader reader = null;
-
-        try {
-            URL url = new URL(link);
-            connection = (HttpURLConnection) url.openConnection();
-            connection.connect();
-
-
-            InputStream stream = connection.getInputStream();
-
-            reader = new BufferedReader(new InputStreamReader(stream));
-
-            StringBuilder buffer = new StringBuilder();
-            String line;
-
-            while ((line = reader.readLine()) != null) {
-                buffer.append(line).append("\n");
-            }
-
-            return buffer.toString();
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        } finally {
-            if (connection != null) {
-                connection.disconnect();
-            }
-            try {
-                if (reader != null) {
-                    reader.close();
-                }
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
-        return null;
     }
 
     public String stringFormater(int i) {

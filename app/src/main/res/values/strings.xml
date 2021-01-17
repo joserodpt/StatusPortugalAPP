@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">"Status Portugal"</string>
-    <string name="app_version">Version 10/1/2021 Build 1</string>
+    <string name="app_version">Version 18/1/2021 Build 2</string>
     <string name="app_header">Statistics</string>
     <string name="latest_post">Latest Update</string>
     <string name="loading_info">Loading... Please wait...</string>
@@ -105,7 +105,7 @@
 <p>📞 Call +351 808 24 24 24 📞</p>
 ]]></string>
     <string name="about_app">About this App</string>
-    <string name="app_credit">App Development by José Rodrigues © 2021\nEnglish translations by Guilherme Soeiro\n\nThis App uses the following libraries:\ncom.github.f0ris.sweetalert:library:1.6.2\ncom.zsoltsafrany:needle:1.0.0\nnl.joery.animatedbottombar:library:1.0.9\n\nSource-code available on GitHub\nhttps://github.com/JoseGamerPT/StatusPortugalAPP\n\nData Source, JSON API by VOST PORTUGAL / DSSG PORTUGAL</string>
+    <string name="app_credit">App Development by José Rodrigues © 2021\nEnglish translations by Guilherme Soeiro\n\nThis App uses the following libraries:\ncom.github.f0ris.sweetalert:library:1.6.2\ncom.zsoltsafrany:needle:1.0.0\nnl.joery.animatedbottombar:library:1.0.9\ncom.toptoche.searchablespinner:searchablespinnerlibrary\n\nSource-code available on GitHub\nhttps://github.com/JoseGamerPT/StatusPortugalAPP\n\nData Source, JSON API by VOST PORTUGAL / DSSG PORTUGAL</string>
     <string name="save">Save</string>
     <string name="no_internet">Can\'t connect to the server. Please check your internet connection.</string>
     <string name="refresh_name">Retry</string>
@@ -114,4 +114,16 @@
     <string name="internados_new_name">"Interned: "</string>
     <string name="variation_new_cases">variation)</string>
     <string name="open_github">Click to Open the GitHub Page</string>
+    <string name="concelho_name">Counties</string>
+    <string name="concelho_tip">Select a County from the list to get more details</string>
+    <string name="concelho_select">Select County</string>
+    <string name="concelho_selected">County</string>
+    <string name="district_name">District</string>
+    <string name="ars_name">Regional Health Administration</string>
+    <string name="incidence_name">"Incidence: "</string>
+    <string name="incidence_cat">"Incidence Category: "</string>
+    <string name="incidence_risk">"Incidence RIsk: "</string>
+    <string name="population_name">Population:</string>
+    <string name="population_density">"Population Density: "</string>
+    <string name="concelho_none">There is no Data for that County.</string>
 </resources>

@@ -50,22 +50,19 @@
                         android:textAppearance="@style/TextAppearance.AppCompat.Body2"
                         android:textColor="@android:color/white"
                         android:textSize="18sp" />
-                </LinearLayout>
-
-                <TextView
-                    android:id="@+id/latestinfo"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginStart="5dp"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginEnd="5dp"
-                    android:layout_marginBottom="5dp"
-                    android:background="@drawable/round_back_grey"
-                    android:gravity="center"
-                    android:text="@string/loading_info"
-                    android:textColor="@android:color/white"
-                    android:textSize="18sp" />
             </LinearLayout>
+
+            <TextView
+                android:id="@+id/latestinfo"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/round_back_grey"
+                android:gravity="center"
+                android:text="@string/loading_info"
+                android:textColor="@android:color/white"
+                android:textSize="18sp" />
+        </LinearLayout>
 
             <LinearLayout
                 android:id="@+id/variationdata"
@@ -113,10 +110,7 @@
                     android:id="@+id/variationdatainfo"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_marginStart="5dp"
                     android:layout_marginTop="5dp"
-                    android:layout_marginEnd="5dp"
-                    android:layout_marginBottom="5dp"
                     android:background="@drawable/round_back_grey"
                     android:gravity="center"
                     android:text="@string/loading_info"
@@ -170,10 +164,7 @@
                     android:id="@+id/yestedayInfo"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_marginStart="5dp"
                     android:layout_marginTop="5dp"
-                    android:layout_marginEnd="5dp"
-                    android:layout_marginBottom="5dp"
                     android:background="@drawable/round_back_grey"
                     android:gravity="center"
                     android:text="@string/loading_info"
@@ -228,10 +219,7 @@
                     android:id="@+id/totaldatainfo"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_marginStart="5dp"
                     android:layout_marginTop="5dp"
-                    android:layout_marginEnd="5dp"
-                    android:layout_marginBottom="5dp"
                     android:background="@drawable/round_back_grey"
                     android:gravity="center"
                     android:text="@string/loading_info"

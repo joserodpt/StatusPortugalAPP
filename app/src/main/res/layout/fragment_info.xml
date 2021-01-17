@@ -55,7 +55,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:background="@drawable/round_back_grey"
+                android:background="@drawable/round_back_grey_solid"
                 android:text="@string/open_github" />
         </LinearLayout>
     </ScrollView>

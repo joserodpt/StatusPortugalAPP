@@ -104,7 +104,7 @@
 
 <p>📞 Liga&nbsp;+351 808 24 24 24 📞</p>]]></string>
     <string name="about_app">Acerca desta App</string>
-    <string name="app_credit">Programação por José Rodrigues © 2021\nTradução Inglesa por Guilherme Soeiro\n\nEsta app usa as seguintes bibliotecas:\ncom.github.f0ris.sweetalert:library:1.6.2\ncom.zsoltsafrany:needle:1.0.0\nnl.joery.animatedbottombar:library:1.0.9\n\nCódigo-Fonte disponível no GitHub\nhttps://github.com/JoseGamerPT/StatusPortugalAPP\n\nFonte dos Dados, JSON API por VOST PORTUGAL / DSSG PORTUGAL</string>
+    <string name="app_credit">Programação por José Rodrigues © 2021\nTradução Inglesa por Guilherme Soeiro\n\nEsta app usa as seguintes bibliotecas:\ncom.github.f0ris.sweetalert:library:1.6.2\ncom.zsoltsafrany:needle:1.0.0\nnl.joery.animatedbottombar:library:1.0.9\ncom.toptoche.searchablespinner:searchablespinnerlibrary\n\nCódigo-Fonte disponível no GitHub\nhttps://github.com/JoseGamerPT/StatusPortugalAPP\n\nFonte dos Dados, JSON API por VOST PORTUGAL / DSSG PORTUGAL</string>
     <string name="save">Guardar</string>
     <string name="no_internet">Não é possível ligar ao servidor. Por favor verifica a tua ligação à Internet.</string>
     <string name="refresh_name">Voltar a Tentar</string>
@@ -113,5 +113,17 @@
     <string name="internados_new_name">"Internados: "</string>
     <string name="variation_new_cases">variação)</string>
     <string name="open_github">Clica para abrir a página do GitHub</string>
-    <string name="app_version">Versão 10/1/2021 Compilação 1</string>
+    <string name="app_version">Versão 18/1/2021 Compilação 2</string>
+    <string name="concelho_name">Concelhos</string>
+    <string name="concelho_tip">Seleciona um Concelho da lista para obter mais informação</string>
+    <string name="concelho_select">Selecionar Concelho</string>
+    <string name="concelho_selected">Concelho</string>
+    <string name="district_name">Distrito</string>
+    <string name="ars_name">Administração Regional de Saúde</string>
+    <string name="incidence_name">"Incidência: "</string>
+    <string name="incidence_cat">"Categoria da Incidência: "</string>
+    <string name="incidence_risk">"Risco da Incidência: "</string>
+    <string name="population_name">"População: "</string>
+    <string name="population_density">"Densidade Populacional: "</string>
+    <string name="concelho_none">Não há dados para esse Concelho.</string>
 </resources>
