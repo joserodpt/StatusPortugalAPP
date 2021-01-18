@@ -188,13 +188,14 @@ public class fragment_statistics extends Fragment {
                 try {
                     latest = new JSONObject(o.toString());
 
-                    TextView t = v.findViewById(R.id.latestheader2);
 
-                    t.setText(latest.getString("data_dados"));
-
-
-                    TextView tlatest = v.findViewById(R.id.latestinfo);
-                    tlatest.setText(formatLatest(latest));
+                    if (!latest.has("status")) {
+                        TextView t = v.findViewById(R.id.latestheader2);
+                        t.setText(latest.getString("data_dados"));
+                        TextView tlatest = v.findViewById(R.id.latestinfo);
+                        tlatest.setText(formatLatest(latest));
+                        getSecond();
+                    }
 
                     //update data
                     getSecond();
@@ -233,33 +234,35 @@ public class fragment_statistics extends Fragment {
                 try {
                     yesterday = new JSONObject(o.toString());
 
-                    JSONObject datakey = yesterday.getJSONObject("data");
-                    String key = "";
+                    if (!yesterday.has("status")) {
+                        JSONObject datakey = yesterday.getJSONObject("data");
+                        String key = "";
 
-                    Iterator<String> keys = datakey.keys();
-                    while (keys.hasNext()) {
-                        key = keys.next();
+                        Iterator<String> keys = datakey.keys();
+                        while (keys.hasNext()) {
+                            key = keys.next();
+                        }
+
+                        TextView t = v.findViewById(R.id.yesterdayHeader2);
+                        t.setText(yesterday.getJSONObject("data_dados").getString(key));
+                        TextView tinfo = v.findViewById(R.id.yestedayInfo);
+                        tinfo.setText(formatYesterday(yesterday, key));
+
+                        //variation updates
+                        TextView var = v.findViewById(R.id.variationdataheader2);
+                        var.setText(yesterday.getJSONObject("data").getString(key) + " → " + latest.getString("data"));
+
+                        TextView vartext = v.findViewById(R.id.variationdatainfo);
+                        vartext.setText(formatVariation(latest, yesterday, key));
+
+
+                        //total updates
+                        TextView t2 = v.findViewById(R.id.moredataheader2);
+                        t2.setText(latest.getString("data"));
+
+                        TextView totinfo = v.findViewById(R.id.totaldatainfo);
+                        totinfo.setText(formatMore(latest));
                     }
-
-                    TextView t = v.findViewById(R.id.yesterdayHeader2);
-                    t.setText(yesterday.getJSONObject("data_dados").getString(key));
-                    TextView tinfo = v.findViewById(R.id.yestedayInfo);
-                    tinfo.setText(formatYesterday(yesterday, key));
-
-                    //variation updates
-                    TextView var = v.findViewById(R.id.variationdataheader2);
-                    var.setText(yesterday.getJSONObject("data").getString(key) + " → " + latest.getString("data"));
-
-                    TextView vartext = v.findViewById(R.id.variationdatainfo);
-                    vartext.setText(formatVariation(latest, yesterday, key));
-
-
-                    //total updates
-                    TextView t2 = v.findViewById(R.id.moredataheader2);
-                    t2.setText(latest.getString("data"));
-
-                    TextView totinfo = v.findViewById(R.id.totaldatainfo);
-                    totinfo.setText(formatMore(latest));
 
                     loadingDialog.dismissWithAnimation();
                 } catch (JSONException e) {

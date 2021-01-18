@@ -15,14 +15,13 @@ import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
 
-import com.toptoche.searchablespinnerlibrary.SearchableSpinner;
-
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import cn.pedant.SweetAlert.SweetAlertDialog;
 import needle.Needle;
 import needle.UiRelatedTask;
+import pl.utkala.searchablespinner.SearchableSpinner;
 import pt.josegamerpt.statusportugal.AppUtils;
 import pt.josegamerpt.statusportugal.MainActivity;
 import pt.josegamerpt.statusportugal.R;
@@ -89,8 +88,8 @@ public class fragment_counties extends Fragment {
         v = inflater.inflate(R.layout.fragment_counties, container, false);
 
         SearchableSpinner sp = v.findViewById(R.id.spinnerConcelhos);
-        sp.setTitle(MainActivity.c.getString(R.string.concelho_select));
-        sp.setPositiveButton(getString(android.R.string.ok));
+        sp.setDialogTitle(MainActivity.c.getString(R.string.concelho_select) + " (308)");
+        sp.setDismissText(getString(android.R.string.ok));
 
         TextView tv = v.findViewById(R.id.conc);
 
