@@ -7,6 +7,7 @@ import android.graphics.Color;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -275,16 +276,16 @@ public class fragment_statistics extends Fragment {
     }
 
     private String formatLatest(JSONObject inf) throws JSONException {
-        int ativos = inf.getInt("ativos");
-        int recuperados = inf.getInt("recuperados");
-        int obitos = inf.getInt("obitos");
-        int vigilancia = inf.getInt("vigilancia");
-        int novos_infetados = inf.getInt("confirmados_novos");
-        int total_infetados = inf.getInt("confirmados");
+        int ativos = checkDataInt(checkData(latest.getString("ativos")));
+        int recuperados = checkDataInt(checkData(latest.getString("recuperados")));
+        int obitos = checkDataInt(checkData(latest.getString("obitos")));
+        int vigilancia = checkDataInt(checkData(latest.getString("vigilancia")));
+        int novos_infetados = checkDataInt(checkData(latest.getString("confirmados_novos")));
+        int total_infetados = checkDataInt(checkData(latest.getString("confirmados")));
         //internados
-        int internados = latest.getInt("internados");
-        int internados_uci = latest.getInt("internados_uci");
-        int internados_enfermaria = latest.getInt("internados_enfermaria");
+        int internados = checkDataInt(checkData(latest.getString("internados")));
+        int internados_uci = checkDataInt(checkData(latest.getString("internados_uci")));
+        int internados_enfermaria = checkDataInt(checkData(latest.getString("internados_enfermaria")));
 
         return MainActivity.c.getString(R.string.confirmed_name) + stringFormater(novos_infetados) + "\n\n"
                 + MainActivity.c.getString(R.string.confirmed_name) + total_infetados + "\n"
@@ -298,27 +299,27 @@ public class fragment_statistics extends Fragment {
     }
 
     private String formatVariation(JSONObject inf, JSONObject yesterday, String key) throws JSONException {
-        int latest_ativos = inf.getInt("ativos");
-        int latest_recuperados = inf.getInt("recuperados");
-        int latest_obitos = inf.getInt("obitos");
-        int latest_vigilancia = inf.getInt("vigilancia");
-        int latest_infetados = inf.getInt("confirmados");
-        int latest_total_internados = inf.getInt("internados");
-        int latest_total_internados_enfermaria = inf.getInt("internados_enfermaria");
-        int latest_total_internados_uci = inf.getInt("internados_uci");
+        int latest_ativos = checkDataInt(checkData(inf.getString("ativos")));
+        int latest_recuperados = checkDataInt(checkData(inf.getString("recuperados")));
+        int latest_obitos = checkDataInt(checkData(inf.getString("obitos")));
+        int latest_vigilancia = checkDataInt(checkData(inf.getString("vigilancia")));
+        int latest_infetados = checkDataInt(checkData(inf.getString("confirmados")));
+        int latest_total_internados = checkDataInt(checkData(inf.getString("internados")));
+        int latest_total_internados_enfermaria = checkDataInt(checkData(inf.getString("internados_enfermaria")));
+        int latest_total_internados_uci = checkDataInt(checkData(inf.getString("internados_uci")));
 
-        int latest_new_cases = inf.getInt("confirmados_novos");
+        int latest_new_cases = checkDataInt(checkData(inf.getString("confirmados_novos")));
 
-        int yesterday_ativos = yesterday.getJSONObject("ativos").getInt(key);
-        int yesterday_recuperados = yesterday.getJSONObject("recuperados").getInt(key);
-        int yesterday_obitos = yesterday.getJSONObject("obitos").getInt(key);
-        int yesterday_vigilancia = yesterday.getJSONObject("vigilancia").getInt(key);
-        int yesterday_infetados = yesterday.getJSONObject("confirmados").getInt(key);
-        int yesterday_total_internados = yesterday.getJSONObject("internados").getInt(key);
-        int yesterday_total_internados_enfermaria = yesterday.getJSONObject("internados_enfermaria").getInt(key);
-        int yesterday_total_internados_uci = yesterday.getJSONObject("internados_uci").getInt(key);
+        int yesterday_ativos = checkDataInt(checkData(yesterday.getJSONObject("ativos").getString(key)));
+        int yesterday_recuperados = checkDataInt(checkData(yesterday.getJSONObject("recuperados").getString(key)));
+        int yesterday_obitos = checkDataInt(checkData(yesterday.getJSONObject("obitos").getString(key)));
+        int yesterday_vigilancia = checkDataInt(checkData(yesterday.getJSONObject("vigilancia").getString(key)));
+        int yesterday_infetados = checkDataInt(checkData(yesterday.getJSONObject("confirmados").getString(key)));
+        int yesterday_total_internados = checkDataInt(checkData(yesterday.getJSONObject("internados").getString(key)));
+        int yesterday_total_internados_enfermaria = checkDataInt(checkData(yesterday.getJSONObject("internados_enfermaria").getString(key)));
+        int yesterday_total_internados_uci = checkDataInt(checkData(yesterday.getJSONObject("internados_uci").getString(key)));
 
-        int yesterday_new_cases = yesterday.getJSONObject("confirmados_novos").getInt(key);
+        int yesterday_new_cases = checkDataInt(checkData(yesterday.getJSONObject("confirmados_novos").getString(key)));
 
         int varAtivos = latest_ativos - yesterday_ativos;
         int varRecuperados = latest_recuperados - yesterday_recuperados;
@@ -344,17 +345,17 @@ public class fragment_statistics extends Fragment {
     }
 
     private String formatYesterday(JSONObject inf, String key) throws JSONException {
-        int ativos = inf.getJSONObject("ativos").getInt(key);
-        int recuperados = inf.getJSONObject("recuperados").getInt(key);
-        int obitos = inf.getJSONObject("obitos").getInt(key);
-        int vigilancia = inf.getJSONObject("vigilancia").getInt(key);
-        int novos_infetados = inf.getJSONObject("confirmados_novos").getInt(key);
-        int total_infetados = inf.getJSONObject("confirmados").getInt(key);
+        String ativos = checkData(inf.getJSONObject("ativos").getString(key));
+        String recuperados = checkData(inf.getJSONObject("recuperados").getString(key));
+        String obitos = checkData(inf.getJSONObject("obitos").getString(key));
+        String vigilancia = checkData(inf.getJSONObject("vigilancia").getString(key));
+        String novos_infetados = checkData(inf.getJSONObject("confirmados_novos").getString(key));
+        String total_infetados = checkData(inf.getJSONObject("confirmados").getString(key));
 
         //internados
-        int internados = inf.getJSONObject("internados").getInt(key);
-        int internados_uci = inf.getJSONObject("internados_uci").getInt(key);
-        int internados_enfermaria = inf.getJSONObject("internados_enfermaria").getInt(key);
+        String internados = checkData(inf.getJSONObject("internados").getString(key));
+        String internados_uci = checkData(inf.getJSONObject("internados_uci").getString(key));
+        String internados_enfermaria = checkData(inf.getJSONObject("internados_enfermaria").getString(key));
 
         return MainActivity.c.getString(R.string.confirmed_name) + stringFormater(novos_infetados) + "\n\n"
                 + MainActivity.c.getString(R.string.confirmed_name) + total_infetados + "\n"
@@ -369,72 +370,72 @@ public class fragment_statistics extends Fragment {
 
     private String formatMore(JSONObject latest) throws JSONException {
         //confirmados ARS
-        int confirmados_arsnorte = latest.getInt("confirmados_arsnorte");
-        int confirmados_arscentro = latest.getInt("confirmados_arscentro");
-        int confirmados_arslvt = latest.getInt("confirmados_arslvt");
-        int confirmados_arsalentejo = latest.getInt("confirmados_arsalentejo");
-        int confirmados_arsalgarve = latest.getInt("confirmados_arsalgarve");
-        int confirmados_acores = latest.getInt("confirmados_acores");
-        int confirmados_madeira = latest.getInt("confirmados_madeira");
+        String confirmados_arsnorte = checkData(latest.getString("confirmados_arsnorte"));
+        String confirmados_arscentro = checkData(latest.getString("confirmados_arscentro"));
+        String confirmados_arslvt = checkData(latest.getString("confirmados_arslvt"));
+        String confirmados_arsalentejo = checkData(latest.getString("confirmados_arsalentejo"));
+        String confirmados_arsalgarve = checkData(latest.getString("confirmados_arsalgarve"));
+        String confirmados_acores = checkData(latest.getString("confirmados_acores"));
+        String confirmados_madeira = checkData(latest.getString("confirmados_madeira"));
 
-        int confirmados_homem = latest.getInt("confirmados_m");
-        int confirmados_mulher = latest.getInt("confirmados_f");
+        String confirmados_homem = checkData(latest.getString("confirmados_m"));
+        String confirmados_mulher = checkData(latest.getString("confirmados_f"));
 
 
         //confirmados idades e sexo
-        int confirmados_0_9_f = latest.getInt("confirmados_0_9_f");
-        int confirmados_10_19_f = latest.getInt("confirmados_10_19_f");
-        int confirmados_20_29_f = latest.getInt("confirmados_20_29_f");
-        int confirmados_30_39_f = latest.getInt("confirmados_30_39_f");
-        int confirmados_40_49_f = latest.getInt("confirmados_40_49_f");
-        int confirmados_50_59_f = latest.getInt("confirmados_50_59_f");
-        int confirmados_60_69_f = latest.getInt("confirmados_60_69_f");
-        int confirmados_70_79_f = latest.getInt("confirmados_70_79_f");
-        int confirmados_80_plus_f = latest.getInt("confirmados_80_plus_f");
+        String confirmados_0_9_f = checkData(latest.getString("confirmados_0_9_f"));
+        String confirmados_10_19_f = checkData(latest.getString("confirmados_10_19_f"));
+        String confirmados_20_29_f = checkData(latest.getString("confirmados_20_29_f"));
+        String confirmados_30_39_f = checkData(latest.getString("confirmados_30_39_f"));
+        String confirmados_40_49_f = checkData(latest.getString("confirmados_40_49_f"));
+        String confirmados_50_59_f = checkData(latest.getString("confirmados_50_59_f"));
+        String confirmados_60_69_f = checkData(latest.getString("confirmados_60_69_f"));
+        String confirmados_70_79_f = checkData(latest.getString("confirmados_70_79_f"));
+        String confirmados_80_plus_f = checkData(latest.getString("confirmados_80_plus_f"));
 
-        int confirmados_0_9_m = latest.getInt("confirmados_0_9_m");
-        int confirmados_10_19_m = latest.getInt("confirmados_10_19_m");
-        int confirmados_20_29_m = latest.getInt("confirmados_20_29_m");
-        int confirmados_30_39_m = latest.getInt("confirmados_30_39_m");
-        int confirmados_40_49_m = latest.getInt("confirmados_40_49_m");
-        int confirmados_50_59_m = latest.getInt("confirmados_50_59_m");
-        int confirmados_60_69_m = latest.getInt("confirmados_60_69_m");
-        int confirmados_70_79_m = latest.getInt("confirmados_70_79_m");
-        int confirmados_80_plus_m = latest.getInt("confirmados_80_plus_m");
+        String confirmados_0_9_m = checkData(latest.getString("confirmados_0_9_m"));
+        String confirmados_10_19_m = checkData(latest.getString("confirmados_10_19_m"));
+        String confirmados_20_29_m = checkData(latest.getString("confirmados_20_29_m"));
+        String confirmados_30_39_m = checkData(latest.getString("confirmados_30_39_m"));
+        String confirmados_40_49_m = checkData(latest.getString("confirmados_40_49_m"));
+        String confirmados_50_59_m = checkData(latest.getString("confirmados_50_59_m"));
+        String confirmados_60_69_m = checkData(latest.getString("confirmados_60_69_m"));
+        String confirmados_70_79_m = checkData(latest.getString("confirmados_70_79_m"));
+        String confirmados_80_plus_m = checkData(latest.getString("confirmados_80_plus_m"));
 
         //obitos
-        int obitos_f = latest.getInt("obitos_f");
-        int obitos_m = latest.getInt("obitos_m");
+        String obitos_f = checkData(latest.getString("obitos_f"));
+        String obitos_m = checkData(latest.getString("obitos_m"));
 
         //obitos ARS
-        int obitos_arsnorte = latest.getInt("obitos_arsnorte");
-        int obitos_arscentro = latest.getInt("obitos_arscentro");
-        int obitos_arslvt = latest.getInt("obitos_arslvt");
-        int obitos_arsalentejo = latest.getInt("obitos_arsalentejo");
-        int obitos_arsalgarve = latest.getInt("obitos_arsalgarve");
-        int obitos_acores = latest.getInt("obitos_acores");
-        int obitos_madeira = latest.getInt("obitos_madeira");
+        String obitos_arsnorte = checkData(latest.getString("obitos_arsnorte"));
+        String obitos_arscentro = checkData(latest.getString("obitos_arscentro"));
+        String obitos_arslvt = checkData(latest.getString("obitos_arslvt"));
+        String obitos_arsalentejo = checkData(latest.getString("obitos_arsalentejo"));
+        String obitos_arsalgarve = checkData(latest.getString("obitos_arsalgarve"));
+        String obitos_acores = checkData(latest.getString("obitos_acores"));
+        String obitos_madeira = checkData(latest.getString("obitos_madeira"));
 
         //obitos sexo e idade
-        int obitos_0_9_f = latest.getInt("obitos_0_9_f");
-        int obitos_10_19_f = latest.getInt("obitos_10_19_f");
-        int obitos_20_29_f = latest.getInt("obitos_20_29_f");
-        int obitos_30_39_f = latest.getInt("obitos_30_39_f");
-        int obitos_40_49_f = latest.getInt("obitos_40_49_f");
-        int obitos_50_59_f = latest.getInt("obitos_50_59_f");
-        int obitos_60_69_f = latest.getInt("obitos_60_69_f");
-        int obitos_70_79_f = latest.getInt("obitos_70_79_f");
-        int obitos_80_plus_f = latest.getInt("obitos_80_plus_f");
+        String obitos_0_9_f = checkData(latest.getString("obitos_0_9_f"));
+        String obitos_10_19_f = checkData(latest.getString("obitos_10_19_f"));
+        String obitos_20_29_f = checkData(latest.getString("obitos_20_29_f"));
+        String obitos_30_39_f = checkData(latest.getString("obitos_30_39_f"));
+        String obitos_40_49_f = checkData(latest.getString("obitos_40_49_f"));
+        String obitos_50_59_f = checkData(latest.getString("obitos_50_59_f"));
+        String obitos_60_69_f = checkData(latest.getString("obitos_60_69_f"));
+        String obitos_70_79_f = checkData(latest.getString("obitos_70_79_f"));
+        String obitos_80_plus_f = checkData(latest.getString("obitos_80_plus_f"));
 
-        int obitos_0_9_m = latest.getInt("obitos_0_9_m");
-        int obitos_10_19_m = latest.getInt("obitos_10_19_m");
-        int obitos_20_29_m = latest.getInt("obitos_20_29_m");
-        int obitos_30_39_m = latest.getInt("obitos_30_39_m");
-        int obitos_40_49_m = latest.getInt("obitos_40_49_m");
-        int obitos_50_59_m = latest.getInt("obitos_50_59_m");
-        int obitos_60_69_m = latest.getInt("obitos_60_69_m");
-        int obitos_70_79_m = latest.getInt("obitos_70_79_m");
-        int obitos_80_plus_m = latest.getInt("obitos_80_plus_m");
+        String obitos_0_9_m = checkData(latest.getString("obitos_0_9_m"));
+        String obitos_10_19_m = checkData(latest.getString("obitos_10_19_m"));
+        String obitos_20_29_m = checkData(latest.getString("obitos_20_29_m"));
+        String obitos_30_39_m = checkData(latest.getString("obitos_30_39_m"));
+        String obitos_40_49_m = checkData(latest.getString("obitos_40_49_m"));
+        String obitos_50_59_m = checkData(latest.getString("obitos_50_59_m"));
+        String obitos_60_69_m = checkData(latest.getString("obitos_60_69_m"));
+        String obitos_70_79_m = checkData(latest.getString("obitos_70_79_m"));
+        String obitos_80_plus_m = checkData(latest.getString("obitos_80_plus_m"));
 
         return MainActivity.c.getString(R.string.confirmed_north) + confirmados_arsnorte + "\n" +
                 MainActivity.c.getString(R.string.confirmed_center) + confirmados_arscentro + "\n" +
@@ -497,5 +498,23 @@ public class fragment_statistics extends Fragment {
             return "+" + i;
         }
         return String.valueOf(i);
+    }
+
+    public String stringFormater(String i) {
+        return i;
+    }
+
+    private String checkData(String s) {
+        return s.equalsIgnoreCase("null") ? getString(R.string.missing_data) : s;
+    }
+
+    private int checkDataInt(String i) {
+        if (i.equals(getString(R.string.missing_data))) {
+            return 0;
+        }
+        if (TextUtils.isEmpty(i)) {
+            return 0;
+        }
+        return i.equals("null") ? 0 : Integer.parseInt(String.valueOf(Math.round(Double.parseDouble(i))));
     }
 }

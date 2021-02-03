@@ -67,9 +67,9 @@ public class fragment_recomendations extends Fragment {
         View v = inflater.inflate(R.layout.fragment_recomendations, container, false);
 
         ((TextView) v.findViewById(R.id.infoText1)).setText(HtmlCompat.fromHtml(getContext().getString(R.string.recomend_string_1), HtmlCompat.FROM_HTML_MODE_LEGACY), TextView.BufferType.SPANNABLE);
+        ((TextView) v.findViewById(R.id.infoText4)).setText(HtmlCompat.fromHtml(getContext().getString(R.string.recomend_string_4), HtmlCompat.FROM_HTML_MODE_LEGACY), TextView.BufferType.SPANNABLE);
         ((TextView) v.findViewById(R.id.infoText2)).setText(HtmlCompat.fromHtml(getContext().getString(R.string.recomend_string_2), HtmlCompat.FROM_HTML_MODE_LEGACY), TextView.BufferType.SPANNABLE);
         ((TextView) v.findViewById(R.id.infoText3)).setText(HtmlCompat.fromHtml(getContext().getString(R.string.recomend_string_3), HtmlCompat.FROM_HTML_MODE_LEGACY), TextView.BufferType.NORMAL);
-
 
         v.findViewById(R.id.webText).setOnClickListener(v1 -> {
             Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://pandemiaclara.sapo.pt/"));

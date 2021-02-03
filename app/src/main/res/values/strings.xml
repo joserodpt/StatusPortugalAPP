@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">"Status Portugal"</string>
-    <string name="app_version">Version 18/1/2021 Build 2</string>
+    <string name="app_version">Version 3/2/2021 Build 1</string>
     <string name="app_header">Statistics</string>
     <string name="latest_post">Latest Update</string>
     <string name="loading_info">Loading... Please wait...</string>
@@ -77,32 +77,97 @@
     <string name="website_info">"Click here to acess an interactive website to know more about the current Restrictions.\nhttps://pandemiaclara.sapo.pt/ © sapo.pt "</string>
     <string name="button_acess">Open</string>
     <string name="recomend_string_1"><![CDATA[
+<html>
+<head>
+	<title></title>
+</head>
+<body>
 <h3>Fundamental actions:</h3>
+
 <ul>
-	<li>When sneezing or coughing make sure to cover your mouth and nose with a tissue or with your forearm. 🤧</li>
-	<li>Wash your hands frequently with soap and water or use an alcohol-based solution. 🙌🏻</li>
-	<li>Avoid making contact with people with a minimal distance of two meters. ⚠️</li>
-	<li>Always wear a mask and help protect yourself and others.&nbsp;😷</li>
-	<li>If you feel unwell stay at home, isolate and contact your national health service.&nbsp;🤧</li>
+	<li>&nbsp;When sneezing or coughing make sure to cover your mouth and nose with a tissue or with your forearm. 🤧</li>
+	<li>&nbsp;Wash your hands frequently with soap and water or use an alcohol-based solution. 🙌🏻</li>
+	<li>&nbsp;Avoid making contact with people with a minimal distance of two meters. ⚠️</li>
+	<li>&nbsp;Always wear a mask and help protect yourself and others.&nbsp;😷</li>
+	<li>&nbsp;If you feel unwell stay at home, isolate and contact your national health service.&nbsp;🤧</li>
 </ul>
+</body>
+</html>
 ]]></string>
     <string name="recomend_string_2"><![CDATA[
+<html>
+<head>
+	<title></title>
+</head>
+<body>
 <h3>While going out:</h3>
+
 <ol>
-	<li>If there is the indication of mandatory use of the mask, make sure to do it before leaving home. 😷</li>
-	<li>Throw your tissues in the bin.&nbsp;🗑️</li>
-	<li>Wash or disinfect your hands after touching in a foreign object or a surface. 💧</li>
-	<li>Avoid using public transportation. 🚍</li>
-	<li>Avoid paying in cash, use your bank card or your bank app to make payments. 💶</li>
-	<li>Have tissues in your pockets in order to cover your fingers while touching on surfaces. 💁</li>
-	<li>Keep a two-meter distance with other people. &harr;️</li>
-	<li>If you take your pet for a walk avoid having contact with other animals, people or objects unnecessarily. 🐾</li>
-	<li>Avoid touching your face or mask.. 👀</li>
+	<li>&nbsp;If there is the indication of mandatory use of the mask, make sure to do it before leaving home. 😷</li>
+	<li>&nbsp;Throw your tissues in the bin.&nbsp;🗑️</li>
+	<li>&nbsp;Wash or disinfect your hands after touching in a foreign object or a surface. 💧</li>
+	<li>&nbsp;Avoid using public transportation. 🚍</li>
+	<li>&nbsp;Avoid paying in cash, use your bank card or your bank app to make payments. 💶</li>
+	<li>&nbsp;Have tissues in your pockets in order to cover your fingers while touching on surfaces. 💁</li>
+	<li>&nbsp;Keep a two-meter distance with other people. &harr;️</li>
+	<li>&nbsp;If you take your pet for a walk avoid having contact with other animals, people or objects unnecessarily. 🐾</li>
+	<li>&nbsp;Avoid touching your face or mask.. 👀</li>
 </ol>
+</body>
+</html>
 ]]></string>
     <string name="recomend_string_3"><![CDATA[
 <h3>If you have any questions</h3>
 <p>📞 Call +351 808 24 24 24 📞</p>
+]]></string>
+    <string name="recomend_string_4"><![CDATA[
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<h3>Most common symptoms</h3>
+
+<ul>
+	<li>&nbsp;fever</li>
+	<li>&nbsp;dry cough</li>
+	<li>&nbsp;tiredness</li>
+</ul>
+
+<h3>Less common symptoms</h3>
+
+<ul>
+</ul>
+
+<ul>
+	<li>&nbsp;aches and pains</li>
+	<li>&nbsp;sore throat</li>
+	<li>&nbsp;diarrhoea</li>
+	<li>&nbsp;conjunctivitis</li>
+	<li>&nbsp;headache</li>
+	<li>&nbsp;loss of taste or smell</li>
+	<li>&nbsp;a rash on skin, or discolouration of fingers or toes</li>
+</ul>
+
+<h3>Serious&nbsp;symptoms</h3>
+
+<ul>
+</ul>
+
+<ul>
+	<li>&nbsp;difficulty breathing or shortness of breath</li>
+	<li>&nbsp;chest pain or pressure</li>
+	<li>&nbsp;loss of speech or movement</li>
+</ul>
+
+
+<p>Seek immediate medical attention if you have serious symptoms. <strong>Always call</strong> before visiting your doctor or health facility.</p>
+
+<p>People with mild symptoms who are otherwise healthy should manage their symptoms at home.</p>
+
+<p>On average it takes 5&ndash;6 days from when someone is infected with the virus for symptoms to show, however it can take up to 14 days.</p>
+</body>
+</html>
 ]]></string>
     <string name="about_app">About this App</string>
     <string name="app_credit">App Development by José Rodrigues © 2021\nEnglish translations by Guilherme Soeiro\n\nThis App uses the following libraries:\ncom.github.f0ris.sweetalert:library:1.6.2\ncom.zsoltsafrany:needle:1.0.0\nnl.joery.animatedbottombar:library:1.0.9\ncom.github.DonMat:searchablespinner:v1.0.1\n\nSource-code available on GitHub\nhttps://github.com/JoseGamerPT/StatusPortugalAPP\n\nData Source, JSON API by VOST PORTUGAL / DSSG PORTUGAL</string>
@@ -126,4 +191,5 @@
     <string name="population_name">Population:</string>
     <string name="population_density">"Population Density: "</string>
     <string name="concelho_none">There is no Data for that County.</string>
+    <string name="missing_data">\?</string>
 </resources>

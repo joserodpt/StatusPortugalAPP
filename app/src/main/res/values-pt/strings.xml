@@ -77,28 +77,43 @@
     <string name="website_info">Clica aqui para aceder a um Site interativo sobre as Restrições que vigoram.\nhttps://pandemiaclara.sapo.pt/ © sapo.pt</string>
     <string name="button_acess">Aceder</string>
     <string name="recomend_string_1"><![CDATA[
+<html>
+<head>
+	<title></title>
+</head>
+<body>
 <h3>As 4 Dicas Fundamentais:</h3>
 
 <ul>
-	<li>Quando espirrares ou tossires, tapa o nariz e a boca com len&ccedil;o de papel ou com o antebra&ccedil;o. 🤧</li>
-	<li>Lava frequentemente as m&atilde;os com &aacute;gua e sab&atilde;o ou usa uma solu&ccedil;&atilde;o&nbsp;&agrave;&nbsp;base de &aacute;lcool. 🙌🏻</li>
-	<li>Evita contacto pr&oacute;ximo com pessoas com infe&ccedil;&atilde;o respirat&oacute;ria. ⚠️</li>
-	<li>Usa sempre uma m&aacute;scara que te proteja a ti e aos outros. 😷</li>
+	<li>&nbsp;Quando espirrares ou tossires, tapa o nariz e a boca com len&ccedil;o de papel ou com o antebra&ccedil;o. 🤧</li>
+	<li>&nbsp;Lava frequentemente as m&atilde;os com &aacute;gua e sab&atilde;o ou usa uma solu&ccedil;&atilde;o&nbsp;&agrave;&nbsp;base de &aacute;lcool. 🙌🏻</li>
+	<li>&nbsp;Evita contacto pr&oacute;ximo com pessoas com infe&ccedil;&atilde;o respirat&oacute;ria. ⚠️</li>
+	<li>&nbsp;Usa sempre uma m&aacute;scara que te proteja a ti e aos outros. 😷</li>
+</ul>
+</body>
+</html>
 </ul>]]></string>
     <string name="recomend_string_2"><![CDATA[
+<html>
+<head>
+	<title></title>
+</head>
+<body>
 <h3>Cuidados a&nbsp;ter quando sais de casa:</h3>
-
 <ol>
-	<li>Caso tenhas indica&ccedil;&atilde;o para usar m&aacute;scara, deves coloc&aacute;-la antes de sair de casa. 😷</li>
-	<li>Deita os len&ccedil;os de papel para o lixo logo depois da utiliza&ccedil;&atilde;o. 🗑️</li>
-	<li>Lava as m&atilde;os ou use desinfetante depois de tocar em qualquer objeto ou superf&iacute;cie. 💧</li>
-	<li>Evita usar transportes p&uacute;blicos. 🚍</li>
-	<li>Tenta n&atilde;o pagar em dinheiro. Usa alternativas tecnol&oacute;gicas como o MB Way ou uma APP bancária. Se tiveres que o fazer, desinfeta ou lava as m&atilde;os de seguida. 💶</li>
-	<li>Leve len&ccedil;os descart&aacute;veis e use-os para cobrir os dedos quando tiver que tocar em alguma coisa. 💁</li>
-	<li>Mantêm a dist&acirc;ncia m&iacute;nima de 2m de outras pessoas. &harr;️</li>
-	<li>Se levares o teu animal de estimação &agrave; rua, evita contacto com outros animais, pessoas, ou objetos desnecessariamente. 🐾</li>
-	<li>N&atilde;o toques na cara se n&atilde;o tiveres as m&atilde;os limpas. 👀</li>
-</ol>]]></string>
+	<li>&nbsp;Caso tenhas indica&ccedil;&atilde;o para usar m&aacute;scara, deves coloc&aacute;-la antes de sair de casa. 😷</li>
+	<li>&nbsp;Deita os len&ccedil;os de papel para o lixo logo depois da utiliza&ccedil;&atilde;o. 🗑️</li>
+	<li>&nbsp;Lava as m&atilde;os ou use desinfetante depois de tocar em qualquer objeto ou superf&iacute;cie. 💧</li>
+	<li>&nbsp;Evita usar transportes p&uacute;blicos. 🚍</li>
+	<li>&nbsp;Tenta n&atilde;o pagar em dinheiro. Usa alternativas tecnol&oacute;gicas como o MB Way ou uma APP banc&aacute;ria. Se tiveres que o fazer, desinfeta ou lava as m&atilde;os de seguida. 💶</li>
+	<li>&nbsp;Leve len&ccedil;os descart&aacute;veis e use-os para cobrir os dedos quando tiver que tocar em alguma coisa. 💁</li>
+	<li>&nbsp;Mant&ecirc;m a dist&acirc;ncia m&iacute;nima de 2m de outras pessoas. &harr;️</li>
+	<li>&nbsp;Se levares o teu animal de estima&ccedil;&atilde;o &agrave; rua, evita contacto com outros animais, pessoas, ou objetos&nbsp; desnecessariamente. 🐾</li>
+	<li>&nbsp;N&atilde;o toques na cara se n&atilde;o tiveres as m&atilde;os limpas. 👀</li>
+</ol>
+</body>
+</html>
+]]></string>
     <string name="recomend_string_3"><![CDATA[
 <h3>Em Caso de D&uacute;vida</h3>
 
@@ -113,7 +128,7 @@
     <string name="internados_new_name">"Internados: "</string>
     <string name="variation_new_cases">variação)</string>
     <string name="open_github">Clica para abrir a página do GitHub</string>
-    <string name="app_version">Versão 18/1/2021 Compilação 2</string>
+    <string name="app_version">Versão 3/2/2021 Compilação 1</string>
     <string name="concelho_name">Concelhos</string>
     <string name="concelho_tip">Seleciona um Concelho da lista para obter mais informação.</string>
     <string name="concelho_select">Selecionar Concelho</string>
@@ -126,4 +141,48 @@
     <string name="population_name">"População: "</string>
     <string name="population_density">"Densidade Populacional: "</string>
     <string name="concelho_none">Não há dados para esse Concelho.</string>
+    <string name="missing_data">\?</string>
+    <string name="recomend_string_4"><![CDATA[
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<h3>Sintomas mais comuns</h3>
+
+<ul>
+	<li>&nbsp;febre</li>
+	<li>&nbsp;tosse seca</li>
+	<li>&nbsp;cansa&ccedil;o</li>
+</ul>
+
+<h3>Sintomas menos comuns</h3>
+
+<ul>
+	<li>&nbsp;tens&atilde;o e dores musculares</li>
+	<li>&nbsp;dores de garganta</li>
+	<li>&nbsp;diarreia</li>
+	<li>&nbsp;conjuntivite</li>
+	<li>&nbsp;dor de cabe&ccedil;a</li>
+	<li>&nbsp;perda de paladar ou olfato</li>
+	<li>&nbsp;irrita&ccedil;&otilde;es na pele ou descolora&ccedil;&atilde;o dos dedos das m&atilde;os ou dos p&eacute;s</li>
+</ul>
+
+<h3>Sintomas graves</h3>
+
+<ul>
+	<li>&nbsp;dificuldade respirat&oacute;ria ou falta de ar</li>
+	<li>&nbsp;press&atilde;o ou dor no peito</li>
+	<li>&nbsp;perda da fala ou capacidade motora</li>
+</ul>
+
+
+<p>Procure assist&ecirc;ncia m&eacute;dica imediata se tiver sintomas graves. <strong>Ligue sempre</strong> antes de se deslocar a uma institui&ccedil;&atilde;o de sa&uacute;de ou ao seu m&eacute;dico.</p>
+
+<p>As pessoas com sintomas ligeiros, mas de outra forma saud&aacute;veis, devem tratar-se em casa.</p>
+
+<p>Em m&eacute;dia, uma pessoa infetada com o v&iacute;rus demora 5-6 dias a manifestar sintomas. No entanto, pode demorar at&eacute; 14 dias.</p>
+</body>
+</html>
+]]></string>
 </resources>

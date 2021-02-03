@@ -20,6 +20,8 @@ import pt.josegamerpt.statusportugal.fragments.fragment_counties;
 import pt.josegamerpt.statusportugal.fragments.fragment_info;
 import pt.josegamerpt.statusportugal.fragments.fragment_recomendations;
 import pt.josegamerpt.statusportugal.fragments.fragment_statistics;
+import shortbread.Shortbread;
+import shortbread.Shortcut;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -54,7 +56,6 @@ public class MainActivity extends AppCompatActivity {
 
         AnimatedBottomBar abb = findViewById(R.id.bottom_bar);
         abb.selectTabById(savedInstanceState.getInt("selected"), false);
-
     }
 
     public void checkDark(Configuration config) {
@@ -76,6 +77,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        Shortbread.create(this);
+
         c = this;
 
         checkDark(getResources().getConfiguration());
@@ -84,27 +87,7 @@ public class MainActivity extends AppCompatActivity {
         abb.setOnTabSelectListener(new AnimatedBottomBar.OnTabSelectListener() {
             @Override
             public void onTabSelected(int i, @Nullable AnimatedBottomBar.Tab tab, int i1, @NotNull AnimatedBottomBar.Tab tab1) {
-                Fragment f = null;
-                TextView t = findViewById(R.id.header);
-                switch (i1) {
-                    case 0:
-                        t.setText(getString(R.string.stats_name));
-                        f = new fragment_statistics();
-                        break;
-                    case 1:
-                        t.setText(getString(R.string.concelho_name));
-                        f = new fragment_counties();
-                        break;
-                    case 2:
-                        t.setText(getString(R.string.recomendations_name));
-                        f = new fragment_recomendations();
-                        break;
-                    case 3:
-                        t.setText(getString(R.string.settings_name));
-                        f = new fragment_info();
-                        break;
-                }
-                getSupportFragmentManager().beginTransaction().replace(R.id.container, f).commit();
+                switchTab(i1);
             }
 
             @Override
@@ -113,8 +96,54 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        switchTab(0);
 
-        getSupportFragmentManager().beginTransaction().replace(R.id.container, new fragment_statistics()).commit();
+    }
+
+    @Shortcut(id = "stats", icon = R.drawable.ic_stats, shortLabel = "Estatísticas")
+    public void stats() {
+        switchTab(0);
+    }
+
+    @Shortcut(id = "concelhos", icon = R.drawable.ic_concelho, shortLabel = "Concelhos")
+    public void concelhos() {
+        switchTab(1);
+    }
+
+    @Shortcut(id = "recomend", icon = R.drawable.ic_recomedations, shortLabel = "Recomendações")
+    public void recomend() {
+        switchTab(2);
+    }
+
+    @Shortcut(id = "sobre", icon = R.drawable.ic_information, shortLabel = "Sobre")
+    public void about() {
+        switchTab(3);
+    }
+
+    private void switchTab(int i1) {
+        Fragment f = null;
+        final AnimatedBottomBar abb = findViewById(R.id.bottom_bar);
+        TextView t = findViewById(R.id.header);
+        switch (i1) {
+            case 0:
+                t.setText(getString(R.string.stats_name));
+                f = new fragment_statistics();
+                break;
+            case 1:
+                t.setText(getString(R.string.concelho_name));
+                f = new fragment_counties();
+                break;
+            case 2:
+                t.setText(getString(R.string.recomendations_name));
+                f = new fragment_recomendations();
+                break;
+            case 3:
+                t.setText(getString(R.string.settings_name));
+                f = new fragment_info();
+                break;
+        }
+        getSupportFragmentManager().beginTransaction().replace(R.id.container, f).commit();
+        abb.selectTabAt(i1, true);
     }
 
     //dark mode support

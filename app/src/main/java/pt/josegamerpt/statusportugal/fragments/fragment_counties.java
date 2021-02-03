@@ -178,15 +178,15 @@ public class fragment_counties extends Fragment {
     }
 
     private String formatLatest(JSONObject inf) throws JSONException {
-        String date = inf.getString("data");
-        String distrito = inf.getString("distrito");
-        String ars = inf.getString("ars");
+        String date = checkData(inf.getString("data"));
+        String distrito = checkData(inf.getString("distrito"));
+        String ars = checkData(inf.getString("ars"));
 
-        Double incidencia = inf.getDouble("incidencia");
-        String incidcat = inf.getString("incidencia_categoria");
-        String incidencia_risco = inf.getString("incidencia_risco");
-        int population = inf.getInt("population");
-        Double densidade_pop = inf.getDouble("densidade_populacional");
+        String incidencia = checkData(inf.getString("incidencia"));
+        String incidcat = checkData(inf.getString("incidencia_categoria"));
+        String incidencia_risco = checkData(inf.getString("incidencia_risco"));
+        String population = checkData(inf.getString("population"));
+        String densidade_pop = checkData(inf.getString("densidade_populacional"));
 
 
         return MainActivity.c.getString(R.string.district_name) + ": " + distrito + "\n"
@@ -199,4 +199,10 @@ public class fragment_counties extends Fragment {
                 MainActivity.c.getString(R.string.latest_post) + ": " + date;
     }
 
+    private String checkData(String s) {
+        if (TextUtils.isEmpty(s)) {
+            return getString(R.string.missing_data);
+        }
+        return s.equalsIgnoreCase("null") ? getString(R.string.missing_data) : s;
+    }
 }

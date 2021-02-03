@@ -40,6 +40,26 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/rec4"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="6dp"
+                android:background="@drawable/round_back_grey"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/infoText4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginEnd="5dp"
+                    android:fontFamily="@font/roboto"
+                    android:textColor="?android:attr/textColorPrimary"
+                    android:textSize="18sp" />
+            </LinearLayout>
+
+            <LinearLayout
                 android:id="@+id/rec2"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
