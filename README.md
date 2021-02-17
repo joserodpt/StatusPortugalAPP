@@ -6,12 +6,12 @@ This is an APP that wants to provide easy access to status Portugal data. (Inter
 
   - Última Atualização (Latest Update)
   - Variação de Dados (Data Variation)
+  - Dados Vacinação (Vaccination Data)
   - Dia Anterior (Previous Day Data)
   - Recomendações (Recomendations)
 
 # Como descarregar? (How to Download?)
-  - Acede a https://github.com/JoseGamerPT/StatusPortugalAPP/ para descarregar a versão mais recente. Depois, clica no ficheiro para começar a instalação.
-  - Click on the "Releases" tab or access https://github.com/JoseGamerPT/StatusPortugalAPP/ to download the latest version. Next, click on the file to begin the Instalation.
+  - https://play.google.com/store/apps/details?id=pt.josegamerpt.statusportugal&hl=pt_PT&gl=PT
   - Apenas para Android (Only for Android).
   
 # Fotos (Pictures)
