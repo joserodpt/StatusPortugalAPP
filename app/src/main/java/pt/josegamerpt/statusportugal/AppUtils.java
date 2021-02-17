@@ -22,20 +22,15 @@ public class AppUtils {
             connection = (HttpURLConnection) url.openConnection();
             connection.connect();
 
-
             InputStream stream = connection.getInputStream();
-
             reader = new BufferedReader(new InputStreamReader(stream));
 
             StringBuilder buffer = new StringBuilder();
             String line;
-
             while ((line = reader.readLine()) != null) {
                 buffer.append(line).append("\n");
             }
-
             return buffer.toString();
-
         } catch (IOException e) {
             e.printStackTrace();
         } finally {

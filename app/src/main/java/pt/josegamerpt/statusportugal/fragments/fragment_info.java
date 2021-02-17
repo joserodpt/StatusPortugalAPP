@@ -9,6 +9,9 @@ import android.view.ViewGroup;
 
 import androidx.fragment.app.Fragment;
 
+import com.daimajia.androidanimations.library.Techniques;
+import com.daimajia.androidanimations.library.YoYo;
+
 import pt.josegamerpt.statusportugal.R;
 
 /**
@@ -68,6 +71,17 @@ public class fragment_info extends Fragment {
             Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/JoseGamerPT/StatusPortugalAPP/"));
             startActivity(browserIntent);
         });
+
+        //showwithanimation
+        v.findViewById(R.id.aboutScroll).setVisibility(View.VISIBLE);
+
+        YoYo.with(Techniques.RollIn)
+                .duration(700)
+                .playOn(v.findViewById(R.id.aboutScroll));
+
+        YoYo.with(Techniques.FadeInDown)
+                .duration(700)
+                .playOn(v.findViewById(R.id.aboutheader));
 
         return v;
     }

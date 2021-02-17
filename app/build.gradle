@@ -11,8 +11,8 @@ android {
         applicationId "pt.josegamerpt.statusportugal"
         minSdkVersion 23
         targetSdkVersion 30
-        versionCode 2
-        versionName "1.1"
+        versionCode 4
+        versionName "2.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -45,5 +45,6 @@ dependencies {
     implementation 'com.github.DonMat:searchablespinner:v1.0.1'
     implementation 'com.github.matthiasrobbers:shortbread:1.1.0'
     annotationProcessor 'com.github.matthiasrobbers:shortbread-compiler:1.1.0'
+    implementation 'com.daimajia.androidanimations:library:2.4@aar'
 
 }

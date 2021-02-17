@@ -16,9 +16,11 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
+            android:id="@+id/dicamain"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:visibility="invisible">
 
             <LinearLayout
                 android:id="@+id/rec1"
@@ -120,7 +122,6 @@
         android:id="@+id/webText"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="12dp"
         android:background="@drawable/round_back_grey_solid"
         android:fontFamily="@font/roboto_medium"
         android:gravity="center"
@@ -128,6 +129,7 @@
         android:textAppearance="@style/TextAppearance.AppCompat.Body2"
         android:textSize="14sp"
         android:textStyle="normal"
+        android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

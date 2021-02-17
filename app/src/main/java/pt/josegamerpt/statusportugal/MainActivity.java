@@ -1,13 +1,11 @@
 package pt.josegamerpt.statusportugal;
 
 import android.app.Activity;
-import android.content.Context;
 import android.content.res.Configuration;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.view.WindowManager;
-import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -20,12 +18,13 @@ import pt.josegamerpt.statusportugal.fragments.fragment_counties;
 import pt.josegamerpt.statusportugal.fragments.fragment_info;
 import pt.josegamerpt.statusportugal.fragments.fragment_recomendations;
 import pt.josegamerpt.statusportugal.fragments.fragment_statistics;
+import pt.josegamerpt.statusportugal.fragments.fragment_vac;
 import shortbread.Shortbread;
 import shortbread.Shortcut;
 
 public class MainActivity extends AppCompatActivity {
 
-    public static Context c;
+    private boolean switching = false;
 
     public static void setWhite(Activity a) {
         a.findViewById(R.id.main).setBackgroundColor(Color.WHITE);
@@ -72,16 +71,15 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
         Shortbread.create(this);
-
-        c = this;
-
         checkDark(getResources().getConfiguration());
+
 
         final AnimatedBottomBar abb = findViewById(R.id.bottom_bar);
         abb.setOnTabSelectListener(new AnimatedBottomBar.OnTabSelectListener() {
@@ -96,49 +94,59 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        switchTab(0);
-
+        if (!switching) {
+            switchTab(2);
+        }
     }
 
-    @Shortcut(id = "stats", icon = R.drawable.ic_stats, shortLabel = "Estatísticas")
-    public void stats() {
-        switchTab(0);
-    }
 
-    @Shortcut(id = "concelhos", icon = R.drawable.ic_concelho, shortLabel = "Concelhos")
-    public void concelhos() {
-        switchTab(1);
+    @Shortcut(id = "sobre", icon = R.drawable.ic_information, shortLabel = "Sobre")
+    public void about() {
+        switching = true;
+        switchTab(4);
     }
 
     @Shortcut(id = "recomend", icon = R.drawable.ic_recomedations, shortLabel = "Recomendações")
     public void recomend() {
-        switchTab(2);
+        switching = true;
+        switchTab(3);
     }
 
-    @Shortcut(id = "sobre", icon = R.drawable.ic_information, shortLabel = "Sobre")
-    public void about() {
-        switchTab(3);
+    @Shortcut(id = "concelhos", icon = R.drawable.ic_concelho, shortLabel = "Concelhos")
+    public void concelhos() {
+        switching = true;
+        switchTab(0);
+    }
+
+    @Shortcut(id = "vacinacao", icon = R.drawable.ic_vac, shortLabel = "Vacinação")
+    public void vac() {
+        switching = true;
+        switchTab(1);
+    }
+
+    @Shortcut(id = "stats", icon = R.drawable.ic_stats, shortLabel = "Estatísticas")
+    public void stats() {
+        switching = true;
+        switchTab(2);
     }
 
     private void switchTab(int i1) {
         Fragment f = null;
         final AnimatedBottomBar abb = findViewById(R.id.bottom_bar);
-        TextView t = findViewById(R.id.header);
         switch (i1) {
-            case 0:
-                t.setText(getString(R.string.stats_name));
+            case 2:
                 f = new fragment_statistics();
                 break;
             case 1:
-                t.setText(getString(R.string.concelho_name));
+                f = new fragment_vac();
+                break;
+            case 0:
                 f = new fragment_counties();
                 break;
-            case 2:
-                t.setText(getString(R.string.recomendations_name));
+            case 3:
                 f = new fragment_recomendations();
                 break;
-            case 3:
-                t.setText(getString(R.string.settings_name));
+            case 4:
                 f = new fragment_info();
                 break;
         }

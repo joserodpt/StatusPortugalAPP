@@ -119,7 +119,7 @@
 
 <p>📞 Liga&nbsp;+351 808 24 24 24 📞</p>]]></string>
     <string name="about_app">Acerca desta App</string>
-    <string name="app_credit">Programação por José Rodrigues © 2021\nTradução Inglesa por Guilherme Soeiro\n\nEsta app usa as seguintes bibliotecas:\ncom.github.f0ris.sweetalert:library:1.6.2\ncom.zsoltsafrany:needle:1.0.0\nnl.joery.animatedbottombar:library:1.0.9\ncom.github.DonMat:searchablespinner:v1.0.1\n\nCódigo-Fonte disponível no GitHub\nhttps://github.com/JoseGamerPT/StatusPortugalAPP\n\nFonte dos Dados, JSON API por VOST PORTUGAL / DSSG PORTUGAL</string>
+    <string name="app_credit">Programação por José Rodrigues © 2021\nTradução Inglesa por Guilherme Soeiro\n\nEsta app usa as seguintes bibliotecas:\ncom.github.f0ris.sweetalert:library:1.6.2\ncom.zsoltsafrany:needle:1.0.0\nnl.joery.animatedbottombar:library:1.0.9\ncom.github.DonMat:searchablespinner:v1.0.1\ncom.github.matthiasrobbers:shortbread\ncom.daimajia.androidanimations\n\nCódigo-Fonte disponível no GitHub\nhttps://github.com/JoseGamerPT/StatusPortugalAPP\n\nFonte dos Dados, JSON API por VOST PORTUGAL / DSSG PORTUGAL | FONTES DE INFORMAÇÃO COMUNITÁRIAS</string>
     <string name="save">Guardar</string>
     <string name="no_internet">Não é possível ligar ao servidor. Por favor verifica a tua ligação à Internet.</string>
     <string name="refresh_name">Voltar a Tentar</string>
@@ -128,7 +128,7 @@
     <string name="internados_new_name">"Internados: "</string>
     <string name="variation_new_cases">variação)</string>
     <string name="open_github">Clica para abrir a página do GitHub</string>
-    <string name="app_version">Versão 3/2/2021 Compilação 1</string>
+    <string name="app_version">Versão 17/2/2021 Compilação 1</string>
     <string name="concelho_name">Concelhos</string>
     <string name="concelho_tip">Seleciona um Concelho da lista para obter mais informação.</string>
     <string name="concelho_select">Selecionar Concelho</string>
@@ -185,4 +185,12 @@
 </body>
 </html>
 ]]></string>
+    <string name="name_vac">Vacinação</string>
+    <string name="vac_admin">Vacinas Administradas</string>
+    <string name="vac_first">1ª Dose</string>
+    <string name="vac_secnd">2ª Dose</string>
+    <string name="vac_total">Total De Vacinas Administradas</string>
+    <string name="moredata_name">Dados Adicionais</string>
+    <string name="click_2load">Pressiona para Carregar.</string>
+    <string name="website2_info">Clica aqui para aceder a um site para obter mais informações sobre este tópico.</string>
 </resources>

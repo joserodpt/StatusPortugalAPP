@@ -11,6 +11,9 @@ import android.widget.TextView;
 import androidx.core.text.HtmlCompat;
 import androidx.fragment.app.Fragment;
 
+import com.daimajia.androidanimations.library.Techniques;
+import com.daimajia.androidanimations.library.YoYo;
+
 import pt.josegamerpt.statusportugal.R;
 
 /**
@@ -82,6 +85,18 @@ public class fragment_recomendations extends Fragment {
             startActivity(intent);
         });
 
+        //showwithanimation
+        v.findViewById(R.id.dicamain).setVisibility(View.VISIBLE);
+        v.findViewById(R.id.webText).setVisibility(View.VISIBLE);
+
+        YoYo.with(Techniques.SlideInUp)
+                .duration(700)
+                .playOn(v.findViewById(R.id.dicamain));
+        YoYo.with(Techniques.FadeInUp)
+                .duration(700)
+                .playOn(v.findViewById(R.id.webText));
+
         return v;
     }
+
 }

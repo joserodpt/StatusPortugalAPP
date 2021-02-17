@@ -1,5 +1,7 @@
 package pt.josegamerpt.statusportugal.fragments;
 
+import android.content.ClipData;
+import android.content.ClipboardManager;
 import android.content.Context;
 import android.graphics.Color;
 import android.net.ConnectivityManager;
@@ -12,8 +14,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
+
+import com.daimajia.androidanimations.library.Techniques;
+import com.daimajia.androidanimations.library.YoYo;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -23,7 +29,6 @@ import needle.Needle;
 import needle.UiRelatedTask;
 import pl.utkala.searchablespinner.SearchableSpinner;
 import pt.josegamerpt.statusportugal.AppUtils;
-import pt.josegamerpt.statusportugal.MainActivity;
 import pt.josegamerpt.statusportugal.R;
 
 /**
@@ -36,9 +41,9 @@ public class fragment_counties extends Fragment {
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
-    SweetAlertDialog loadingDialog;
     JSONObject concelhoData;
     View v;
+    Context c;
     private String mParam1;
     private String mParam2;
 
@@ -86,9 +91,10 @@ public class fragment_counties extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         v = inflater.inflate(R.layout.fragment_counties, container, false);
+        c = v.getContext();
 
         SearchableSpinner sp = v.findViewById(R.id.spinnerConcelhos);
-        sp.setDialogTitle(MainActivity.c.getString(R.string.concelho_select) + " (308)");
+        sp.setDialogTitle(c.getString(R.string.concelho_select) + " (308)");
         sp.setDismissText(getString(android.R.string.ok));
 
         TextView tv = v.findViewById(R.id.conc);
@@ -102,7 +108,7 @@ public class fragment_counties extends Fragment {
                     refresh(concelho);
                 } else {
                     tv.setGravity(Gravity.CENTER);
-                    tv.setText(MainActivity.c.getString(R.string.concelho_tip));
+                    tv.setText(c.getString(R.string.concelho_tip));
                 }
             }
 
@@ -112,69 +118,78 @@ public class fragment_counties extends Fragment {
             }
         });
 
+        //copy
+
+        v.findViewById(R.id.conc).setOnLongClickListener(v -> {
+            String concelho = sp.getItemAtPosition(sp.getSelectedItemPosition()).toString();
+            if (!TextUtils.isEmpty(concelho)) {
+                ClipboardManager clipboard = (ClipboardManager) v.getContext().getSystemService(Context.CLIPBOARD_SERVICE);
+                String copy = c.getString(R.string.concelho_selected) + " " + concelho + "\n\n" + tv.getText();
+                ClipData clip = ClipData.newPlainText("countydata", copy);
+                clipboard.setPrimaryClip(clip);
+
+                Toast.makeText(getActivity(), c.getString(R.string.copied_to_clipboard).replace("%name%", c.getString(R.string.concelho_selected) + " " + concelho),
+                        Toast.LENGTH_SHORT).show();
+            }
+
+            return false;
+        });
+
+        //showwithanimation
+        v.findViewById(R.id.concFrame).setVisibility(View.VISIBLE);
+
+        YoYo.with(Techniques.SlideInUp)
+                .duration(700)
+                .playOn(v.findViewById(R.id.concFrame));
+
         return v;
     }
 
     private void refresh(String con) {
-        loadingDialog = new SweetAlertDialog(getActivity(), SweetAlertDialog.PROGRESS_TYPE);
-        loadingDialog.getProgressHelper().setBarColor(Color.rgb(51, 51, 255));
-        loadingDialog.setTitleText(MainActivity.c.getString(R.string.loading_info));
-        loadingDialog.setCancelable(false);
-        loadingDialog.show();
+        if (hasInternetAccess(c)) {
+            SweetAlertDialog loadingDialog = new SweetAlertDialog(getActivity(), SweetAlertDialog.PROGRESS_TYPE);
+            loadingDialog.getProgressHelper().setBarColor(Color.rgb(51, 51, 255));
+            loadingDialog.setTitleText(c.getString(R.string.loading_info));
+            loadingDialog.setCancelable(false);
+            loadingDialog.show();
 
-        Needle.onBackgroundThread().execute(new UiRelatedTask() {
-            @Override
-            protected Object doWork() {
-                return hasInternetAccess(getContext());
-            }
-
-            @Override
-            protected void thenDoUiRelatedWork(Object o) {
-                if ((boolean) o) {
-                    getData(con);
-                } else {
-                    loadingDialog.dismissWithAnimation();
-                    SweetAlertDialog asd = new SweetAlertDialog(getActivity(), SweetAlertDialog.WARNING_TYPE);
-                    asd.setTitleText(MainActivity.c.getString(R.string.no_internet));
-                    asd.setConfirmButton(MainActivity.c.getString(R.string.refresh_name), sweetAlertDialog -> {
-                        asd.dismissWithAnimation();
-                        refresh(con);
-                    });
-                    asd.setCancelButton(MainActivity.c.getString(R.string.cancel_name), sweetAlertDialog -> asd.dismissWithAnimation());
-                    asd.show();
+            Needle.onBackgroundThread().execute(new UiRelatedTask() {
+                @Override
+                protected Object doWork() {
+                    return AppUtils.getInfoFromAPI("https://covid19-api.vost.pt/Requests/get_last_update_specific_county/" + con);
                 }
-            }
-        });
-    }
 
-    public void getData(String con) {
-        Needle.onBackgroundThread().execute(new UiRelatedTask() {
-            @Override
-            protected Object doWork() {
-                return AppUtils.getInfoFromAPI("https://covid19-api.vost.pt/Requests/get_last_update_specific_county/" + con);
-            }
+                @Override
+                protected void thenDoUiRelatedWork(Object o) {
+                    try {
+                        concelhoData = new JSONObject(o.toString().replaceAll("^.|.$", ""));
 
-            @Override
-            protected void thenDoUiRelatedWork(Object o) {
-                try {
-                    concelhoData = new JSONObject(o.toString().replaceAll("^.|.$", ""));
+                        TextView tlatest = v.findViewById(R.id.conc);
+                        if (concelhoData.has("status")) {
+                            tlatest.setText(getText(R.string.concelho_none));
+                        } else {
+                            tlatest.setText(formatLatest(concelhoData));
+                        }
 
-                    TextView tlatest = v.findViewById(R.id.conc);
-                    if (concelhoData.has("status")) {
-                        tlatest.setText(getText(R.string.concelho_none));
-                    } else {
-                        tlatest.setText(formatLatest(concelhoData));
+                        loadingDialog.dismissWithAnimation();
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+
+                        TextView tlatest = v.findViewById(R.id.conc);
+                        tlatest.setText(e.getMessage());
                     }
-
-                    loadingDialog.dismissWithAnimation();
-                } catch (JSONException e) {
-                    e.printStackTrace();
-
-                    TextView tlatest = v.findViewById(R.id.conc);
-                    tlatest.setText(e.getMessage());
                 }
-            }
-        });
+            });
+        } else {
+            SweetAlertDialog asd = new SweetAlertDialog(getActivity(), SweetAlertDialog.WARNING_TYPE);
+            asd.setTitleText(c.getString(R.string.no_internet));
+            asd.setConfirmButton(c.getString(R.string.refresh_name), sweetAlertDialog -> {
+                asd.dismissWithAnimation();
+                refresh(con);
+            });
+            asd.setCancelButton(c.getString(R.string.cancel_name), sweetAlertDialog -> asd.dismissWithAnimation());
+            asd.show();
+        }
     }
 
     private String formatLatest(JSONObject inf) throws JSONException {
@@ -189,14 +204,14 @@ public class fragment_counties extends Fragment {
         String densidade_pop = checkData(inf.getString("densidade_populacional"));
 
 
-        return MainActivity.c.getString(R.string.district_name) + ": " + distrito + "\n"
-                + MainActivity.c.getString(R.string.ars_name) + ": " + ars + "\n\n"
-                + MainActivity.c.getString(R.string.incidence_risk) + incidencia_risco + "\n"
-                + MainActivity.c.getString(R.string.incidence_cat) + incidcat + "\n"
-                + MainActivity.c.getString(R.string.incidence_name) + incidencia + "\n\n"
-                + MainActivity.c.getString(R.string.population_name) + population + "\n"
-                + MainActivity.c.getString(R.string.population_density) + densidade_pop + "\n\n" +
-                MainActivity.c.getString(R.string.latest_post) + ": " + date;
+        return c.getString(R.string.district_name) + ": " + distrito + "\n"
+                + c.getString(R.string.ars_name) + ": " + ars + "\n\n"
+                + c.getString(R.string.incidence_risk) + incidencia_risco + "\n"
+                + c.getString(R.string.incidence_cat) + incidcat + "\n"
+                + c.getString(R.string.incidence_name) + incidencia + "\n\n"
+                + c.getString(R.string.population_name) + population + "\n"
+                + c.getString(R.string.population_density) + densidade_pop + "\n\n" +
+                c.getString(R.string.latest_post) + ": " + date;
     }
 
     private String checkData(String s) {

@@ -1,6 +1,6 @@
 # Status Portugal [Android]
 Esta é uma APP que visa facilitar o acesso mais detalhado aos números de estado em Portugal. (Necessário acesso á Internet.)
-This is an APP that wants to provide easy acess to status Portugal data. (Internet acess required.)
+This is an APP that wants to provide easy access to status Portugal data. (Internet access required.)
 
 # Funcionalidades (Features)
 

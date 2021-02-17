@@ -16,31 +16,34 @@ import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 
+import com.daimajia.androidanimations.library.Techniques;
+import com.daimajia.androidanimations.library.YoYo;
+
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.text.DecimalFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Iterator;
+import java.util.Locale;
 
 import cn.pedant.SweetAlert.SweetAlertDialog;
 import needle.Needle;
 import needle.UiRelatedTask;
 import pt.josegamerpt.statusportugal.AppUtils;
-import pt.josegamerpt.statusportugal.MainActivity;
 import pt.josegamerpt.statusportugal.R;
 
 public class fragment_statistics extends Fragment {
 
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
-    SweetAlertDialog loadingDialog;
-    JSONObject latest;
-    JSONObject yesterday;
-
-    View v;
+    private JSONObject latest;
+    private JSONObject yesterday;
+    private Context c;
+    private View v;
 
     public fragment_statistics() {
     }
@@ -76,9 +79,8 @@ public class fragment_statistics extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-
         v = inflater.inflate(R.layout.fragment_statistics, container, false);
-
+        c = v.getContext();
         refresh();
 
         //latest
@@ -87,11 +89,11 @@ public class fragment_statistics extends Fragment {
 
         v.findViewById(R.id.latestdata).setOnLongClickListener(v -> {
             ClipboardManager clipboard = (ClipboardManager) v.getContext().getSystemService(Context.CLIPBOARD_SERVICE);
-            String copy = MainActivity.c.getString(R.string.latest_post) + " " + latestDataHeader2.getText() + "\n\n" + latestData.getText();
+            String copy = c.getString(R.string.latest_post) + " " + latestDataHeader2.getText() + "\n\n" + latestData.getText();
             ClipData clip = ClipData.newPlainText("latestData", copy);
             clipboard.setPrimaryClip(clip);
 
-            Toast.makeText(getActivity(), MainActivity.c.getString(R.string.copied_to_clipboard).replace("%name%", MainActivity.c.getString(R.string.latest_post)),
+            Toast.makeText(getActivity(), c.getString(R.string.copied_to_clipboard).replace("%name%", c.getString(R.string.latest_post)),
                     Toast.LENGTH_SHORT).show();
             return false;
         });
@@ -102,11 +104,11 @@ public class fragment_statistics extends Fragment {
 
         v.findViewById(R.id.variationdata).setOnLongClickListener(v -> {
             ClipboardManager clipboard = (ClipboardManager) v.getContext().getSystemService(Context.CLIPBOARD_SERVICE);
-            String copy = MainActivity.c.getString(R.string.variation_name) + " " + varheader2.getText() + "\n\n" + varinfo.getText();
+            String copy = c.getString(R.string.variation_name) + " " + varheader2.getText() + "\n\n" + varinfo.getText();
             ClipData clip = ClipData.newPlainText("varData", copy);
             clipboard.setPrimaryClip(clip);
 
-            Toast.makeText(getActivity(), MainActivity.c.getString(R.string.copied_to_clipboard).replace("%name%", MainActivity.c.getString(R.string.variation_name)),
+            Toast.makeText(getActivity(), c.getString(R.string.copied_to_clipboard).replace("%name%", c.getString(R.string.variation_name)),
                     Toast.LENGTH_SHORT).show();
             return false;
         });
@@ -117,11 +119,11 @@ public class fragment_statistics extends Fragment {
 
         v.findViewById(R.id.yesterdaydata).setOnLongClickListener(v -> {
             ClipboardManager clipboard = (ClipboardManager) v.getContext().getSystemService(Context.CLIPBOARD_SERVICE);
-            String copy = MainActivity.c.getString(R.string.previous_day_name) + " " + yesterdayheader2.getText() + "\n\n" + yesinfo.getText();
+            String copy = c.getString(R.string.previous_day_name) + " " + yesterdayheader2.getText() + "\n\n" + yesinfo.getText();
             ClipData clip = ClipData.newPlainText("yesterdayData", copy);
             clipboard.setPrimaryClip(clip);
 
-            Toast.makeText(getActivity(), MainActivity.c.getString(R.string.copied_to_clipboard).replace("%name%", MainActivity.c.getString(R.string.previous_day_name)),
+            Toast.makeText(getActivity(), c.getString(R.string.copied_to_clipboard).replace("%name%", c.getString(R.string.previous_day_name)),
                     Toast.LENGTH_SHORT).show();
             return false;
         });
@@ -132,11 +134,11 @@ public class fragment_statistics extends Fragment {
 
         v.findViewById(R.id.totaldata).setOnLongClickListener(v -> {
             ClipboardManager clipboard = (ClipboardManager) v.getContext().getSystemService(Context.CLIPBOARD_SERVICE);
-            String copy = MainActivity.c.getString(R.string.more_info_name) + " " + morehe2.getText() + "\n\n" + morinfo.getText();
+            String copy = c.getString(R.string.more_info_name) + " " + morehe2.getText() + "\n\n" + morinfo.getText();
             ClipData clip = ClipData.newPlainText("moreInfoData", copy);
             clipboard.setPrimaryClip(clip);
 
-            Toast.makeText(getActivity(), MainActivity.c.getString(R.string.copied_to_clipboard).replace("%name%", MainActivity.c.getString(R.string.more_info_name)),
+            Toast.makeText(getActivity(), c.getString(R.string.copied_to_clipboard).replace("%name%", c.getString(R.string.more_info_name)),
                     Toast.LENGTH_SHORT).show();
             return false;
         });
@@ -146,136 +148,118 @@ public class fragment_statistics extends Fragment {
     }
 
     private void refresh() {
-        loadingDialog = new SweetAlertDialog(getActivity(), SweetAlertDialog.PROGRESS_TYPE);
-        loadingDialog.getProgressHelper().setBarColor(Color.rgb(102, 178, 255));
-        loadingDialog.setTitleText(MainActivity.c.getString(R.string.loading_info));
-        loadingDialog.setCancelable(false);
-        loadingDialog.show();
+        if (hasInternetAccess(c)) {
+            SweetAlertDialog loadingDialog = new SweetAlertDialog(getActivity(), SweetAlertDialog.PROGRESS_TYPE);
+            loadingDialog.getProgressHelper().setBarColor(Color.rgb(102, 178, 255));
+            loadingDialog.setTitleText(c.getString(R.string.loading_info));
+            loadingDialog.setCancelable(false);
+            loadingDialog.show();
 
-        Needle.onBackgroundThread().execute(new UiRelatedTask() {
-            @Override
-            protected Object doWork() {
-                return hasInternetAccess(getContext());
-            }
-
-            @Override
-            protected void thenDoUiRelatedWork(Object o) {
-                if ((boolean) o) {
-                    getFirst();
-                } else {
-                    loadingDialog.dismissWithAnimation();
-                    SweetAlertDialog asd = new SweetAlertDialog(getActivity(), SweetAlertDialog.WARNING_TYPE);
-                    asd.setTitleText(MainActivity.c.getString(R.string.no_internet));
-                    asd.setConfirmButton(MainActivity.c.getString(R.string.refresh_name), sweetAlertDialog -> {
-                        asd.dismissWithAnimation();
-                        refresh();
-                    });
-                    asd.setCancelButton(MainActivity.c.getString(R.string.cancel_name), sweetAlertDialog -> asd.dismissWithAnimation());
-                    asd.show();
-                }
-            }
-        });
-    }
-
-    public void getFirst() {
-        Needle.onBackgroundThread().execute(new UiRelatedTask() {
-            @Override
-            protected Object doWork() {
-                return AppUtils.getInfoFromAPI("https://covid19-api.vost.pt/Requests/get_last_update");
-            }
-
-            @Override
-            protected void thenDoUiRelatedWork(Object o) {
-                try {
-                    latest = new JSONObject(o.toString());
-
-
-                    if (!latest.has("status")) {
-                        TextView t = v.findViewById(R.id.latestheader2);
-                        t.setText(latest.getString("data_dados"));
-                        TextView tlatest = v.findViewById(R.id.latestinfo);
-                        tlatest.setText(formatLatest(latest));
+            //get data
+            Needle.onBackgroundThread().execute(new UiRelatedTask() {
+                @Override
+                protected Object doWork() {
+                    try {
+                        getLatest();
                         getSecond();
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                        Toast toast = Toast.makeText(getContext(), e.getMessage(), Toast.LENGTH_LONG);
+                        toast.show();
                     }
-
-                    //update data
-                    getSecond();
-                } catch (JSONException e) {
-                    e.printStackTrace();
+                    return null;
                 }
-            }
-        });
-    }
 
-    public void getSecond() {
-        Needle.onBackgroundThread().execute(new UiRelatedTask() {
-            @Override
-            protected Object doWork() {
-                try {
-                    SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
-                    Date d = sdf.parse(latest.getString("data"));
-                    Calendar yesterday = Calendar.getInstance();
-                    yesterday.setTime(d);
-                    yesterday.add(Calendar.DATE, -1);
-
-                    Date date = yesterday.getTime();
-                    SimpleDateFormat format1 = new SimpleDateFormat("dd-MM-yyyy");
-                    String stringYesterday = format1.format(date);
-
-                    return AppUtils.getInfoFromAPI("https://covid19-api.vost.pt/Requests/get_entry/" + stringYesterday);
-
-                } catch (ParseException | JSONException e) {
-                    e.printStackTrace();
-                }
-                return "";
-            }
-
-            @Override
-            protected void thenDoUiRelatedWork(Object o) {
-                try {
-                    yesterday = new JSONObject(o.toString());
-
-                    if (!yesterday.has("status")) {
-                        JSONObject datakey = yesterday.getJSONObject("data");
-                        String key = "";
-
-                        Iterator<String> keys = datakey.keys();
-                        while (keys.hasNext()) {
-                            key = keys.next();
+                @Override
+                protected void thenDoUiRelatedWork(Object o) {
+                    //first
+                    try {
+                        if (!latest.has("status")) {
+                            TextView t = v.findViewById(R.id.latestheader2);
+                            t.setText(latest.getString("data_dados"));
+                            TextView tlatest = v.findViewById(R.id.latestinfo);
+                            tlatest.setText(formatLatest());
                         }
 
-                        TextView t = v.findViewById(R.id.yesterdayHeader2);
-                        t.setText(yesterday.getJSONObject("data_dados").getString(key));
-                        TextView tinfo = v.findViewById(R.id.yestedayInfo);
-                        tinfo.setText(formatYesterday(yesterday, key));
+                        //Second
+                        if (!yesterday.has("status")) {
+                            JSONObject datakey = yesterday.getJSONObject("data");
+                            String key = "";
 
-                        //variation updates
-                        TextView var = v.findViewById(R.id.variationdataheader2);
-                        var.setText(yesterday.getJSONObject("data").getString(key) + " → " + latest.getString("data"));
+                            Iterator<String> keys = datakey.keys();
+                            while (keys.hasNext()) {
+                                key = keys.next();
+                            }
 
-                        TextView vartext = v.findViewById(R.id.variationdatainfo);
-                        vartext.setText(formatVariation(latest, yesterday, key));
+                            TextView t = v.findViewById(R.id.yesterdayHeader2);
+                            t.setText(yesterday.getJSONObject("data_dados").getString(key));
+                            TextView tinfo = v.findViewById(R.id.yestedayInfo);
+                            tinfo.setText(formatYesterday(yesterday, key));
+
+                            //variation updates
+                            TextView var = v.findViewById(R.id.variationdataheader2);
+                            var.setText(yesterday.getJSONObject("data").getString(key) + " → " + latest.getString("data"));
+
+                            TextView vartext = v.findViewById(R.id.variationdatainfo);
+                            vartext.setText(formatVariation(latest, yesterday, key));
 
 
-                        //total updates
-                        TextView t2 = v.findViewById(R.id.moredataheader2);
-                        t2.setText(latest.getString("data"));
+                            //total updates
+                            TextView t2 = v.findViewById(R.id.moredataheader2);
+                            t2.setText(latest.getString("data"));
 
-                        TextView totinfo = v.findViewById(R.id.totaldatainfo);
-                        totinfo.setText(formatMore(latest));
+                            TextView totinfo = v.findViewById(R.id.totaldatainfo);
+                            totinfo.setText(formatMore(latest));
+                        }
+
+                        loadingDialog.dismissWithAnimation();
+
+                        showWithAnimation();
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                        Toast toast = Toast.makeText(getContext(), e.getMessage(), Toast.LENGTH_LONG);
+                        toast.show();
                     }
-
-                    loadingDialog.dismissWithAnimation();
-                } catch (JSONException e) {
-                    e.printStackTrace();
                 }
-
-
-            }
-        });
+            });
+        } else {
+            SweetAlertDialog asd = new SweetAlertDialog(getActivity(), SweetAlertDialog.WARNING_TYPE);
+            asd.setTitleText(c.getString(R.string.no_internet));
+            asd.setConfirmButton(c.getString(R.string.refresh_name), sweetAlertDialog -> {
+                asd.dismissWithAnimation();
+                refresh();
+            });
+            asd.setCancelButton(c.getString(R.string.cancel_name), sweetAlertDialog -> asd.dismissWithAnimation());
+            asd.show();
+        }
     }
 
-    private String formatLatest(JSONObject inf) throws JSONException {
+    private void showWithAnimation() {
+        v.findViewById(R.id.main).setVisibility(View.VISIBLE);
+        YoYo.with(Techniques.FadeInUp)
+                .duration(700)
+                .playOn(v.findViewById(R.id.main));
+    }
+
+    public void getLatest() throws JSONException {
+        latest = new JSONObject(AppUtils.getInfoFromAPI("https://covid19-api.vost.pt/Requests/get_last_update"));
+    }
+
+    public void getSecond() throws JSONException, ParseException {
+        SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy", Locale.UK);
+        Date d = sdf.parse(latest.getString("data"));
+        Calendar yst = Calendar.getInstance();
+        yst.setTime(d);
+        yst.add(Calendar.DATE, -1);
+
+        Date date = yst.getTime();
+        SimpleDateFormat format1 = new SimpleDateFormat("dd-MM-yyyy", Locale.UK);
+        String stringYesterday = format1.format(date);
+
+        yesterday = new JSONObject(AppUtils.getInfoFromAPI("https://covid19-api.vost.pt/Requests/get_entry/" + stringYesterday));
+    }
+
+    private String formatLatest() throws JSONException {
         int ativos = checkDataInt(checkData(latest.getString("ativos")));
         int recuperados = checkDataInt(checkData(latest.getString("recuperados")));
         int obitos = checkDataInt(checkData(latest.getString("obitos")));
@@ -287,15 +271,15 @@ public class fragment_statistics extends Fragment {
         int internados_uci = checkDataInt(checkData(latest.getString("internados_uci")));
         int internados_enfermaria = checkDataInt(checkData(latest.getString("internados_enfermaria")));
 
-        return MainActivity.c.getString(R.string.confirmed_name) + stringFormater(novos_infetados) + "\n\n"
-                + MainActivity.c.getString(R.string.confirmed_name) + total_infetados + "\n"
-                + MainActivity.c.getString(R.string.recovered_cases) + recuperados + "\n"
-                + MainActivity.c.getString(R.string.surveilance_name) + vigilancia + "\n"
-                + MainActivity.c.getString(R.string.active_cases_name) + ativos + "\n\n"
-                + MainActivity.c.getString(R.string.interned_uci) + internados_uci + "\n"
-                + MainActivity.c.getString(R.string.interned_enfermaria) + internados_enfermaria + "\n"
-                + MainActivity.c.getString(R.string.internados_total_name) + internados + "\n\n"
-                + MainActivity.c.getString(R.string.deaths_name) + obitos;
+        return c.getString(R.string.confirmed_name) + stringFormater(novos_infetados) + "\n\n"
+                + c.getString(R.string.confirmed_name) + total_infetados + "\n"
+                + c.getString(R.string.recovered_cases) + recuperados + "\n"
+                + c.getString(R.string.surveilance_name) + vigilancia + "\n"
+                + c.getString(R.string.active_cases_name) + ativos + "\n\n"
+                + c.getString(R.string.interned_uci) + internados_uci + "\n"
+                + c.getString(R.string.interned_enfermaria) + internados_enfermaria + "\n"
+                + c.getString(R.string.internados_total_name) + internados + "\n\n"
+                + c.getString(R.string.deaths_name) + obitos;
     }
 
     private String formatVariation(JSONObject inf, JSONObject yesterday, String key) throws JSONException {
@@ -332,15 +316,15 @@ public class fragment_statistics extends Fragment {
 
         int newcasesvar = latest_new_cases - yesterday_new_cases;
 
-        return MainActivity.c.getString(R.string.confirmed_name) + stringFormater(varNovosInf) + "\n"
-                + "(" + stringFormater(newcasesvar) + " " + MainActivity.c.getString(R.string.variation_new_cases) + "\n\n"
-                + MainActivity.c.getString(R.string.interned_uci) + stringFormater(interuci) + "\n"
-                + MainActivity.c.getString(R.string.interned_enfermaria) + stringFormater(interenf) + "\n"
-                + MainActivity.c.getString(R.string.internados_new_name) + stringFormater(inter) + "\n\n"
-                + MainActivity.c.getString(R.string.recovered_cases) + stringFormater(varRecuperados) + "\n"
-                + MainActivity.c.getString(R.string.surveilance_name) + stringFormater(varVig) + "\n"
-                + MainActivity.c.getString(R.string.active_cases_name) + stringFormater(varAtivos) + "\n\n"
-                + MainActivity.c.getString(R.string.deaths_name) + stringFormater(varObitos);
+        return c.getString(R.string.confirmed_name) + stringFormater(varNovosInf) + "\n"
+                + "(" + stringFormater(newcasesvar) + " " + c.getString(R.string.variation_new_cases) + "\n\n"
+                + c.getString(R.string.interned_uci) + stringFormater(interuci) + "\n"
+                + c.getString(R.string.interned_enfermaria) + stringFormater(interenf) + "\n"
+                + c.getString(R.string.internados_new_name) + stringFormater(inter) + "\n\n"
+                + c.getString(R.string.recovered_cases) + stringFormater(varRecuperados) + "\n"
+                + c.getString(R.string.surveilance_name) + stringFormater(varVig) + "\n"
+                + c.getString(R.string.active_cases_name) + stringFormater(varAtivos) + "\n\n"
+                + c.getString(R.string.deaths_name) + stringFormater(varObitos);
 
     }
 
@@ -357,15 +341,15 @@ public class fragment_statistics extends Fragment {
         String internados_uci = checkData(inf.getJSONObject("internados_uci").getString(key));
         String internados_enfermaria = checkData(inf.getJSONObject("internados_enfermaria").getString(key));
 
-        return MainActivity.c.getString(R.string.confirmed_name) + stringFormater(novos_infetados) + "\n\n"
-                + MainActivity.c.getString(R.string.confirmed_name) + total_infetados + "\n"
-                + MainActivity.c.getString(R.string.recovered_cases) + recuperados + "\n"
-                + MainActivity.c.getString(R.string.surveilance_name) + vigilancia + "\n"
-                + MainActivity.c.getString(R.string.active_cases_name) + ativos + "\n\n"
-                + MainActivity.c.getString(R.string.interned_uci) + internados_uci + "\n"
-                + MainActivity.c.getString(R.string.interned_enfermaria) + internados_enfermaria + "\n"
-                + MainActivity.c.getString(R.string.internados_total_name) + internados + "\n\n"
-                + MainActivity.c.getString(R.string.deaths_name) + obitos;
+        return c.getString(R.string.confirmed_name) + stringFormater(novos_infetados) + "\n\n"
+                + c.getString(R.string.confirmed_name) + total_infetados + "\n"
+                + c.getString(R.string.recovered_cases) + recuperados + "\n"
+                + c.getString(R.string.surveilance_name) + vigilancia + "\n"
+                + c.getString(R.string.active_cases_name) + ativos + "\n\n"
+                + c.getString(R.string.interned_uci) + internados_uci + "\n"
+                + c.getString(R.string.interned_enfermaria) + internados_enfermaria + "\n"
+                + c.getString(R.string.internados_total_name) + internados + "\n\n"
+                + c.getString(R.string.deaths_name) + obitos;
     }
 
     private String formatMore(JSONObject latest) throws JSONException {
@@ -437,60 +421,60 @@ public class fragment_statistics extends Fragment {
         String obitos_70_79_m = checkData(latest.getString("obitos_70_79_m"));
         String obitos_80_plus_m = checkData(latest.getString("obitos_80_plus_m"));
 
-        return MainActivity.c.getString(R.string.confirmed_north) + confirmados_arsnorte + "\n" +
-                MainActivity.c.getString(R.string.confirmed_center) + confirmados_arscentro + "\n" +
-                MainActivity.c.getString(R.string.confirmed_lisbonvaledotejo) + confirmados_arslvt + "\n" +
-                MainActivity.c.getString(R.string.confirmed_alentejo) + confirmados_arsalentejo + "\n" +
-                MainActivity.c.getString(R.string.confirmed_algarve) + confirmados_arsalgarve + "\n" +
-                MainActivity.c.getString(R.string.confirmed_açores) + confirmados_acores + "\n" +
-                MainActivity.c.getString(R.string.confirmed_madeira) + confirmados_madeira + "\n\n" +
-                MainActivity.c.getString(R.string.confirmados_f) + confirmados_mulher + "\n\n" +
-                MainActivity.c.getString(R.string.confirmed_f_09) + confirmados_0_9_f + "\n" +
-                MainActivity.c.getString(R.string.confirmed_f_1019) + confirmados_10_19_f + "\n" +
-                MainActivity.c.getString(R.string.confirmed_f_2029) + confirmados_20_29_f + "\n" +
-                MainActivity.c.getString(R.string.confirmed_f_3039) + confirmados_30_39_f + "\n" +
-                MainActivity.c.getString(R.string.confirmed_f_4049) + confirmados_40_49_f + "\n" +
-                MainActivity.c.getString(R.string.confirmed_f_4049) + confirmados_50_59_f + "\n" +
-                MainActivity.c.getString(R.string.confirmed_f_5059) + confirmados_60_69_f + "\n" +
-                MainActivity.c.getString(R.string.confirmed_f_6069) + confirmados_70_79_f + "\n" +
-                MainActivity.c.getString(R.string.confirmed_f_80plus) + confirmados_80_plus_f + "\n" + "\n" +
-                MainActivity.c.getString(R.string.confirmados_m) + confirmados_homem + "\n\n" +
-                MainActivity.c.getString(R.string.confirmed_m_09) + confirmados_0_9_m + "\n" +
-                MainActivity.c.getString(R.string.confirmed_m_1019) + confirmados_10_19_m + "\n" +
-                MainActivity.c.getString(R.string.confirmed_m_2029) + confirmados_20_29_m + "\n" +
-                MainActivity.c.getString(R.string.confirmed_m_3039) + confirmados_30_39_m + "\n" +
-                MainActivity.c.getString(R.string.confirmed_m_4049) + confirmados_40_49_m + "\n" +
-                MainActivity.c.getString(R.string.confirmed_m_5059) + confirmados_50_59_m + "\n" +
-                MainActivity.c.getString(R.string.confirmed_m_6069) + confirmados_60_69_m + "\n" +
-                MainActivity.c.getString(R.string.confirmed_m_7079) + confirmados_70_79_m + "\n" +
-                MainActivity.c.getString(R.string.confirmed_m_80plus) + confirmados_80_plus_m + "\n" + "\n" +
-                MainActivity.c.getString(R.string.deaths_north) + obitos_arsnorte + "\n" +
-                MainActivity.c.getString(R.string.deaths_center) + obitos_arscentro + "\n" +
-                MainActivity.c.getString(R.string.deaths_lisbonvaledotejo) + obitos_arslvt + "\n" +
-                MainActivity.c.getString(R.string.deaths_alentejo) + obitos_arsalentejo + "\n" +
-                MainActivity.c.getString(R.string.deaths_algarve) + obitos_arsalgarve + "\n" +
-                MainActivity.c.getString(R.string.deaths_açores) + obitos_acores + "\n" +
-                MainActivity.c.getString(R.string.deaths_madeira) + obitos_madeira + "\n" + "\n" +
-                MainActivity.c.getString(R.string.deaths_f) + obitos_f + "\n\n" +
-                MainActivity.c.getString(R.string.deaths_f_09) + obitos_0_9_f + "\n" +
-                MainActivity.c.getString(R.string.deaths_f_1019) + obitos_10_19_f + "\n" +
-                MainActivity.c.getString(R.string.deaths_f_2029) + obitos_20_29_f + "\n" +
-                MainActivity.c.getString(R.string.deaths_f_3039) + obitos_30_39_f + "\n" +
-                MainActivity.c.getString(R.string.deaths_f_4049) + obitos_40_49_f + "\n" +
-                MainActivity.c.getString(R.string.deaths_f_5059) + obitos_50_59_f + "\n" +
-                MainActivity.c.getString(R.string.deaths_f_6069) + obitos_60_69_f + "\n" +
-                MainActivity.c.getString(R.string.deaths_f_7079) + obitos_70_79_f + "\n" +
-                MainActivity.c.getString(R.string.deaths_f_80plus) + obitos_80_plus_f + "\n\n" +
-                MainActivity.c.getString(R.string.deaths_m) + obitos_m + "\n\n" +
-                MainActivity.c.getString(R.string.deaths_m_09) + obitos_0_9_m + "\n" +
-                MainActivity.c.getString(R.string.deaths_m_1019) + obitos_10_19_m + "\n" +
-                MainActivity.c.getString(R.string.deaths_m_2029) + obitos_20_29_m + "\n" +
-                MainActivity.c.getString(R.string.deaths_m_3039) + obitos_30_39_m + "\n" +
-                MainActivity.c.getString(R.string.deaths_m_4049) + obitos_40_49_m + "\n" +
-                MainActivity.c.getString(R.string.deaths_m_5059) + obitos_50_59_m + "\n" +
-                MainActivity.c.getString(R.string.deaths_m_6069) + obitos_60_69_m + "\n" +
-                MainActivity.c.getString(R.string.deaths_m_7079) + obitos_70_79_m + "\n" +
-                MainActivity.c.getString(R.string.deaths_m_80plus) + obitos_80_plus_m;
+        return c.getString(R.string.confirmed_north) + confirmados_arsnorte + "\n" +
+                c.getString(R.string.confirmed_center) + confirmados_arscentro + "\n" +
+                c.getString(R.string.confirmed_lisbonvaledotejo) + confirmados_arslvt + "\n" +
+                c.getString(R.string.confirmed_alentejo) + confirmados_arsalentejo + "\n" +
+                c.getString(R.string.confirmed_algarve) + confirmados_arsalgarve + "\n" +
+                c.getString(R.string.confirmed_açores) + confirmados_acores + "\n" +
+                c.getString(R.string.confirmed_madeira) + confirmados_madeira + "\n\n" +
+                c.getString(R.string.confirmados_f) + confirmados_mulher + "\n\n" +
+                c.getString(R.string.confirmed_f_09) + confirmados_0_9_f + "\n" +
+                c.getString(R.string.confirmed_f_1019) + confirmados_10_19_f + "\n" +
+                c.getString(R.string.confirmed_f_2029) + confirmados_20_29_f + "\n" +
+                c.getString(R.string.confirmed_f_3039) + confirmados_30_39_f + "\n" +
+                c.getString(R.string.confirmed_f_4049) + confirmados_40_49_f + "\n" +
+                c.getString(R.string.confirmed_f_4049) + confirmados_50_59_f + "\n" +
+                c.getString(R.string.confirmed_f_5059) + confirmados_60_69_f + "\n" +
+                c.getString(R.string.confirmed_f_6069) + confirmados_70_79_f + "\n" +
+                c.getString(R.string.confirmed_f_80plus) + confirmados_80_plus_f + "\n" + "\n" +
+                c.getString(R.string.confirmados_m) + confirmados_homem + "\n\n" +
+                c.getString(R.string.confirmed_m_09) + confirmados_0_9_m + "\n" +
+                c.getString(R.string.confirmed_m_1019) + confirmados_10_19_m + "\n" +
+                c.getString(R.string.confirmed_m_2029) + confirmados_20_29_m + "\n" +
+                c.getString(R.string.confirmed_m_3039) + confirmados_30_39_m + "\n" +
+                c.getString(R.string.confirmed_m_4049) + confirmados_40_49_m + "\n" +
+                c.getString(R.string.confirmed_m_5059) + confirmados_50_59_m + "\n" +
+                c.getString(R.string.confirmed_m_6069) + confirmados_60_69_m + "\n" +
+                c.getString(R.string.confirmed_m_7079) + confirmados_70_79_m + "\n" +
+                c.getString(R.string.confirmed_m_80plus) + confirmados_80_plus_m + "\n" + "\n" +
+                c.getString(R.string.deaths_north) + obitos_arsnorte + "\n" +
+                c.getString(R.string.deaths_center) + obitos_arscentro + "\n" +
+                c.getString(R.string.deaths_lisbonvaledotejo) + obitos_arslvt + "\n" +
+                c.getString(R.string.deaths_alentejo) + obitos_arsalentejo + "\n" +
+                c.getString(R.string.deaths_algarve) + obitos_arsalgarve + "\n" +
+                c.getString(R.string.deaths_açores) + obitos_acores + "\n" +
+                c.getString(R.string.deaths_madeira) + obitos_madeira + "\n" + "\n" +
+                c.getString(R.string.deaths_f) + obitos_f + "\n\n" +
+                c.getString(R.string.deaths_f_09) + obitos_0_9_f + "\n" +
+                c.getString(R.string.deaths_f_1019) + obitos_10_19_f + "\n" +
+                c.getString(R.string.deaths_f_2029) + obitos_20_29_f + "\n" +
+                c.getString(R.string.deaths_f_3039) + obitos_30_39_f + "\n" +
+                c.getString(R.string.deaths_f_4049) + obitos_40_49_f + "\n" +
+                c.getString(R.string.deaths_f_5059) + obitos_50_59_f + "\n" +
+                c.getString(R.string.deaths_f_6069) + obitos_60_69_f + "\n" +
+                c.getString(R.string.deaths_f_7079) + obitos_70_79_f + "\n" +
+                c.getString(R.string.deaths_f_80plus) + obitos_80_plus_f + "\n\n" +
+                c.getString(R.string.deaths_m) + obitos_m + "\n\n" +
+                c.getString(R.string.deaths_m_09) + obitos_0_9_m + "\n" +
+                c.getString(R.string.deaths_m_1019) + obitos_10_19_m + "\n" +
+                c.getString(R.string.deaths_m_2029) + obitos_20_29_m + "\n" +
+                c.getString(R.string.deaths_m_3039) + obitos_30_39_m + "\n" +
+                c.getString(R.string.deaths_m_4049) + obitos_40_49_m + "\n" +
+                c.getString(R.string.deaths_m_5059) + obitos_50_59_m + "\n" +
+                c.getString(R.string.deaths_m_6069) + obitos_60_69_m + "\n" +
+                c.getString(R.string.deaths_m_7079) + obitos_70_79_m + "\n" +
+                c.getString(R.string.deaths_m_80plus) + obitos_80_plus_m;
     }
 
     public String stringFormater(int i) {
@@ -500,16 +484,21 @@ public class fragment_statistics extends Fragment {
         return String.valueOf(i);
     }
 
+    public String numFormatter(int i) {
+        DecimalFormat formatter = new DecimalFormat("#,###");
+        return formatter.format(i);
+    }
+
     public String stringFormater(String i) {
         return i;
     }
 
     private String checkData(String s) {
-        return s.equalsIgnoreCase("null") ? getString(R.string.missing_data) : s;
+        return s.equalsIgnoreCase("null") ? getString(R.string.missing_data) : s.replace(".0", "");
     }
 
     private int checkDataInt(String i) {
-        if (i.equals(getString(R.string.missing_data))) {
+        if (i.equals(c.getString(R.string.missing_data))) {
             return 0;
         }
         if (TextUtils.isEmpty(i)) {
@@ -517,4 +506,5 @@ public class fragment_statistics extends Fragment {
         }
         return i.equals("null") ? 0 : Integer.parseInt(String.valueOf(Math.round(Double.parseDouble(i))));
     }
+
 }
