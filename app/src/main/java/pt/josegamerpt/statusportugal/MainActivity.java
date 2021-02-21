@@ -1,30 +1,35 @@
 package pt.josegamerpt.statusportugal;
 
 import android.app.Activity;
+import android.content.Context;
+import android.content.Intent;
 import android.content.res.Configuration;
 import android.graphics.Color;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.view.View;
 import android.view.WindowManager;
 
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
 
-import org.jetbrains.annotations.NotNull;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
-import nl.joery.animatedbottombar.AnimatedBottomBar;
-import pt.josegamerpt.statusportugal.fragments.fragment_counties;
-import pt.josegamerpt.statusportugal.fragments.fragment_info;
-import pt.josegamerpt.statusportugal.fragments.fragment_recomendations;
-import pt.josegamerpt.statusportugal.fragments.fragment_statistics;
-import pt.josegamerpt.statusportugal.fragments.fragment_vac;
-import shortbread.Shortbread;
-import shortbread.Shortcut;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Collections;
+import java.util.Date;
+import java.util.Locale;
+
+import cn.pedant.SweetAlert.SweetAlertDialog;
+import needle.Needle;
+import needle.UiRelatedTask;
+
 
 public class MainActivity extends AppCompatActivity {
-
-    private boolean switching = false;
 
     public static void setWhite(Activity a) {
         a.findViewById(R.id.main).setBackgroundColor(Color.WHITE);
@@ -41,20 +46,13 @@ public class MainActivity extends AppCompatActivity {
         a.getWindow().setNavigationBarColor(Color.BLACK);
     }
 
-    @Override
-    public void onSaveInstanceState(Bundle savedInstanceState) {
-        AnimatedBottomBar abb = findViewById(R.id.bottom_bar);
-        savedInstanceState.putInt("selected", abb.getSelectedTab().getId());
+    public static boolean hasInternetAccess(Context context) {
+        ConnectivityManager cm =
+                (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
 
-        super.onSaveInstanceState(savedInstanceState);
-    }
-
-    @Override
-    public void onRestoreInstanceState(Bundle savedInstanceState) {
-        super.onRestoreInstanceState(savedInstanceState);
-
-        AnimatedBottomBar abb = findViewById(R.id.bottom_bar);
-        abb.selectTabById(savedInstanceState.getInt("selected"), false);
+        NetworkInfo activeNetwork = cm.getActiveNetworkInfo();
+        return activeNetwork != null &&
+                activeNetwork.isConnectedOrConnecting();
     }
 
     public void checkDark(Configuration config) {
@@ -71,87 +69,82 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        Shortbread.create(this);
         checkDark(getResources().getConfiguration());
 
+        getData();
+    }
 
-        final AnimatedBottomBar abb = findViewById(R.id.bottom_bar);
-        abb.setOnTabSelectListener(new AnimatedBottomBar.OnTabSelectListener() {
-            @Override
-            public void onTabSelected(int i, @Nullable AnimatedBottomBar.Tab tab, int i1, @NotNull AnimatedBottomBar.Tab tab1) {
-                switchTab(i1);
-            }
+    private void getData() {
+        if (hasInternetAccess(this)) {
+            //get data
+            Needle.onBackgroundThread().execute(new UiRelatedTask() {
+                @Override
+                protected Object doWork() {
+                    try {
+                        getLatest();
+                        getSecond();
+                        getVacData();
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                    return null;
+                }
 
-            @Override
-            public void onTabReselected(int i, @NotNull AnimatedBottomBar.Tab tab) {
-
-            }
-        });
-
-        if (!switching) {
-            switchTab(2);
+                @Override
+                protected void thenDoUiRelatedWork(Object o) {
+                    go();
+                }
+            });
+        } else {
+            SweetAlertDialog asd = new SweetAlertDialog(this, SweetAlertDialog.WARNING_TYPE);
+            asd.setTitleText(getString(R.string.no_internet));
+            asd.setConfirmButton(getString(R.string.refresh_name), sweetAlertDialog -> {
+                asd.dismissWithAnimation();
+                getData();
+            });
+            asd.setCancelButton(getString(R.string.cancel_name), sweetAlertDialog -> asd.dismissWithAnimation());
+            asd.show();
         }
     }
 
-
-    @Shortcut(id = "sobre", icon = R.drawable.ic_information, shortLabel = "Sobre")
-    public void about() {
-        switching = true;
-        switchTab(4);
+    private void go() {
+        Intent i = new Intent(this, HomeScreen.class);
+        i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        startActivity(i);
     }
 
-    @Shortcut(id = "recomend", icon = R.drawable.ic_recomedations, shortLabel = "Recomendações")
-    public void recomend() {
-        switching = true;
-        switchTab(3);
+    public void getLatest() throws JSONException {
+        StatusPortugal.latest = new JSONObject(AppUtils.getInfoFromAPI("https://covid19-api.vost.pt/Requests/get_last_update"));
     }
 
-    @Shortcut(id = "concelhos", icon = R.drawable.ic_concelho, shortLabel = "Concelhos")
-    public void concelhos() {
-        switching = true;
-        switchTab(0);
+    public void getSecond() throws JSONException, ParseException {
+        SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy", Locale.UK);
+        Date d = sdf.parse(StatusPortugal.latest.getString("data"));
+        Calendar yst = Calendar.getInstance();
+        yst.setTime(d);
+        yst.add(Calendar.DATE, -1);
+
+        Date date = yst.getTime();
+        SimpleDateFormat format1 = new SimpleDateFormat("dd-MM-yyyy", Locale.UK);
+        String stringYesterday = format1.format(date);
+
+        StatusPortugal.yesterday = new JSONObject(AppUtils.getInfoFromAPI("https://covid19-api.vost.pt/Requests/get_entry/" + stringYesterday));
     }
 
-    @Shortcut(id = "vacinacao", icon = R.drawable.ic_vac, shortLabel = "Vacinação")
-    public void vac() {
-        switching = true;
-        switchTab(1);
-    }
-
-    @Shortcut(id = "stats", icon = R.drawable.ic_stats, shortLabel = "Estatísticas")
-    public void stats() {
-        switching = true;
-        switchTab(2);
-    }
-
-    private void switchTab(int i1) {
-        Fragment f = null;
-        final AnimatedBottomBar abb = findViewById(R.id.bottom_bar);
-        switch (i1) {
-            case 2:
-                f = new fragment_statistics();
-                break;
-            case 1:
-                f = new fragment_vac();
-                break;
-            case 0:
-                f = new fragment_counties();
-                break;
-            case 3:
-                f = new fragment_recomendations();
-                break;
-            case 4:
-                f = new fragment_info();
-                break;
+    public void getVacData() throws JSONException {
+        StatusPortugal.vacList.clear();
+        JSONArray jsonArray = new JSONArray(AppUtils.getInfoFromAPI("https://vacinacaocovid19.pt/api/vaccines"));
+        if (jsonArray != null) {
+            for (int i = 0; i < jsonArray.length(); i++) {
+                StatusPortugal.vacList.add(jsonArray.getJSONObject(i));
+            }
         }
-        getSupportFragmentManager().beginTransaction().replace(R.id.container, f).commit();
-        abb.selectTabAt(i1, true);
+
+        Collections.reverse(StatusPortugal.vacList);
     }
 
     //dark mode support

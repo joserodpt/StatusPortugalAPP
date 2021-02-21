@@ -9,8 +9,7 @@
     <ScrollView
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginBottom="20dp"
-        app:layout_constraintBottom_toBottomOf="@+id/webText"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -20,12 +19,50 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:visibility="invisible">
+            android:visibility="visible">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/webAcess"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/background_darkmode">
+
+                <TextView
+                    android:id="@+id/webheader"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginEnd="3dp"
+                    android:layout_marginBottom="4dp"
+                    android:fontFamily="@font/roboto_medium"
+                    android:text="@string/website_info"
+                    android:textColor="?android:attr/textColorPrimaryInverse"
+                    android:textSize="14sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/webicon"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/webicon"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginBottom="8dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/ic_internet" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
             <LinearLayout
                 android:id="@+id/rec1"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_marginTop="6dp"
                 android:background="@drawable/round_back_grey"
                 android:orientation="vertical">
 
@@ -110,28 +147,12 @@
                     android:layout_marginStart="100dp"
                     android:layout_marginEnd="100dp"
                     android:layout_marginBottom="30dp"
-                    android:background="@drawable/scroll_background9"
+                    android:background="@drawable/background_blue"
                     android:text="@string/call"
                     android:textColor="@android:color/white" />
             </LinearLayout>
 
         </LinearLayout>
     </ScrollView>
-
-    <TextView
-        android:id="@+id/webText"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:background="@drawable/round_back_grey_solid"
-        android:fontFamily="@font/roboto_medium"
-        android:gravity="center"
-        android:text="@string/website_info"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
-        android:textSize="14sp"
-        android:textStyle="normal"
-        android:visibility="invisible"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

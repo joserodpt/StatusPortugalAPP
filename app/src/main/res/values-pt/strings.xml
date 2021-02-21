@@ -5,17 +5,17 @@
     <string name="latest_post">Última Atualização</string>
     <string name="loading_info">A carregar... Por favor aguarde...</string>
     <string name="name_day">Dia</string>
-    <string name="active_cases_name">"Casos Ativos: "</string>
-    <string name="recovered_cases">"Casos Recuperados: "</string>
-    <string name="deaths_name">"Óbitos: "</string>
-    <string name="surveilance_name">"Casos em Vigilância: "</string>
-    <string name="confirmed_name">"Casos Confirmados: "</string>
+    <string name="active_cases_name">Casos Ativos</string>
+    <string name="recovered_cases">Casos Recuperados</string>
+    <string name="deaths_name">Óbitos</string>
+    <string name="surveilance_name">Casos em Vigilância</string>
+    <string name="confirmed_name">Casos Confirmados</string>
     <string name="previous_day_name">Dia Anterior</string>
     <string name="more_info_name">Mais Informação do Dia</string>
     <string name="variation_name">Variação</string>
-    <string name="internados_total_name">"Total Internados: "</string>
-    <string name="interned_uci">"Internados em UCI: "</string>
-    <string name="interned_enfermaria">"Internados Enfermarias: "</string>
+    <string name="internados_total_name">Total Internados</string>
+    <string name="interned_uci">Internados em UCI</string>
+    <string name="interned_enfermaria">Internados Enfermarias</string>
     <string name="confirmed_north">"Confirmados Norte: "</string>
     <string name="confirmed_center">"Confirmados Centro: "</string>
     <string name="confirmed_lisbonvaledotejo">"Confirmados Lisboa Vale Tejo: "</string>
@@ -119,7 +119,7 @@
 
 <p>📞 Liga&nbsp;+351 808 24 24 24 📞</p>]]></string>
     <string name="about_app">Acerca desta App</string>
-    <string name="app_credit">Programação por José Rodrigues © 2021\nTradução Inglesa por Guilherme Soeiro\n\nEsta app usa as seguintes bibliotecas:\ncom.github.f0ris.sweetalert:library:1.6.2\ncom.zsoltsafrany:needle:1.0.0\nnl.joery.animatedbottombar:library:1.0.9\ncom.github.DonMat:searchablespinner:v1.0.1\ncom.github.matthiasrobbers:shortbread\ncom.daimajia.androidanimations\n\nCódigo-Fonte disponível no GitHub\nhttps://github.com/JoseGamerPT/StatusPortugalAPP\n\nFonte dos Dados, JSON API por VOST PORTUGAL / DSSG PORTUGAL | FONTES DE INFORMAÇÃO COMUNITÁRIAS</string>
+    <string name="app_credit">Programação por José Rodrigues © 2021\nTradução Inglesa por Guilherme Soeiro\n\nEsta app usa as seguintes bibliotecas:\ncom.github.f0ris.sweetalert:library:1.6.2\ncom.zsoltsafrany:needle:1.0.0\nnl.joery.animatedbottombar:library:1.0.9\ncom.github.DonMat:searchablespinner:v1.0.1\ncom.daimajia.androidanimations\n\nCódigo-Fonte disponível no GitHub\nhttps://github.com/JoseGamerPT/StatusPortugalAPP\n\nFonte dos Dados, JSON API por VOST PORTUGAL / DSSG PORTUGAL | FONTES DE INFORMAÇÃO COMUNITÁRIAS</string>
     <string name="save">Guardar</string>
     <string name="no_internet">Não é possível ligar ao servidor. Por favor verifica a tua ligação à Internet.</string>
     <string name="refresh_name">Voltar a Tentar</string>
@@ -127,8 +127,8 @@
     <string name="call">Ligar</string>
     <string name="internados_new_name">"Internados: "</string>
     <string name="variation_new_cases">variação)</string>
-    <string name="open_github">Clica para abrir a página do GitHub</string>
-    <string name="app_version">Versão 17/2/2021 Compilação 1</string>
+    <string name="open_github">Clica para abrir a página do GitHub 🌐</string>
+    <string name="app_version">Versão 20/2/2021 Compilação 1</string>
     <string name="concelho_name">Concelhos</string>
     <string name="concelho_tip">Seleciona um Concelho da lista para obter mais informação.</string>
     <string name="concelho_select">Selecionar Concelho</string>
@@ -193,4 +193,6 @@
     <string name="moredata_name">Dados Adicionais</string>
     <string name="click_2load">Pressiona para Carregar.</string>
     <string name="website2_info">Clica aqui para aceder a um site para obter mais informações sobre este tópico.</string>
+    <string name="data_info">De onde provêm estes Dados?</string>
+    <string name="about_data">Os dados vêm de fontes comunitárias, mantidas por grupos comunitários. São extraidos de dados OFICIAIS das entidades responsáveis.</string>
 </resources>

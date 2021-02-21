@@ -11,9 +11,6 @@ import android.widget.TextView;
 import androidx.core.text.HtmlCompat;
 import androidx.fragment.app.Fragment;
 
-import com.daimajia.androidanimations.library.Techniques;
-import com.daimajia.androidanimations.library.YoYo;
-
 import pt.josegamerpt.statusportugal.R;
 
 /**
@@ -74,7 +71,7 @@ public class fragment_recomendations extends Fragment {
         ((TextView) v.findViewById(R.id.infoText2)).setText(HtmlCompat.fromHtml(getContext().getString(R.string.recomend_string_2), HtmlCompat.FROM_HTML_MODE_LEGACY), TextView.BufferType.SPANNABLE);
         ((TextView) v.findViewById(R.id.infoText3)).setText(HtmlCompat.fromHtml(getContext().getString(R.string.recomend_string_3), HtmlCompat.FROM_HTML_MODE_LEGACY), TextView.BufferType.NORMAL);
 
-        v.findViewById(R.id.webText).setOnClickListener(v1 -> {
+        v.findViewById(R.id.webAcess).setOnClickListener(v1 -> {
             Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://pandemiaclara.sapo.pt/"));
             startActivity(browserIntent);
         });
@@ -84,17 +81,6 @@ public class fragment_recomendations extends Fragment {
             intent.setData(Uri.parse("tel:+351808242424"));
             startActivity(intent);
         });
-
-        //showwithanimation
-        v.findViewById(R.id.dicamain).setVisibility(View.VISIBLE);
-        v.findViewById(R.id.webText).setVisibility(View.VISIBLE);
-
-        YoYo.with(Techniques.SlideInUp)
-                .duration(700)
-                .playOn(v.findViewById(R.id.dicamain));
-        YoYo.with(Techniques.FadeInUp)
-                .duration(700)
-                .playOn(v.findViewById(R.id.webText));
 
         return v;
     }

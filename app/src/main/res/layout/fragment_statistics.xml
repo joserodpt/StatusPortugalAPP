@@ -1,233 +1,843 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="pt.josegamerpt.statusportugal.fragments.fragment_statistics">
+    android:foregroundTintMode="src_atop">
 
     <LinearLayout
         android:id="@+id/main"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:visibility="invisible">
+        android:visibility="visible">
 
-        <LinearLayout
-            android:id="@+id/latestdata"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/lastUpd"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@drawable/scroll_background"
-            android:orientation="vertical">
+            android:layout_height="wrap_content"
+            android:background="@drawable/background_darkmode">
 
             <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal">
+                android:id="@+id/clikData"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginBottom="4dp"
+                android:background="@drawable/button_gray"
+                android:orientation="horizontal"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/latestUpdDay">
+
+                <ImageView
+                    android:id="@+id/imageView5"
+                    android:layout_width="13sp"
+                    android:layout_height="13sp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="3dp"
+                    app:srcCompat="@drawable/ic_info" />
 
                 <TextView
-                    android:id="@+id/latestheader"
+                    android:id="@+id/latestUpdWhereData"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="2dp"
+                    android:layout_marginEnd="3dp"
+                    android:fontFamily="@font/roboto"
+                    android:text="@string/data_info"
+                    android:textColor="?android:attr/textColorPrimaryInverse"
+                    android:textSize="12sp" />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/latestUpdHeader"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="4dp"
+                android:fontFamily="@font/roboto_medium"
+                android:text="@string/latest_post"
+                android:textColor="?android:attr/textColorPrimaryInverse"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/latestUpdDay"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:fontFamily="@font/roboto_bold"
+                android:text="@string/latest_post"
+                android:textColor="?android:attr/textColorPrimaryInverse"
+                android:textSize="24sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/latestUpdHeader" />
+
+            <ImageView
+                android:id="@+id/clockimg"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginEnd="16dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ic_clock" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/lastUpdInfo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/background_blue">
+
+            <LinearLayout
+                android:id="@+id/linearLayout"
+                android:layout_width="0dp"
+                android:layout_height="32dp"
+                android:background="@drawable/background_gray"
+                android:orientation="horizontal"
+                android:weightSum="2"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <TextView
+                    android:id="@+id/firstPost"
                     android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_marginStart="5dp"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginEnd="5dp"
-                    android:layout_weight="1"
-                    android:gravity="center_horizontal"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="16dp"
+                    android:layout_weight="1.2"
+                    android:fontFamily="@font/roboto_bold"
                     android:text="@string/latest_post"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Body2"
-                    android:textColor="@android:color/white"
-                    android:textSize="18sp" />
+                    android:textColor="?android:attr/textColorPrimaryInverse"
+                    android:textSize="24sp" />
 
                 <TextView
-                    android:id="@+id/latestheader2"
+                    android:id="@+id/firstPost2"
                     android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_marginStart="5dp"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginEnd="10dp"
-                    android:layout_weight="0"
-                    android:gravity="center_horizontal"
-                    android:text="@string/name_day"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Body2"
-                    android:textColor="@android:color/white"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginEnd="8dp"
+                    android:layout_weight="0.8"
+                    android:fontFamily="@font/roboto_bold"
+                    android:gravity="right"
+                    android:text="asd"
+                    android:textColor="?android:attr/textColorPrimaryInverse"
                     android:textSize="18sp" />
             </LinearLayout>
 
-            <TextView
-                android:id="@+id/latestinfo"
+            <TableLayout
+                android:id="@+id/tableLayout"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginTop="5dp"
-                android:background="@drawable/round_back_grey"
-                android:gravity="center"
-                android:text="@string/loading_info"
-                android:textColor="@android:color/white"
-                android:textSize="18sp" />
-        </LinearLayout>
+                android:layout_height="wrap_content"
+                android:shrinkColumns="3"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/linearLayout">
 
-        <LinearLayout
-            android:id="@+id/variationdata"
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:showDividers="middle">
+
+                    <TextView
+                        android:id="@+id/latestLine1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginStart="8dp"
+                        android:layout_weight="0.7"
+                        android:fontFamily="@font/roboto_medium"
+                        android:text="@string/confirmed_name"
+                        android:textColor="?android:attr/textColorPrimaryInverse"
+                        android:textSize="18sp" />
+
+                    <TextView
+                        android:id="@+id/latestLine1Info"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginEnd="5dp"
+                        android:layout_weight="0.9"
+                        android:fontFamily="@font/roboto_medium"
+                        android:gravity="right"
+                        android:text="asd"
+                        android:textColor="?android:attr/textColorPrimaryInverse"
+                        android:textSize="18sp" />
+
+                    <ImageView
+                        android:id="@+id/line1Ind"
+                        android:layout_width="22sp"
+                        android:layout_height="22sp"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginEnd="8dp"
+                        android:layout_weight="0.2"
+                        app:srcCompat="@drawable/ic_down_arrow" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:showDividers="middle">
+
+                    <TextView
+                        android:id="@+id/latestLine2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginStart="8dp"
+                        android:layout_weight="0.7"
+                        android:fontFamily="@font/roboto_medium"
+                        android:text="@string/recovered_cases"
+                        android:textColor="?android:attr/textColorPrimaryInverse"
+                        android:textSize="18sp" />
+
+                    <TextView
+                        android:id="@+id/latestLine2Info"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginEnd="5dp"
+                        android:layout_weight="0.9"
+                        android:fontFamily="@font/roboto_medium"
+                        android:gravity="right"
+                        android:text="asd"
+                        android:textColor="?android:attr/textColorPrimaryInverse"
+                        android:textSize="18sp" />
+
+                    <ImageView
+                        android:id="@+id/line2Ind"
+                        android:layout_width="22sp"
+                        android:layout_height="22sp"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginEnd="8dp"
+                        android:layout_weight="0.2"
+                        app:srcCompat="@drawable/ic_down_arrow" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:showDividers="middle">
+
+                    <TextView
+                        android:id="@+id/latestLine3"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginStart="8dp"
+                        android:layout_weight="0.7"
+                        android:fontFamily="@font/roboto_medium"
+                        android:text="@string/surveilance_name"
+                        android:textColor="?android:attr/textColorPrimaryInverse"
+                        android:textSize="18sp" />
+
+                    <TextView
+                        android:id="@+id/latestLine3Info"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginEnd="5dp"
+                        android:layout_weight="0.9"
+                        android:fontFamily="@font/roboto_medium"
+                        android:gravity="right"
+                        android:text="asd"
+                        android:textColor="?android:attr/textColorPrimaryInverse"
+                        android:textSize="18sp" />
+
+                    <ImageView
+                        android:id="@+id/line3Ind"
+                        android:layout_width="22sp"
+                        android:layout_height="22sp"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginEnd="8dp"
+                        android:layout_weight="0.2"
+                        app:srcCompat="@drawable/ic_down_arrow" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:showDividers="middle">
+
+                    <TextView
+                        android:id="@+id/latestLine4"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginStart="8dp"
+                        android:layout_weight="0.7"
+                        android:fontFamily="@font/roboto_medium"
+                        android:text="@string/active_cases_name"
+                        android:textColor="?android:attr/textColorPrimaryInverse"
+                        android:textSize="18sp" />
+
+                    <TextView
+                        android:id="@+id/latestLine4Info"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginEnd="5dp"
+                        android:layout_weight="0.9"
+                        android:fontFamily="@font/roboto_medium"
+                        android:gravity="right"
+                        android:text="asd"
+                        android:textColor="?android:attr/textColorPrimaryInverse"
+                        android:textSize="18sp" />
+
+                    <ImageView
+                        android:id="@+id/line4Ind"
+                        android:layout_width="22sp"
+                        android:layout_height="22sp"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginEnd="8dp"
+                        android:layout_weight="0.2"
+                        app:srcCompat="@drawable/ic_down_arrow" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:showDividers="middle">
+
+                    <TextView
+                        android:id="@+id/latestLine5"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginStart="8dp"
+                        android:layout_weight="0.7"
+                        android:fontFamily="@font/roboto_medium"
+                        android:text="@string/interned_uci"
+                        android:textColor="?android:attr/textColorPrimaryInverse"
+                        android:textSize="18sp" />
+
+                    <TextView
+                        android:id="@+id/latestLine5Info"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginEnd="5dp"
+                        android:layout_weight="0.9"
+                        android:fontFamily="@font/roboto_medium"
+                        android:gravity="right"
+                        android:text="asd"
+                        android:textColor="?android:attr/textColorPrimaryInverse"
+                        android:textSize="18sp" />
+
+                    <ImageView
+                        android:id="@+id/line5Ind"
+                        android:layout_width="22sp"
+                        android:layout_height="22sp"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginEnd="8dp"
+                        android:layout_weight="0.2"
+                        app:srcCompat="@drawable/ic_down_arrow" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:showDividers="middle">
+
+                    <TextView
+                        android:id="@+id/latestLine6"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginStart="8dp"
+                        android:layout_weight="0.7"
+                        android:fontFamily="@font/roboto_medium"
+                        android:text="@string/interned_enfermaria"
+                        android:textColor="?android:attr/textColorPrimaryInverse"
+                        android:textSize="18sp" />
+
+                    <TextView
+                        android:id="@+id/latestLine6Info"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginEnd="5dp"
+                        android:layout_weight="0.9"
+                        android:fontFamily="@font/roboto_medium"
+                        android:gravity="right"
+                        android:text="asd"
+                        android:textColor="?android:attr/textColorPrimaryInverse"
+                        android:textSize="18sp" />
+
+                    <ImageView
+                        android:id="@+id/line6Ind"
+                        android:layout_width="22sp"
+                        android:layout_height="22sp"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginEnd="8dp"
+                        android:layout_weight="0.2"
+                        app:srcCompat="@drawable/ic_down_arrow" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:showDividers="middle">
+
+                    <TextView
+                        android:id="@+id/latestLine7"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginStart="8dp"
+                        android:layout_weight="0.7"
+                        android:fontFamily="@font/roboto_medium"
+                        android:text="@string/internados_total_name"
+                        android:textColor="?android:attr/textColorPrimaryInverse"
+                        android:textSize="18sp" />
+
+                    <TextView
+                        android:id="@+id/latestLine7Info"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginEnd="5dp"
+                        android:layout_weight="0.9"
+                        android:fontFamily="@font/roboto_medium"
+                        android:gravity="right"
+                        android:text="asd"
+                        android:textColor="?android:attr/textColorPrimaryInverse"
+                        android:textSize="18sp" />
+
+                    <ImageView
+                        android:id="@+id/line7Ind"
+                        android:layout_width="22sp"
+                        android:layout_height="22sp"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginEnd="8dp"
+                        android:layout_weight="0.2"
+                        app:srcCompat="@drawable/ic_down_arrow" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:showDividers="middle">
+
+                    <TextView
+                        android:id="@+id/latestLine8"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginStart="8dp"
+                        android:layout_weight="0.7"
+                        android:fontFamily="@font/roboto_medium"
+                        android:text="@string/deaths_name"
+                        android:textColor="?android:attr/textColorPrimaryInverse"
+                        android:textSize="18sp" />
+
+                    <TextView
+                        android:id="@+id/latestLine8Info"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginEnd="5dp"
+                        android:layout_weight="0.9"
+                        android:fontFamily="@font/roboto_medium"
+                        android:gravity="right"
+                        android:text="asd"
+                        android:textColor="?android:attr/textColorPrimaryInverse"
+                        android:textSize="18sp" />
+
+                    <ImageView
+                        android:id="@+id/line8Ind"
+                        android:layout_width="22sp"
+                        android:layout_height="22sp"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginEnd="8dp"
+                        android:layout_weight="0.2"
+                        app:srcCompat="@drawable/ic_down_arrow" />
+                </TableRow>
+
+            </TableLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/yesterdayInfo"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginTop="5dp"
-            android:background="@drawable/scroll_background3"
-            android:orientation="vertical">
+            android:layout_marginTop="8dp"
+            android:background="@drawable/background_blue">
 
             <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal">
+                android:id="@+id/headeryes"
+                android:layout_width="0dp"
+                android:layout_height="32dp"
+                android:background="@drawable/background_gray"
+                android:orientation="horizontal"
+                android:weightSum="2"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
 
                 <TextView
-                    android:id="@+id/variationdataheader1"
+                    android:id="@+id/yesPost"
                     android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_marginStart="5dp"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginEnd="5dp"
-                    android:layout_weight="1"
-                    android:gravity="center_horizontal"
-                    android:text="@string/variation_name"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Body2"
-                    android:textColor="@android:color/white"
-                    android:textSize="18sp" />
-
-                <TextView
-                    android:id="@+id/variationdataheader2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_marginStart="5dp"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginEnd="10dp"
-                    android:layout_weight="0"
-                    android:gravity="center_horizontal"
-                    android:text="@string/name_day"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Body2"
-                    android:textColor="@android:color/white"
-                    android:textSize="18sp" />
-            </LinearLayout>
-
-            <TextView
-                android:id="@+id/variationdatainfo"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginTop="5dp"
-                android:background="@drawable/round_back_grey"
-                android:gravity="center"
-                android:text="@string/loading_info"
-                android:textColor="@android:color/white"
-                android:textSize="18sp" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/yesterdaydata"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginTop="5dp"
-            android:background="@drawable/scroll_background4"
-            android:orientation="vertical">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:id="@+id/yesterdayHead"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_marginStart="5dp"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginEnd="5dp"
-                    android:layout_weight="1"
-                    android:gravity="center_horizontal"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="16dp"
+                    android:layout_weight="1.2"
+                    android:fontFamily="@font/roboto_bold"
                     android:text="@string/previous_day_name"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Body2"
-                    android:textColor="@android:color/white"
-                    android:textSize="18sp" />
+                    android:textColor="?android:attr/textColorPrimaryInverse"
+                    android:textSize="24sp" />
 
                 <TextView
-                    android:id="@+id/yesterdayHeader2"
+                    android:id="@+id/yesPostDate"
                     android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_marginStart="5dp"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginEnd="10dp"
-                    android:layout_weight="0"
-                    android:gravity="center_horizontal"
-                    android:text="@string/name_day"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Body2"
-                    android:textColor="@android:color/white"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginEnd="8dp"
+                    android:layout_weight="0.8"
+                    android:fontFamily="@font/roboto_bold"
+                    android:gravity="right"
+                    android:text="asd"
+                    android:textColor="?android:attr/textColorPrimaryInverse"
                     android:textSize="18sp" />
             </LinearLayout>
 
-            <TextView
-                android:id="@+id/yestedayInfo"
+            <TableLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginTop="5dp"
-                android:background="@drawable/round_back_grey"
-                android:gravity="center"
-                android:text="@string/loading_info"
-                android:textColor="@android:color/white"
-                android:textSize="18sp" />
-        </LinearLayout>
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/headeryes">
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:showDividers="middle"
+                    android:weightSum="1">
+
+                    <TextView
+                        android:id="@+id/yesterdayLine1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginStart="8dp"
+                        android:layout_weight="0.73"
+                        android:fontFamily="@font/roboto_medium"
+                        android:text="@string/confirmed_name"
+                        android:textColor="?android:attr/textColorPrimaryInverse"
+                        android:textSize="18sp" />
+
+                    <TextView
+                        android:id="@+id/yesterdayLine1Info"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_weight="0.2"
+                        android:fontFamily="@font/roboto_medium"
+                        android:gravity="right"
+                        android:text="asd"
+                        android:textColor="?android:attr/textColorPrimaryInverse"
+                        android:textSize="18sp" />
+
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:showDividers="middle"
+                    android:weightSum="1">
+
+                    <TextView
+                        android:id="@+id/yesterdayLine2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginStart="8dp"
+                        android:layout_weight="0.73"
+                        android:fontFamily="@font/roboto_medium"
+                        android:text="@string/recovered_cases"
+                        android:textColor="?android:attr/textColorPrimaryInverse"
+                        android:textSize="18sp" />
+
+                    <TextView
+                        android:id="@+id/yesterdayLine2Info"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_weight="0.2"
+                        android:fontFamily="@font/roboto_medium"
+                        android:gravity="right"
+                        android:text="asd"
+                        android:textColor="?android:attr/textColorPrimaryInverse"
+                        android:textSize="18sp" />
+
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:showDividers="middle"
+                    android:weightSum="1">
+
+                    <TextView
+                        android:id="@+id/yesterdayLine3"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginStart="8dp"
+                        android:layout_weight="0.73"
+                        android:fontFamily="@font/roboto_medium"
+                        android:text="@string/surveilance_name"
+                        android:textColor="?android:attr/textColorPrimaryInverse"
+                        android:textSize="18sp" />
+
+                    <TextView
+                        android:id="@+id/yesterdayLine3Info"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_weight="0.2"
+                        android:fontFamily="@font/roboto_medium"
+                        android:gravity="right"
+                        android:text="asd"
+                        android:textColor="?android:attr/textColorPrimaryInverse"
+                        android:textSize="18sp" />
 
 
-        <LinearLayout
-            android:id="@+id/totaldata"
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:showDividers="middle"
+                    android:weightSum="1">
+
+                    <TextView
+                        android:id="@+id/yesterdayLine4"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginStart="8dp"
+                        android:layout_weight="0.73"
+                        android:fontFamily="@font/roboto_medium"
+                        android:text="@string/active_cases_name"
+                        android:textColor="?android:attr/textColorPrimaryInverse"
+                        android:textSize="18sp" />
+
+                    <TextView
+                        android:id="@+id/yesterdayLine4Info"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_weight="0.2"
+                        android:fontFamily="@font/roboto_medium"
+                        android:gravity="right"
+                        android:text="asd"
+                        android:textColor="?android:attr/textColorPrimaryInverse"
+                        android:textSize="18sp" />
+
+
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:showDividers="middle"
+                    android:weightSum="1">
+
+                    <TextView
+                        android:id="@+id/yesterdayLine5"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginStart="8dp"
+                        android:layout_weight="0.73"
+                        android:fontFamily="@font/roboto_medium"
+                        android:text="@string/interned_uci"
+                        android:textColor="?android:attr/textColorPrimaryInverse"
+                        android:textSize="18sp" />
+
+                    <TextView
+                        android:id="@+id/yesterdayLine5Info"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_weight="0.2"
+                        android:fontFamily="@font/roboto_medium"
+                        android:gravity="right"
+                        android:text="asd"
+                        android:textColor="?android:attr/textColorPrimaryInverse"
+                        android:textSize="18sp" />
+
+
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:showDividers="middle"
+                    android:weightSum="1">
+
+                    <TextView
+                        android:id="@+id/yesterdayLine6"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginStart="8dp"
+                        android:layout_weight="0.73"
+                        android:fontFamily="@font/roboto_medium"
+                        android:text="@string/interned_enfermaria"
+                        android:textColor="?android:attr/textColorPrimaryInverse"
+                        android:textSize="18sp" />
+
+                    <TextView
+                        android:id="@+id/yesterdayLine6Info"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_weight="0.2"
+                        android:fontFamily="@font/roboto_medium"
+                        android:gravity="right"
+                        android:text="asd"
+                        android:textColor="?android:attr/textColorPrimaryInverse"
+                        android:textSize="18sp" />
+
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:showDividers="middle"
+                    android:weightSum="1">
+
+                    <TextView
+                        android:id="@+id/yesterdayLine7"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginStart="8dp"
+                        android:layout_weight="0.73"
+                        android:fontFamily="@font/roboto_medium"
+                        android:text="@string/internados_total_name"
+                        android:textColor="?android:attr/textColorPrimaryInverse"
+                        android:textSize="18sp" />
+
+                    <TextView
+                        android:id="@+id/yesterdayLine7Info"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_weight="0.2"
+                        android:fontFamily="@font/roboto_medium"
+                        android:gravity="right"
+                        android:text="asd"
+                        android:textColor="?android:attr/textColorPrimaryInverse"
+                        android:textSize="18sp" />
+
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:showDividers="middle"
+                    android:weightSum="1">
+
+                    <TextView
+                        android:id="@+id/yesterdayLine8"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginStart="8dp"
+                        android:layout_weight="0.73"
+                        android:fontFamily="@font/roboto_medium"
+                        android:text="@string/deaths_name"
+                        android:textColor="?android:attr/textColorPrimaryInverse"
+                        android:textSize="18sp" />
+
+                    <TextView
+                        android:id="@+id/yesterdayLine8Info"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_weight="0.2"
+                        android:fontFamily="@font/roboto_medium"
+                        android:gravity="right"
+                        android:text="asd"
+                        android:textColor="?android:attr/textColorPrimaryInverse"
+                        android:textSize="18sp" />
+
+                </TableRow>
+
+            </TableLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/moreInfo"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginTop="5dp"
-            android:background="@drawable/scroll_background2"
-            android:orientation="vertical">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:id="@+id/moredataheader1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_marginStart="5dp"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginEnd="5dp"
-                    android:layout_weight="1"
-                    android:gravity="center_horizontal"
-                    android:text="@string/more_info_name"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Body2"
-                    android:textColor="@android:color/white"
-                    android:textSize="18sp" />
-
-                <TextView
-                    android:id="@+id/moredataheader2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_marginStart="5dp"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginEnd="10dp"
-                    android:layout_weight="0"
-                    android:gravity="center_horizontal"
-                    android:text="@string/name_day"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Body2"
-                    android:textColor="@android:color/white"
-                    android:textSize="18sp" />
-            </LinearLayout>
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/background_blue">
 
             <TextView
-                android:id="@+id/totaldatainfo"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginTop="5dp"
-                android:background="@drawable/round_back_grey"
-                android:gravity="center"
-                android:text="@string/loading_info"
-                android:textColor="@android:color/white"
-                android:textSize="18sp" />
-        </LinearLayout>
+                android:id="@+id/moreInfoHeader"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/background_gray"
+                android:fontFamily="@font/roboto_bold"
+                android:paddingStart="16dp"
+                android:text="@string/moredata_name"
+                android:textColor="?android:attr/textColorPrimaryInverse"
+                android:textSize="24sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TableLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/moreInfoHeader">
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/moreData"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:fontFamily="@font/roboto_medium"
+                        android:text="Última Atualização"
+                        android:textColor="?android:attr/textColorPrimaryInverse"
+                        android:textSize="18sp" />
+                </TableRow>
+
+            </TableLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
 
     </LinearLayout>
 
-    </ScrollView>
+</ScrollView>

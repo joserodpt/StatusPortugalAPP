@@ -18,9 +18,6 @@ import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 
-import com.daimajia.androidanimations.library.Techniques;
-import com.daimajia.androidanimations.library.YoYo;
-
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -135,20 +132,13 @@ public class fragment_counties extends Fragment {
             return false;
         });
 
-        //showwithanimation
-        v.findViewById(R.id.concFrame).setVisibility(View.VISIBLE);
-
-        YoYo.with(Techniques.SlideInUp)
-                .duration(700)
-                .playOn(v.findViewById(R.id.concFrame));
-
         return v;
     }
 
     private void refresh(String con) {
         if (hasInternetAccess(c)) {
             SweetAlertDialog loadingDialog = new SweetAlertDialog(getActivity(), SweetAlertDialog.PROGRESS_TYPE);
-            loadingDialog.getProgressHelper().setBarColor(Color.rgb(51, 51, 255));
+            loadingDialog.getProgressHelper().setBarColor(Color.rgb(53, 106, 251));
             loadingDialog.setTitleText(c.getString(R.string.loading_info));
             loadingDialog.setCancelable(false);
             loadingDialog.show();
@@ -172,11 +162,13 @@ public class fragment_counties extends Fragment {
                         }
 
                         loadingDialog.dismissWithAnimation();
-                    } catch (JSONException e) {
+                    } catch (Exception e) {
                         e.printStackTrace();
 
                         TextView tlatest = v.findViewById(R.id.conc);
                         tlatest.setText(e.getMessage());
+
+                        loadingDialog.dismissWithAnimation();
                     }
                 }
             });

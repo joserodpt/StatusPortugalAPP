@@ -1,21 +1,21 @@
 <resources>
     <string name="app_name">"Status Portugal"</string>
-    <string name="app_version">Version 17/2/2021 Build 1</string>
+    <string name="app_version">Version 20/2/2021 Build 1</string>
     <string name="app_header">Statistics</string>
     <string name="latest_post">Latest Update</string>
     <string name="loading_info">Loading... Please wait...</string>
     <string name="name_day">Day</string>
-    <string name="active_cases_name">"Active Cases: "</string>
-    <string name="recovered_cases">"Recovered Cases: "</string>
-    <string name="deaths_name">"Deaths: "</string>
-    <string name="surveilance_name">"Cases in Surveilance: "</string>
-    <string name="confirmed_name">"Confirmed Cases: "</string>
+    <string name="active_cases_name">Active Cases</string>
+    <string name="recovered_cases">Recovered Cases</string>
+    <string name="deaths_name">Deaths</string>
+    <string name="surveilance_name">Cases in Surveilance</string>
+    <string name="confirmed_name">Confirmed Cases</string>
     <string name="previous_day_name">Previous Day</string>
     <string name="more_info_name">More Information from</string>
     <string name="variation_name">Variation</string>
-    <string name="internados_total_name">"Total Interned: "</string>
-    <string name="interned_uci">Interned in ICU: </string>
-    <string name="interned_enfermaria">Interned in Nursery: </string>
+    <string name="internados_total_name">Total Interned</string>
+    <string name="interned_uci">Interned in ICU</string>
+    <string name="interned_enfermaria">Interned in Nursery</string>
     <string name="confirmed_north">Confirmed North: </string>
     <string name="confirmed_center">Confirmed Center: </string>
     <string name="confirmed_lisbonvaledotejo">Confirmed Lisbon Vale Tejo: </string>
@@ -170,7 +170,7 @@
 </html>
 ]]></string>
     <string name="about_app">About this App</string>
-    <string name="app_credit">App Development by José Rodrigues © 2021\nEnglish translations by Guilherme Soeiro\n\nThis App uses the following libraries:\ncom.github.f0ris.sweetalert:library:1.6.2\ncom.zsoltsafrany:needle:1.0.0\nnl.joery.animatedbottombar:library:1.0.9\ncom.github.DonMat:searchablespinner:v1.0.1\ncom.github.matthiasrobbers:shortbread\ncom.daimajia.androidanimations\n\nSource-code available on GitHub\nhttps://github.com/JoseGamerPT/StatusPortugalAPP\n\nData Source, JSON API by VOST PORTUGAL / DSSG PORTUGAL | COMMUNITY INFORMATION SOURCES</string>
+    <string name="app_credit">App Development by José Rodrigues © 2021\nEnglish translations by Guilherme Soeiro\n\nThis App uses the following libraries:\ncom.github.f0ris.sweetalert:library:1.6.2\ncom.zsoltsafrany:needle:1.0.0\nnl.joery.animatedbottombar:library:1.0.9\ncom.github.DonMat:searchablespinner:v1.0.1\ncom.daimajia.androidanimations\n\nSource-code available on GitHub\nhttps://github.com/JoseGamerPT/StatusPortugalAPP\n\nData Source, JSON API by VOST PORTUGAL / DSSG PORTUGAL | COMMUNITY INFORMATION SOURCES</string>
     <string name="save">Save</string>
     <string name="no_internet">Can\'t connect to the server. Please check your internet connection.</string>
     <string name="refresh_name">Retry</string>
@@ -178,7 +178,7 @@
     <string name="call">Call</string>
     <string name="internados_new_name">"Interned: "</string>
     <string name="variation_new_cases">variation)</string>
-    <string name="open_github">Click to Open the GitHub Page</string>
+    <string name="open_github">Click to Open the GitHub Page 🌐</string>
     <string name="concelho_name">Counties</string>
     <string name="concelho_tip">Select a County from the list to get more details.</string>
     <string name="concelho_select">Select County</string>
@@ -187,7 +187,7 @@
     <string name="ars_name">Regional Health Administration</string>
     <string name="incidence_name">"Incidence: "</string>
     <string name="incidence_cat">"Incidence Category: "</string>
-    <string name="incidence_risk">"Incidence RIsk: "</string>
+    <string name="incidence_risk">"Incidence Risk: "</string>
     <string name="population_name">Population:</string>
     <string name="population_density">"Population Density: "</string>
     <string name="concelho_none">There is no Data for that County.</string>
@@ -200,4 +200,6 @@
     <string name="moredata_name">More Data</string>
     <string name="click_2load">Long Press to load.</string>
     <string name="website2_info">Click here to access an website to view more data about this topic."</string>
+    <string name="data_info">Where does this data come from?</string>
+    <string name="about_data">Data comes from communitary sources, maintained by community members. This data is extracted from OFICIAL data provided by the responsible authorities.</string>
 </resources>
