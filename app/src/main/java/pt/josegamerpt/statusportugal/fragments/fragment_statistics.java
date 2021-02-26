@@ -146,7 +146,7 @@ public class fragment_statistics extends Fragment {
 
             //yesterday
             //line1
-            ((TextView) v.findViewById(R.id.yesterdayLine1Info)).setText(String.valueOf(yesterday_infetados));
+            ((TextView) v.findViewById(R.id.yesterdayLine1Info)).setText(String.valueOf(yesterday_new_cases));
             //line2
             ((TextView) v.findViewById(R.id.yesterdayLine2Info)).setText(String.valueOf(yesterday_recuperados));
             //line3

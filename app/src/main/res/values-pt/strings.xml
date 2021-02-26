@@ -128,18 +128,18 @@
     <string name="internados_new_name">"Internados: "</string>
     <string name="variation_new_cases">variação)</string>
     <string name="open_github">Clica para abrir a página do GitHub 🌐</string>
-    <string name="app_version">Versão 20/2/2021 Compilação 1</string>
+    <string name="app_version">Versão 26/2/2021 Compilação 1</string>
     <string name="concelho_name">Concelhos</string>
     <string name="concelho_tip">Seleciona um Concelho da lista para obter mais informação.</string>
     <string name="concelho_select">Selecionar Concelho</string>
     <string name="concelho_selected">Concelho</string>
     <string name="district_name">Distrito</string>
-    <string name="ars_name">Administração Regional de Saúde</string>
-    <string name="incidence_name">"Incidência: "</string>
-    <string name="incidence_cat">"Categoria da Incidência: "</string>
-    <string name="incidence_risk">"Risco da Incidência: "</string>
-    <string name="population_name">"População: "</string>
-    <string name="population_density">"Densidade Populacional: "</string>
+    <string name="ars_name">ARS</string>
+    <string name="incidence_name">Incidência</string>
+    <string name="incidence_cat">Categoria da Incidência</string>
+    <string name="incidence_risk">Risco da Incidência</string>
+    <string name="population_name">População</string>
+    <string name="population_density">Densidade Populacional</string>
     <string name="concelho_none">Não há dados para esse Concelho.</string>
     <string name="missing_data">\?</string>
     <string name="recomend_string_4"><![CDATA[
@@ -194,5 +194,6 @@
     <string name="click_2load">Pressiona para Carregar.</string>
     <string name="website2_info">Clica aqui para aceder a um site para obter mais informações sobre este tópico.</string>
     <string name="data_info">De onde provêm estes Dados?</string>
-    <string name="about_data">Os dados vêm de fontes comunitárias, mantidas por grupos comunitários. São extraidos de dados OFICIAIS das entidades responsáveis.</string>
+    <string name="about_data">Os dados vêm de fontes comunitárias, mantidas por grupos comunitários. São extraidos de dados OFICIAIS das entidades responsáveis. Estes dados podem estar atrasados em relação aos dados mais recentes.</string>
+    <string name="slogan">Ser Paciente 😷 ou ser Paciente ⏳?</string>
 </resources>

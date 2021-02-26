@@ -6,72 +6,330 @@
     android:layout_height="match_parent"
     tools:context=".fragments.fragment_counties">
 
-    <ScrollView
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/countilayout"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:background="@drawable/background_gray"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
-            android:id="@+id/concFrame"
+            android:id="@+id/linearLayout"
+            android:layout_width="0dp"
+            android:layout_height="32dp"
+            android:background="@drawable/background_gray"
+            android:orientation="horizontal"
+            android:weightSum="2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/countiname"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="1.5"
+                android:fontFamily="@font/roboto_bold"
+                android:paddingStart="16dp"
+                android:text="@string/concelho_selected"
+                android:textColor="?android:attr/textColorPrimaryInverse"
+                android:textSize="24sp" />
+
+            <pl.utkala.searchablespinner.SearchableSpinner
+                android:id="@+id/spinnerConcelhos"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="0.5"
+                android:entries="@array/concelhos"
+                android:fontFamily="@font/roboto_bold"
+                android:spinnerMode="dropdown"
+                android:textColor="?android:attr/textColorPrimary"
+                android:textSize="18sp" />
+        </LinearLayout>
+
+        <TableLayout
+            android:id="@+id/tableLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="6dp"
-            android:background="@drawable/round_back_grey"
-            android:orientation="vertical"
-            android:visibility="visible">
+            android:divider="@android:color/black"
+            android:showDividers="middle"
+            android:stretchColumns="1"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout">
 
-            <LinearLayout
+            <TableRow
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="horizontal">
+                android:showDividers="middle"
+                android:weightSum="2">
 
                 <TextView
-                    android:id="@+id/conc2"
+                    android:id="@+id/latestLine2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="8dp"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/roboto_medium"
+                    android:text="@string/ars_name"
+                    android:textColor="?android:attr/textColorPrimaryInverse"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/latestLine2Info"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginTop="8dp"
-                    android:fontFamily="@font/roboto"
-                    android:gravity="clip_horizontal"
-                    android:text="@string/concelho_selected"
-                    android:textColor="?android:attr/textColorPrimary"
-                    android:textSize="21sp" />
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginEnd="10dp"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/roboto_medium"
+                    android:gravity="right"
+                    android:text="- "
+                    android:textColor="?android:attr/textColorPrimaryInverse"
+                    android:textSize="18sp" />
 
-                <pl.utkala.searchablespinner.SearchableSpinner
-                    android:id="@+id/spinnerConcelhos"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:entries="@array/concelhos"
-                    android:spinnerMode="dropdown"
-                    android:textAlignment="center" />
-            </LinearLayout>
+            </TableRow>
 
-            <LinearLayout
+            <TableRow
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginTop="5dp"
-                android:background="@drawable/round_back_grey"
-                android:orientation="vertical">
+                android:showDividers="middle"
+                android:weightSum="2">
 
                 <TextView
-                    android:id="@+id/conc"
+                    android:id="@+id/latestLine1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="8dp"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/roboto_medium"
+                    android:text="@string/district_name"
+                    android:textColor="?android:attr/textColorPrimaryInverse"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/latestLine1Info"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginEnd="10dp"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/roboto_medium"
+                    android:gravity="right"
+                    android:text="- "
+                    android:textColor="?android:attr/textColorPrimaryInverse"
+                    android:textSize="18sp" />
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:showDividers="middle"
+                android:weightSum="2">
+
+                <TextView
+                    android:id="@+id/incidcatheader"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="5dp"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginEnd="5dp"
-                    android:layout_marginBottom="5dp"
-                    android:fontFamily="@font/roboto"
-                    android:gravity="center_horizontal"
-                    android:text="@string/concelho_tip"
-                    android:textColor="?android:attr/textColorPrimary"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="8dp"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/roboto_medium"
+                    android:text="@string/incidence_cat"
+                    android:textColor="?android:attr/textColorPrimaryInverse"
                     android:textSize="18sp" />
-            </LinearLayout>
 
-        </LinearLayout>
-    </ScrollView>
+                <TextView
+                    android:id="@+id/incidcat"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginEnd="10dp"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/roboto_medium"
+                    android:gravity="right"
+                    android:text="- "
+                    android:textColor="?android:attr/textColorPrimaryInverse"
+                    android:textSize="18sp" />
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:showDividers="middle"
+                android:weightSum="2">
+
+                <TextView
+                    android:id="@+id/latestLine3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="8dp"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/roboto_medium"
+                    android:text="@string/incidence_risk"
+                    android:textColor="?android:attr/textColorPrimaryInverse"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/latestLine3Info"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginEnd="10dp"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/roboto_medium"
+                    android:gravity="right"
+                    android:text="- "
+                    android:textColor="?android:attr/textColorPrimaryInverse"
+                    android:textSize="18sp" />
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:showDividers="middle"
+                android:weightSum="2">
+
+                <TextView
+                    android:id="@+id/latestLine4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="8dp"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/roboto_medium"
+                    android:text="@string/incidence_name"
+                    android:textColor="?android:attr/textColorPrimaryInverse"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/latestLine4Info"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginEnd="10dp"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/roboto_medium"
+                    android:gravity="right"
+                    android:text="- "
+                    android:textColor="?android:attr/textColorPrimaryInverse"
+                    android:textSize="18sp" />
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:showDividers="middle"
+                android:weightSum="2">
+
+                <TextView
+                    android:id="@+id/latestLine5"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="8dp"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/roboto_medium"
+                    android:text="@string/population_name"
+                    android:textColor="?android:attr/textColorPrimaryInverse"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/latestLine5Info"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginEnd="10dp"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/roboto_medium"
+                    android:gravity="right"
+                    android:text="- "
+                    android:textColor="?android:attr/textColorPrimaryInverse"
+                    android:textSize="18sp" />
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:showDividers="middle"
+                android:weightSum="2">
+
+                <TextView
+                    android:id="@+id/latestLine6"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="8dp"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/roboto_medium"
+                    android:text="@string/population_density"
+                    android:textColor="?android:attr/textColorPrimaryInverse"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/latestLine6Info"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginEnd="10dp"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/roboto_medium"
+                    android:gravity="right"
+                    android:text="- "
+                    android:textColor="?android:attr/textColorPrimaryInverse"
+                    android:textSize="18sp" />
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="4dp"
+                android:showDividers="middle"
+                android:weightSum="2">
+
+                <TextView
+                    android:id="@+id/latestLine7"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="8dp"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/roboto_medium"
+                    android:text="@string/latest_post"
+                    android:textColor="?android:attr/textColorPrimaryInverse"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/latestLine7Info"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginEnd="10dp"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/roboto_medium"
+                    android:gravity="right"
+                    android:text="- "
+                    android:textColor="?android:attr/textColorPrimaryInverse"
+                    android:textSize="18sp" />
+
+            </TableRow>
+
+        </TableLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

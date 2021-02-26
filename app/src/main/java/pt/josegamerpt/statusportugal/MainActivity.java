@@ -10,14 +10,13 @@ import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.view.View;
 import android.view.WindowManager;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import org.json.JSONArray;
-import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Collections;
@@ -88,15 +87,22 @@ public class MainActivity extends AppCompatActivity {
                         getLatest();
                         getSecond();
                         getVacData();
+                        return true;
                     } catch (Exception e) {
-                        e.printStackTrace();
+                        MainActivity.this.runOnUiThread(() -> {
+                            Toast.makeText(getApplicationContext(), e.getMessage(),
+                                    Toast.LENGTH_LONG).show();
+                            e.printStackTrace();
+                        });
+                        return false;
+
                     }
-                    return null;
                 }
 
                 @Override
                 protected void thenDoUiRelatedWork(Object o) {
-                    go();
+                    if ((Boolean) o)
+                        go();
                 }
             });
         } else {
@@ -117,11 +123,11 @@ public class MainActivity extends AppCompatActivity {
         startActivity(i);
     }
 
-    public void getLatest() throws JSONException {
+    public void getLatest() throws Exception {
         StatusPortugal.latest = new JSONObject(AppUtils.getInfoFromAPI("https://covid19-api.vost.pt/Requests/get_last_update"));
     }
 
-    public void getSecond() throws JSONException, ParseException {
+    public void getSecond() throws Exception {
         SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy", Locale.UK);
         Date d = sdf.parse(StatusPortugal.latest.getString("data"));
         Calendar yst = Calendar.getInstance();
@@ -135,7 +141,7 @@ public class MainActivity extends AppCompatActivity {
         StatusPortugal.yesterday = new JSONObject(AppUtils.getInfoFromAPI("https://covid19-api.vost.pt/Requests/get_entry/" + stringYesterday));
     }
 
-    public void getVacData() throws JSONException {
+    public void getVacData() throws Exception {
         StatusPortugal.vacList.clear();
         JSONArray jsonArray = new JSONArray(AppUtils.getInfoFromAPI("https://vacinacaocovid19.pt/api/vaccines"));
         if (jsonArray != null) {

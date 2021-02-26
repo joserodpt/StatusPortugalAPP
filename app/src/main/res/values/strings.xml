@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">"Status Portugal"</string>
-    <string name="app_version">Version 20/2/2021 Build 1</string>
+    <string name="app_version">Version 26/2/2021 Build 1</string>
     <string name="app_header">Statistics</string>
     <string name="latest_post">Latest Update</string>
     <string name="loading_info">Loading... Please wait...</string>
@@ -184,12 +184,12 @@
     <string name="concelho_select">Select County</string>
     <string name="concelho_selected">County</string>
     <string name="district_name">District</string>
-    <string name="ars_name">Regional Health Administration</string>
-    <string name="incidence_name">"Incidence: "</string>
-    <string name="incidence_cat">"Incidence Category: "</string>
-    <string name="incidence_risk">"Incidence Risk: "</string>
-    <string name="population_name">Population:</string>
-    <string name="population_density">"Population Density: "</string>
+    <string name="ars_name">Health Region</string>
+    <string name="incidence_name">Incidence</string>
+    <string name="incidence_cat">Incidence Category</string>
+    <string name="incidence_risk">Incidence Risk</string>
+    <string name="population_name">Population</string>
+    <string name="population_density">Population Density</string>
     <string name="concelho_none">There is no Data for that County.</string>
     <string name="missing_data">\?</string>
     <string name="name_vac">Vaccination</string>
@@ -201,5 +201,6 @@
     <string name="click_2load">Long Press to load.</string>
     <string name="website2_info">Click here to access an website to view more data about this topic."</string>
     <string name="data_info">Where does this data come from?</string>
-    <string name="about_data">Data comes from communitary sources, maintained by community members. This data is extracted from OFICIAL data provided by the responsible authorities.</string>
+    <string name="about_data">Data comes from communitary sources, maintained by community members. This data is extracted from OFICIAL data provided by the responsible authorities. This data may be delayed in relation to those issued recently.</string>
+    <string name="slogan">Be Patient 😷 or be Patient ⏳?</string>
 </resources>
