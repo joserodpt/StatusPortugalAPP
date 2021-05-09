@@ -128,12 +128,28 @@ public class fragment_vac extends Fragment {
         ((TextView) v.findViewById(R.id.vac2info)).setText(checkData(stringFormater(current.getInt("Inoculacao2"), false)) + " (" + checkData(stringFormater(updVac2, true)) + ")");
         ((TextView) v.findViewById(R.id.vactotalinfo)).setText(checkData(stringFormater(current.getInt("Vacinados"), false)) + " (" + checkData(stringFormater(updVac, true)) + ")");
 
+        String s = "Total: "
+                + stringFormater(current.getInt("Vacinados_Ac"), false)
+                + "\n1º Dose: " + stringFormater(current.getInt("Inoculacao1_Ac"), false)
+                + "\n2º Dose: " + stringFormater(current.getInt("Inoculacao2_Ac"), false);
+
+        ((TextView) v.findViewById(R.id.fixeddatainfoaaa)).setText(s);
+
         current = vacList.get(1);
+
         ((TextView) v.findViewById(R.id.header1)).setText(c.getString(R.string.previous_day_name) + " | " + convertEpochDate(current.getString("Data")));
 
         ((TextView) v.findViewById(R.id.yes1info)).setText(checkData(stringFormater(current.getInt("Inoculacao1"), false)));
         ((TextView) v.findViewById(R.id.yes2info)).setText(checkData(stringFormater(current.getInt("Inoculacao2"), false)));
         ((TextView) v.findViewById(R.id.yestotalinfo)).setText(checkData(stringFormater(current.getInt("Vacinados"), false)));
+
+
+        String s2 = "Total: "
+                + stringFormater(current.getInt("Vacinados_Ac"), false)
+                + "\n1º Dose: " + stringFormater(current.getInt("Inoculacao1_Ac"), false)
+                + "\n2º Dose: " + stringFormater(current.getInt("Inoculacao2_Ac"), false);
+
+        ((TextView) v.findViewById(R.id.yesterdayfixedtotalinfo)).setText(s2);
 
     }
 

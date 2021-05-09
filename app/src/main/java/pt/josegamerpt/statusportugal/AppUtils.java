@@ -14,8 +14,8 @@ import java.net.URL;
 public class AppUtils {
 
     public static String getInfoFromAPI(String link) throws IOException {
-        HttpURLConnection connection = null;
-        BufferedReader reader = null;
+        HttpURLConnection connection;
+        BufferedReader reader;
 
         URL url = new URL(link);
         connection = (HttpURLConnection) url.openConnection();

@@ -97,6 +97,11 @@ public class fragment_statistics extends Fragment {
             int latest_total_internados_uci = checkDataInt(checkData(latest.getString("internados_uci")));
             int latest_new_cases = checkDataInt(checkData(latest.getString("confirmados_novos")));
 
+            Double latest_incid_nacional = checkDataDouble(checkData(latest.getString("incidencia_nacional")));
+            Double latest_incid_continental = checkDataDouble(checkData(latest.getString("incidencia_continente")));
+            Double latest_rt_nacional = checkDataDouble(checkData(latest.getString("rt_nacional")));
+            Double latest_rt_continental = checkDataDouble(checkData(latest.getString("rt_continente")));
+
             int yesterday_ativos = checkDataInt(checkData(yesterday.getJSONObject("ativos").getString(key)));
             int yesterday_recuperados = checkDataInt(checkData(yesterday.getJSONObject("recuperados").getString(key)));
             int yesterday_obitos = checkDataInt(checkData(yesterday.getJSONObject("obitos").getString(key)));
@@ -107,6 +112,13 @@ public class fragment_statistics extends Fragment {
             int yesterday_total_internados_uci = checkDataInt(checkData(yesterday.getJSONObject("internados_uci").getString(key)));
             int yesterday_new_cases = checkDataInt(checkData(yesterday.getJSONObject("confirmados_novos").getString(key)));
 
+
+            Double yesterday_incid_nacional = checkDataDouble(checkData(yesterday.getJSONObject("incidencia_nacional").getString(key)));
+            Double yesterday_incid_continental = checkDataDouble(checkData(yesterday.getJSONObject("incidencia_continente").getString(key)));
+            Double yesterday_rt_nacional = checkDataDouble(checkData(yesterday.getJSONObject("rt_nacional").getString(key)));
+            Double yesterday_rt_continental = checkDataDouble(checkData(yesterday.getJSONObject("rt_continente").getString(key)));
+
+
             int varAtivos = latest_ativos - yesterday_ativos;
             int varRecuperados = latest_recuperados - yesterday_recuperados;
             int varObitos = latest_obitos - yesterday_obitos;
@@ -116,6 +128,11 @@ public class fragment_statistics extends Fragment {
             int interenf = latest_total_internados_enfermaria - yesterday_total_internados_enfermaria;
             int interuci = latest_total_internados_uci - yesterday_total_internados_uci;
             int newcasesvar = latest_new_cases - yesterday_new_cases;
+
+            Double var_incid_nacional = latest_incid_nacional - yesterday_incid_nacional;
+            Double var_incid_continent = latest_incid_continental - yesterday_incid_continental;
+            Double var_rt_nacional = latest_rt_nacional - yesterday_rt_nacional;
+            Double var_rt_continent = latest_rt_continental - yesterday_rt_continental;
 
 
             //latest
@@ -144,6 +161,19 @@ public class fragment_statistics extends Fragment {
             ((TextView) v.findViewById(R.id.latestLine8Info)).setText(latest_obitos + " (" + stringFormater(varObitos) + ")");
             ((ImageView) v.findViewById(R.id.line8Ind)).setImageDrawable(getIMG(varObitos, true));
 
+            //new
+            ((TextView) v.findViewById(R.id.incidnainfo)).setText(latest_incid_nacional + " (" + stringFormater(var_incid_nacional) + ")");
+            ((ImageView) v.findViewById(R.id.incidnaind)).setImageDrawable(getIMG(var_incid_nacional.intValue(), true));
+
+            ((TextView) v.findViewById(R.id.incidcontinfo)).setText(latest_incid_continental + " (" + stringFormater(var_incid_continent) + ")");
+            ((ImageView) v.findViewById(R.id.incidcontind)).setImageDrawable(getIMG(var_incid_continent.intValue(), true));
+
+            ((TextView) v.findViewById(R.id.rtnatinfo)).setText(latest_rt_nacional + " (" + stringFormater(var_rt_nacional) + ")");
+            ((ImageView) v.findViewById(R.id.rtnatind)).setImageDrawable(getIMG(var_rt_nacional.intValue(), true));
+
+            ((TextView) v.findViewById(R.id.rtcontinfo)).setText(latest_rt_continental + " (" + stringFormater(var_rt_continent) + ")");
+            ((ImageView) v.findViewById(R.id.rtcontind)).setImageDrawable(getIMG(var_rt_continent.intValue(), true));
+
             //yesterday
             //line1
             ((TextView) v.findViewById(R.id.yesterdayLine1Info)).setText(String.valueOf(yesterday_new_cases));
@@ -162,14 +192,34 @@ public class fragment_statistics extends Fragment {
             //line8
             ((TextView) v.findViewById(R.id.yesterdayLine8Info)).setText(String.valueOf(yesterday_obitos));
 
+            //new
+            ((TextView) v.findViewById(R.id.yesterdayincidnainfo)).setText(String.valueOf(yesterday_incid_nacional));
+            ((TextView) v.findViewById(R.id.yesterdayincidcontinfo)).setText(String.valueOf(yesterday_incid_continental));
+            ((TextView) v.findViewById(R.id.yesterdayrtnatinfo)).setText(String.valueOf(yesterday_rt_nacional));
+            ((TextView) v.findViewById(R.id.yesterdayrtcontinfo)).setText(String.valueOf(yesterday_rt_continental));
+
             //more data
             ((TextView) v.findViewById(R.id.moreData)).setText(formatMore(latest));
 
         }
     }
 
-    private Drawable getIMG(int varNovosInf, boolean goodStat) {
-        return goodStat ? varNovosInf >= 0 ? c.getDrawable(R.drawable.ic_up_arrow) : c.getDrawable(R.drawable.ic_down_arrow) : varNovosInf >= 0 ? c.getDrawable(R.drawable.ic_up_arrow_inverted) : c.getDrawable(R.drawable.ic_down_arrow_inverted);
+    private Double checkDataDouble(String i) {
+        if (i.equals(c.getString(R.string.missing_data))) {
+            return 0D;
+        }
+        if (TextUtils.isEmpty(i)) {
+            return 0D;
+        }
+        return i.equals("null") ? 0D : Double.parseDouble(i);
+    }
+
+    private Drawable getIMG(int numero, boolean goodStat) {
+        if (numero == 0) {
+            return c.getDrawable(R.drawable.ic_arrow_0);
+        }
+
+        return goodStat ? numero > 0 ? c.getDrawable(R.drawable.ic_up_arrow) : c.getDrawable(R.drawable.ic_down_arrow) : numero >= 0 ? c.getDrawable(R.drawable.ic_up_arrow_inverted) : c.getDrawable(R.drawable.ic_down_arrow_inverted);
     }
 
     private String formatMore(JSONObject latest) throws JSONException {
@@ -299,6 +349,13 @@ public class fragment_statistics extends Fragment {
 
     public String stringFormater(int i) {
         if (i >= 0) {
+            return "+" + i;
+        }
+        return String.valueOf(i);
+    }
+
+    public String stringFormater(Double i) {
+        if (i >= 0D) {
             return "+" + i;
         }
         return String.valueOf(i);

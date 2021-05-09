@@ -1,9 +1,11 @@
 package pt.josegamerpt.statusportugal.fragments;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
@@ -91,6 +93,11 @@ public class fragment_counties extends Fragment {
         SearchableSpinner sp = v.findViewById(R.id.spinnerConcelhos);
         sp.setDialogTitle(c.getString(R.string.concelho_select) + " (308)");
         sp.setDismissText(getString(android.R.string.ok));
+
+        v.findViewById(R.id.webAcess).setOnClickListener(v1 -> {
+            Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://quadradinhodocosta.pt/"));
+            startActivity(browserIntent);
+        });
 
         sp.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override

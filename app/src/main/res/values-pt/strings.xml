@@ -128,7 +128,7 @@
     <string name="internados_new_name">"Internados: "</string>
     <string name="variation_new_cases">variação)</string>
     <string name="open_github">Clica para abrir a página do GitHub 🌐</string>
-    <string name="app_version">Versão 26/2/2021 Compilação 1</string>
+    <string name="app_version">Versão 9/5/2021 Compilação 1</string>
     <string name="concelho_name">Concelhos</string>
     <string name="concelho_tip">Seleciona um Concelho da lista para obter mais informação.</string>
     <string name="concelho_select">Selecionar Concelho</string>
@@ -189,11 +189,17 @@
     <string name="vac_admin">Vacinas Administradas</string>
     <string name="vac_first">1ª Dose</string>
     <string name="vac_secnd">2ª Dose</string>
-    <string name="vac_total">Total De Vacinas Administradas</string>
+    <string name="vac_total">Balanço De Vacinas Administradas</string>
     <string name="moredata_name">Dados Adicionais</string>
     <string name="click_2load">Pressiona para Carregar.</string>
     <string name="website2_info">Clica aqui para aceder a um site para obter mais informações sobre este tópico.</string>
     <string name="data_info">De onde provêm estes Dados?</string>
     <string name="about_data">Os dados vêm de fontes comunitárias, mantidas por grupos comunitários. São extraidos de dados OFICIAIS das entidades responsáveis. Estes dados podem estar atrasados em relação aos dados mais recentes.</string>
     <string name="slogan">Ser Paciente 😷 ou ser Paciente ⏳?</string>
+    <string name="incidencia_nacional">Incidência Nacional</string>
+    <string name="incidencia_continental">Incidência Continental</string>
+    <string name="rt_nacional">RT Nacional</string>
+    <string name="rt_continente">RT Continental</string>
+    <string name="vac_fixed_title">Total de Vacinas Administradas</string>
+    <string name="costa_quadrado">Clica aqui para saberes mais sobre a matriz de risco atual.\nhttps://quadradinhodocosta.pt/ © quadradinhodocosta@gmail.com</string>
 </resources>

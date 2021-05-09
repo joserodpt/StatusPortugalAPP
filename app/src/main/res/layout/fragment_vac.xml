@@ -237,6 +237,39 @@
                             android:textColor="?android:attr/textColorPrimary"
                             android:textSize="18sp" />
                     </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/fixeddata"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="5dp"
+                        android:background="@drawable/background_darkmode_inverse"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/fixeddatatitle"
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_marginTop="5dp"
+                            android:layout_weight="1"
+                            android:gravity="center_horizontal"
+                            android:text="@string/vac_fixed_title"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                            android:textColor="?android:attr/textColorPrimary"
+                            android:textSize="18sp" />
+
+                        <TextView
+                            android:id="@+id/fixeddatainfoaaa"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginTop="5dp"
+                            android:background="@drawable/round_back_grey"
+                            android:gravity="center"
+                            android:text="@string/loading_info"
+                            android:textColor="?android:attr/textColorPrimary"
+                            android:textSize="18sp" />
+                    </LinearLayout>
+
                 </LinearLayout>
 
             </LinearLayout>
@@ -367,6 +400,38 @@
 
                         <TextView
                             android:id="@+id/yestotalinfo"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginTop="5dp"
+                            android:background="@drawable/round_back_grey"
+                            android:gravity="center"
+                            android:text="@string/loading_info"
+                            android:textColor="?android:attr/textColorPrimary"
+                            android:textSize="18sp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/yesterdayfixedtotal"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="5dp"
+                        android:background="@drawable/background_darkmode_inverse"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/yesterdayfixedtotaltitle"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:layout_weight="1"
+                            android:gravity="center_horizontal"
+                            android:text="@string/vac_fixed_title"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                            android:textColor="?android:attr/textColorPrimary"
+                            android:textSize="18sp" />
+
+                        <TextView
+                            android:id="@+id/yesterdayfixedtotalinfo"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:layout_marginTop="5dp"

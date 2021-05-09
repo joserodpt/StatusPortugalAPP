@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">"Status Portugal"</string>
-    <string name="app_version">Version 26/2/2021 Build 1</string>
+    <string name="app_version">Version 9/5/2021 Build 1</string>
     <string name="app_header">Statistics</string>
     <string name="latest_post">Latest Update</string>
     <string name="loading_info">Loading... Please wait...</string>
@@ -196,11 +196,17 @@
     <string name="vac_admin">Vaccines Administered</string>
     <string name="vac_first">1st Dose</string>
     <string name="vac_secnd">2nd Dose</string>
-    <string name="vac_total">Total Vaccines Administered</string>
+    <string name="vac_total">Vaccines Administered Balance</string>
     <string name="moredata_name">More Data</string>
     <string name="click_2load">Long Press to load.</string>
     <string name="website2_info">Click here to access an website to view more data about this topic."</string>
     <string name="data_info">Where does this data come from?</string>
     <string name="about_data">Data comes from communitary sources, maintained by community members. This data is extracted from OFICIAL data provided by the responsible authorities. This data may be delayed in relation to those issued recently.</string>
     <string name="slogan">Be Patient 😷 or be Patient ⏳?</string>
+    <string name="incidencia_nacional">National Incidence</string>
+    <string name="incidencia_continental">Continental Incidence</string>
+    <string name="rt_nacional">National R</string>
+    <string name="rt_continente">Continental R</string>
+    <string name="vac_fixed_title">Total Administered Vaccines</string>
+    <string name="costa_quadrado">Click here to access an interactive website to know more about the current risk matrix.\nhttps://quadradinhodocosta.pt/ © quadradinhodocosta@gmail.com</string>
 </resources>
