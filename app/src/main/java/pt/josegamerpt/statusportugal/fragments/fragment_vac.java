@@ -83,8 +83,18 @@ public class fragment_vac extends Fragment {
                     String vac = stringFormater(checkDataInt(checkData(jsonObject.getString("Vacinados"))), false);
                     String in1 = stringFormater(checkDataInt(checkData(jsonObject.getString("Inoculacao1"))), false);
                     String in2 = stringFormater(checkDataInt(checkData(jsonObject.getString("Inoculacao2"))), false);
+                    String tot = stringFormater(checkDataInt(checkData(jsonObject.getString("Vacinados_Ac"))), false);
+                    String tot1 = stringFormater(checkDataInt(checkData(jsonObject.getString("Inoculacao1_Ac"))), false);
+                    String tot2 = stringFormater(checkDataInt(checkData(jsonObject.getString("Inoculacao2_Ac"))), false);
 
-                    f.append(title).append("\n\n").append(c.getString(R.string.vac_total)).append(": ").append(vac).append("\n").append(c.getString(R.string.vac_first)).append(": ").append(in1).append("\n").append(c.getString(R.string.vac_secnd)).append(": ").append(in2).append("\n\n");
+                    f.append(title).append("\n\n")
+                            .append(c.getString(R.string.vac_total)).
+                            append(": ").append(vac).append("\n> ").
+                            append(c.getString(R.string.vac_first)).append(": ").append(in1).append("\n> ").
+                            append(c.getString(R.string.vac_secnd)).append(": ").append(in2).append("\n\n").
+                            append(c.getString(R.string.vac_fixed_title)).append(": ").append(tot).append("\n> ").
+                            append(c.getString(R.string.vac_first)).append(": ").append(tot1).append("\n> ").
+                            append(c.getString(R.string.vac_secnd)).append(": ").append(tot2).append("\n\n");
                 }
                 ((TextView) v.findViewById(R.id.mordat1info)).setText(f.toString());
             } catch (Exception e) {

@@ -162,16 +162,16 @@ public class fragment_statistics extends Fragment {
             ((ImageView) v.findViewById(R.id.line8Ind)).setImageDrawable(getIMG(varObitos, true));
 
             //new
-            ((TextView) v.findViewById(R.id.incidnainfo)).setText(latest_incid_nacional + " (" + stringFormater(var_incid_nacional) + ")");
+            ((TextView) v.findViewById(R.id.incidnainfo)).setText(latest_incid_nacional + " (" + stringFormater((double) Math.round(var_incid_nacional)) + ")");
             ((ImageView) v.findViewById(R.id.incidnaind)).setImageDrawable(getIMG(var_incid_nacional.intValue(), true));
 
-            ((TextView) v.findViewById(R.id.incidcontinfo)).setText(latest_incid_continental + " (" + stringFormater(var_incid_continent) + ")");
+            ((TextView) v.findViewById(R.id.incidcontinfo)).setText(latest_incid_continental + " (" + stringFormater((double) Math.round(var_incid_continent)) + ")");
             ((ImageView) v.findViewById(R.id.incidcontind)).setImageDrawable(getIMG(var_incid_continent.intValue(), true));
 
-            ((TextView) v.findViewById(R.id.rtnatinfo)).setText(latest_rt_nacional + " (" + stringFormater(var_rt_nacional) + ")");
+            ((TextView) v.findViewById(R.id.rtnatinfo)).setText(latest_rt_nacional + " (" + stringFormater((double) Math.round(var_rt_nacional)) + ")");
             ((ImageView) v.findViewById(R.id.rtnatind)).setImageDrawable(getIMG(var_rt_nacional.intValue(), true));
 
-            ((TextView) v.findViewById(R.id.rtcontinfo)).setText(latest_rt_continental + " (" + stringFormater(var_rt_continent) + ")");
+            ((TextView) v.findViewById(R.id.rtcontinfo)).setText(latest_rt_continental + " (" + stringFormater((double) Math.round(var_rt_continent)) + ")");
             ((ImageView) v.findViewById(R.id.rtcontind)).setImageDrawable(getIMG(var_rt_continent.intValue(), true));
 
             //yesterday

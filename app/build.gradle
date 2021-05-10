@@ -11,8 +11,8 @@ android {
         applicationId "pt.josegamerpt.statusportugal"
         minSdkVersion 23
         targetSdkVersion 30
-        versionCode 6
-        versionName "2.6"
+        versionCode 7
+        versionName "3.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -33,7 +33,7 @@ allprojects {
 
 dependencies {
     implementation fileTree(dir: "libs", include: ["*.jar"])
-    implementation 'androidx.appcompat:appcompat:1.3.0-beta01'
+    implementation 'androidx.appcompat:appcompat:1.3.0-rc01'
     implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     testImplementation 'junit:junit:4.12'
