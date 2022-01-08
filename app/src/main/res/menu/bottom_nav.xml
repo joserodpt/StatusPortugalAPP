@@ -2,19 +2,14 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
+        android:id="@+id/stats"
+        android:icon="@drawable/ic_stats"
+        android:title="@string/stats_name" />
+    <item
         android:id="@+id/concelhos"
         android:icon="@drawable/ic_concelho"
         android:title="@string/concelho_name" />
 
-    <item
-        android:id="@+id/vac"
-        android:icon="@drawable/ic_vac"
-        android:title="@string/name_vac" />
-
-    <item
-        android:id="@+id/stats"
-        android:title="@string/stats_name"
-        android:icon="@drawable/ic_stats" />
 
     <item
         android:id="@+id/recomendations"
@@ -22,7 +17,7 @@
         android:icon="@drawable/ic_recomedations" />
 
     <item
-        android:id="@+id/settings"
+        android:id="@+id/info"
         android:title="@string/settings_name"
         android:icon="@drawable/ic_information" />
 

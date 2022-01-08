@@ -15,7 +15,6 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import org.json.JSONArray;
-import org.json.JSONObject;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -90,7 +89,8 @@ public class MainActivity extends AppCompatActivity {
                         return true;
                     } catch (Exception e) {
                         MainActivity.this.runOnUiThread(() -> {
-                            Toast.makeText(getApplicationContext(), e.getMessage(),
+                            Toast.makeText(getApplicationContext(), "E" +
+                                            e.getMessage(),
                                     Toast.LENGTH_LONG).show();
                             e.printStackTrace();
                         });
@@ -124,7 +124,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void getLatest() throws Exception {
-        StatusPortugal.latest = new JSONObject(AppUtils.getInfoFromAPI("https://covid19-api.vost.pt/Requests/get_last_update"));
+        StatusPortugal.latest = AppUtils.getInfoFromAPI("https://covid19-api.vost.pt/Requests/get_last_update");
     }
 
     public void getSecond() throws Exception {
@@ -138,12 +138,13 @@ public class MainActivity extends AppCompatActivity {
         SimpleDateFormat format1 = new SimpleDateFormat("dd-MM-yyyy", Locale.UK);
         String stringYesterday = format1.format(date);
 
-        StatusPortugal.yesterday = new JSONObject(AppUtils.getInfoFromAPI("https://covid19-api.vost.pt/Requests/get_entry/" + stringYesterday));
+        StatusPortugal.yesterday = AppUtils.getInfoFromAPI("https://covid19-api.vost.pt/Requests/get_entry/" + stringYesterday);
     }
 
     public void getVacData() throws Exception {
         StatusPortugal.vacList.clear();
-        JSONArray jsonArray = new JSONArray(AppUtils.getInfoFromAPI("https://vacinacaocovid19.pt/api/vaccines"));
+        //doesn't work anymore AppUtils.getInfoFromAPI("https://vacinacaocovid19.pt/api/vaccines")
+        JSONArray jsonArray = new JSONArray();
         if (jsonArray != null) {
             for (int i = 0; i < jsonArray.length(); i++) {
                 StatusPortugal.vacList.add(jsonArray.getJSONObject(i));

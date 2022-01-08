@@ -18,19 +18,21 @@ import pt.josegamerpt.statusportugal.fragments.fragment_counties;
 import pt.josegamerpt.statusportugal.fragments.fragment_info;
 import pt.josegamerpt.statusportugal.fragments.fragment_recomendations;
 import pt.josegamerpt.statusportugal.fragments.fragment_statistics;
-import pt.josegamerpt.statusportugal.fragments.fragment_vac;
 
 public class HomeScreen extends AppCompatActivity {
 
-    public static void setWhite(Activity a) {
+    private AnimatedBottomBar abb;
+
+    public void setWhite(Activity a) {
         a.findViewById(R.id.main).setBackgroundColor(Color.WHITE);
         AppUtils.setWindowFlag(a, WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS, false);
         a.getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
-        a.getWindow().setStatusBarColor(Color.WHITE);
+        a.getWindow().setStatusBarColor(Color.parseColor("#79FFFFFF"));
         a.getWindow().setNavigationBarColor(Color.WHITE);
+
     }
 
-    public static void setDark(Activity a) {
+    public void setDark(Activity a) {
         a.findViewById(R.id.main).setBackgroundColor(Color.BLACK);
         AppUtils.setWindowFlag(a, WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS, false);
         a.getWindow().setStatusBarColor(Color.BLACK);
@@ -67,14 +69,15 @@ public class HomeScreen extends AppCompatActivity {
         }
     }
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_screen);
+        abb = findViewById(R.id.bottom_bar);
 
         checkDark(getResources().getConfiguration());
 
-        final AnimatedBottomBar abb = findViewById(R.id.bottom_bar);
         abb.clearAnimation();
         abb.setOnTabSelectListener(new AnimatedBottomBar.OnTabSelectListener() {
             @Override
@@ -88,7 +91,7 @@ public class HomeScreen extends AppCompatActivity {
             }
         });
 
-        switchTab(2);
+        switchTab(0);
 
     }
 
@@ -96,19 +99,16 @@ public class HomeScreen extends AppCompatActivity {
         Fragment f = null;
         final AnimatedBottomBar abb = findViewById(R.id.bottom_bar);
         switch (i1) {
-            case 2:
+            case 0:
                 f = new fragment_statistics();
                 break;
             case 1:
-                f = new fragment_vac();
-                break;
-            case 0:
                 f = new fragment_counties();
                 break;
-            case 3:
+            case 2:
                 f = new fragment_recomendations();
                 break;
-            case 4:
+            case 3:
                 f = new fragment_info();
                 break;
         }

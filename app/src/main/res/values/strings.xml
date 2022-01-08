@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">"Status Portugal"</string>
-    <string name="app_version">Version 9/5/2021 Build 1</string>
+    <string name="app_version">Version 9/1/2022 Build 1</string>
     <string name="app_header">Statistics</string>
     <string name="latest_post">Latest Update</string>
     <string name="loading_info">Loading... Please wait...</string>
@@ -170,7 +170,7 @@
 </html>
 ]]></string>
     <string name="about_app">About this App</string>
-    <string name="app_credit">App Development by José Rodrigues © 2021\nEnglish translations by Guilherme Soeiro\n\nThis App uses the following libraries:\ncom.github.f0ris.sweetalert:library:1.6.2\ncom.zsoltsafrany:needle:1.0.0\nnl.joery.animatedbottombar:library:1.0.9\ncom.github.DonMat:searchablespinner:v1.0.1\ncom.daimajia.androidanimations\n\nSource-code available on GitHub\nhttps://github.com/JoseGamerPT/StatusPortugalAPP\n\nData Source, JSON API by VOST PORTUGAL / DSSG PORTUGAL | COMMUNITY INFORMATION SOURCES</string>
+    <string name="app_credit">App Development by José Rodrigues © 2021,22\nEnglish translations by Guilherme Soeiro\n\nThis App uses the following libraries:\ncom.github.f0ris.sweetalert:library:1.6.2\ncom.zsoltsafrany:needle:1.0.0\nnl.joery.animatedbottombar:library:1.0.9\ncom.github.DonMat:searchablespinner:v1.0.1\ncom.daimajia.androidanimations\n\nSource-code available on GitHub\nhttps://github.com/JoseGamerPT/StatusPortugalAPP\n\nData Source, JSON API by VOST PORTUGAL / DSSG PORTUGAL | COMMUNITY INFORMATION SOURCES</string>
     <string name="save">Save</string>
     <string name="no_internet">Can\'t connect to the server. Please check your internet connection.</string>
     <string name="refresh_name">Retry</string>

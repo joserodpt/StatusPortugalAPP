@@ -17,6 +17,7 @@ import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.IOException;
@@ -139,8 +140,8 @@ public class fragment_counties extends Fragment {
                 @Override
                 protected Object doWork() {
                     try {
-                        return AppUtils.getInfoFromAPI("https://covid19-api.vost.pt/Requests/get_last_update_specific_county/" + con);
-                    } catch (IOException e) {
+                        return AppUtils.getRawInfoFromAPI("https://covid19-api.vost.pt/Requests/get_last_update_specific_county/" + con);
+                    } catch (IOException | JSONException e) {
                         getActivity().runOnUiThread(() -> {
                             Toast.makeText(c, e.getMessage(),
                                     Toast.LENGTH_LONG).show();

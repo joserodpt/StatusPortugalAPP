@@ -43,5 +43,6 @@ dependencies {
     implementation 'com.zsoltsafrany:needle:1.0.0'
     implementation 'nl.joery.animatedbottombar:library:1.0.9'
     implementation 'com.github.DonMat:searchablespinner:v1.0.1'
+    implementation 'io.alterac.blurkit:blurkit:1.1.1'
 
 }
